@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/change2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="修改教师信息" />
+
+    <Button
+        android:id="@+id/change1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="修改系负责人信息" />
+
+    <Button
+        android:id="@+id/addteacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="添加教师帐号" />
+
+    <Button
+        android:id="@+id/addX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="添加系负责人帐号" />
+
+</LinearLayout>
