@@ -1,4 +1,6 @@
-package com.control;
+package com.DomainLayer;
+
+import com.control.R;
 
 import android.app.Activity;
 import android.content.Intent;
