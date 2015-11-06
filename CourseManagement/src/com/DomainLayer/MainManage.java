@@ -17,19 +17,26 @@ public class MainManage extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mainmanage);
 		
-		userID ID=(userID)getApplication();
-		String test=ID.getID();
-		Toast.makeText(MainManage.this, test,
-				Toast.LENGTH_LONG).show();
-		
 		Button manage;
+		Button permsg;
 		manage=(Button)findViewById(R.id.account);
+		permsg=(Button)findViewById(R.id.pmsg);
 		manage.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
 	            //TODO jump
 	        	Intent intent = new Intent();
 	        	intent.setClass(MainManage.this, AccountInformation.class);
+	        	startActivity(intent);
+	        	
+	        }
+	    });
+		permsg.setOnClickListener(new OnClickListener() {
+	        @Override
+	        public void onClick(View v) {
+	            //TODO jump
+	        	Intent intent = new Intent();
+	        	intent.setClass(MainManage.this, PersonMsg.class);
 	        	startActivity(intent);
 	        	
 	        }

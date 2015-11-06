@@ -49,35 +49,35 @@ public class MainActivity extends Activity {
 							.show();
 
 				} else {
-					CheckNet checkNet = new CheckNet(
-							getApplicationContext(),
-							(ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE));
-					if (checkNet.checknet()) {
-						String reString = "";
-						loginClass login = new loginClass();
-						login.setUsername(username);
-						login.setPswd(pswd);
-						login.doComfirm();
-						reString = login.getResult();
+//					CheckNet checkNet = new CheckNet(
+//							getApplicationContext(),
+//							(ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE));
+//					if (checkNet.checknet()) {
+//						String reString = "";
+//						loginClass login = new loginClass();
+//						login.setUsername(username);
+//						login.setPswd(pswd);
+//						login.doComfirm();
+//						reString = login.getResult();
 						userID ID=(userID)getApplication();
-						ID.setID(reString);
-						if (reString.equals("y1")) {
+						ID.setID("hello");
+//						if (reString.equals("y1")) {
 							Intent intent = new Intent();
 							intent.setClass(MainActivity.this, MainManage.class);
 							startActivity(intent);
-						}
-						if (reString.equals("y2")) {
-
-						} else if (reString.equals("y3")) {
-
-						} else if (reString.equals("n2")) {
-							Toast.makeText(MainActivity.this, "数据库连接错误！",
-									Toast.LENGTH_LONG).show();
-						} else if (reString.equals("n4")) {
-							Toast.makeText(MainActivity.this, "用户不存在！",
-									Toast.LENGTH_LONG).show();
-						}
-					}
+//						}
+//						if (reString.equals("y2")) {
+//
+//						} else if (reString.equals("y3")) {
+//
+//						} else if (reString.equals("n2")) {
+//							Toast.makeText(MainActivity.this, "数据库连接错误！",
+//									Toast.LENGTH_LONG).show();
+//						} else if (reString.equals("n4")) {
+//							Toast.makeText(MainActivity.this, "用户不存在！",
+//									Toast.LENGTH_LONG).show();
+//						}
+//					}
 				}
 			}
 		});

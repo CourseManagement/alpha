@@ -41,6 +41,7 @@
         <activity android:name="com.DomainLayer.MainManage"></activity>
         <activity android:name="com.DomainLayer.Teacher"></activity>
         <activity android:name="com.DomainLayer.Xmanage"></activity>
+        <activity android:name="com.DomainLayer.PersonMsg"></activity>
     </application>
 
 </manifest>

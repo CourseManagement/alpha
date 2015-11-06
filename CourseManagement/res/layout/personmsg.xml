@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/showuser"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="14dp"
+        android:text="用户名："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/showpsd"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@+id/showuser"
+        android:layout_below="@+id/showuser"
+        android:layout_marginTop="40dp"
+        android:text="密码："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/showname"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@+id/showpsd"
+        android:layout_below="@+id/showpsd"
+        android:layout_marginTop="40dp"
+        android:text="姓名："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/showph"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_alignLeft="@+id/showname"
+        android:layout_below="@+id/showname"
+        android:layout_marginTop="40dp"
+        android:text="手机："
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textusername"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_alignBaseline="@+id/showuser"
+        android:layout_alignBottom="@+id/showuser"
+        android:layout_toRightOf="@+id/showuser"
+        android:text=" "
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edtpsd"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_alignBaseline="@+id/showpsd"
+        android:layout_alignBottom="@+id/showpsd"
+        android:layout_alignLeft="@+id/textusername"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/edtname"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_alignBaseline="@+id/showname"
+        android:layout_alignBottom="@+id/showname"
+        android:layout_alignLeft="@+id/edtpsd"
+        android:ems="10" />
+
+    <EditText
+        android:id="@+id/edtph"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_alignBaseline="@+id/showph"
+        android:layout_alignBottom="@+id/showph"
+        android:layout_alignLeft="@+id/edtname"
+        android:ems="10" />
+
+    <Button
+        android:id="@+id/btchange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/showph"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        android:text="确认修改" />
+
+</RelativeLayout>
