@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 
 		final EditText acct = (EditText) findViewById(R.id.userNameText);
 		final EditText passwd = (EditText) findViewById(R.id.passwdText);
-
+		//响应按钮
 		Button Login;
 		Login = (Button) findViewById(R.id.bnLogin);
 		Login.setOnClickListener(new OnClickListener() {
@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
 
 				} else if (username.contains("\"") || pswd.contains("\"")) {
 
-					Toast.makeText(MainActivity.this, "请检查输入信息是否正确！", 200)
+					Toast.makeText(MainActivity.this, "请检查输入信息是否正确！123", 200)
 							.show();
 
 				} else {
@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
 //							Toast.makeText(MainActivity.this, "数据库连接错误！",
 //									Toast.LENGTH_LONG).show();
 //						} else if (reString.equals("n4")) {
-//							Toast.makeText(MainActivity.this, "用户不存在！",
+//							Toast.makeText(MainActivity.this, "用户不存在！1234",
 //									Toast.LENGTH_LONG).show();
 //						}
 //					}
