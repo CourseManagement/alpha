@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
 
 				} else if (username.contains("\"") || pswd.contains("\"")) {
 
-					Toast.makeText(MainActivity.this, "请检查输入信息是否正确！", 200)
+					Toast.makeText(MainActivity.this, "请检查输入信息是否正确！456", 200)
 							.show();
 
 				} else {
