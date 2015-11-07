@@ -27,6 +27,7 @@ public class PersonMsg extends Activity {
 		edtPsd = (EditText) findViewById(R.id.edtpsd);
 		edtName = (EditText) findViewById(R.id.edtname);
 		edtPh = (EditText) findViewById(R.id.edtph);
+		
 		//返回服务端信息并显示
 		queryClass query = new queryClass();
 		query.setFlag("1");
@@ -34,7 +35,7 @@ public class PersonMsg extends Activity {
 		query.doComfirm();
 		String jsonstr = query.getReturn_arr().toString();
 		JSONObject json = JSONObject.fromObject(jsonstr);
-		username.setText(json.getString("user_name"));
+		username.setText("  "+json.getString("user_name"));
 		edtPsd.setText(json.getString("password"));
 		edtName.setText(json.getString("name"));
 		edtPh.setText(json.getString("telephone"));

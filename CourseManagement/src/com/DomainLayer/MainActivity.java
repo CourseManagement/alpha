@@ -36,7 +36,7 @@ public class MainActivity extends Activity {
 
 				final String username = acct.getText().toString();
 				final String pswd = passwd.getText().toString();
-
+				//判断输入框是否为空或者含有非法符号
 				if (TextUtils.isEmpty(acct.getText())
 						|| TextUtils.isEmpty(passwd.getText())) {
 
@@ -45,10 +45,11 @@ public class MainActivity extends Activity {
 
 				} else if (username.contains("\"") || pswd.contains("\"")) {
 
-					Toast.makeText(MainActivity.this, "请检查输入信息是否正确！123", 200)
+					Toast.makeText(MainActivity.this, "请检查输入信息是否正确！", 200)
 							.show();
 
 				} else {
+					//检查是否联网
 //					CheckNet checkNet = new CheckNet(
 //							getApplicationContext(),
 //							(ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE));
@@ -61,10 +62,12 @@ public class MainActivity extends Activity {
 //						reString = login.getResult();
 						userID ID=(userID)getApplication();
 						ID.setID("hello");
+						//根据返回值跳转对应界面
 //						if (reString.equals("y1")) {
 							Intent intent = new Intent();
 							intent.setClass(MainActivity.this, MainManage.class);
 							startActivity(intent);
+							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
 //						}
 //						if (reString.equals("y2")) {
 //
@@ -74,7 +77,7 @@ public class MainActivity extends Activity {
 //							Toast.makeText(MainActivity.this, "数据库连接错误！",
 //									Toast.LENGTH_LONG).show();
 //						} else if (reString.equals("n4")) {
-//							Toast.makeText(MainActivity.this, "用户不存在！1234",
+//							Toast.makeText(MainActivity.this, "用户不存在！",
 //									Toast.LENGTH_LONG).show();
 //						}
 //					}

@@ -12,6 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="31dp"
         android:layout_marginTop="14dp"
+        android:gravity="right"
         android:text="用户名："
         android:textSize="20sp" />
 
@@ -22,6 +23,7 @@
         android:layout_alignLeft="@+id/showuser"
         android:layout_below="@+id/showuser"
         android:layout_marginTop="40dp"
+        android:gravity="right"
         android:text="密码："
         android:textSize="20sp" />
 
@@ -32,6 +34,7 @@
         android:layout_alignLeft="@+id/showpsd"
         android:layout_below="@+id/showpsd"
         android:layout_marginTop="40dp"
+        android:gravity="right"
         android:text="姓名："
         android:textSize="20sp" />
 
@@ -42,6 +45,7 @@
         android:layout_alignLeft="@+id/showname"
         android:layout_below="@+id/showname"
         android:layout_marginTop="40dp"
+        android:gravity="right"
         android:text="手机："
         android:textSize="20sp" />
 

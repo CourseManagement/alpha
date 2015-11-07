@@ -21,6 +21,7 @@ public class MainManage extends Activity {
 		Button permsg;
 		manage=(Button)findViewById(R.id.account);
 		permsg=(Button)findViewById(R.id.pmsg);
+		//跳转账号管理界面
 		manage.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
@@ -28,9 +29,11 @@ public class MainManage extends Activity {
 	        	Intent intent = new Intent();
 	        	intent.setClass(MainManage.this, AccountInformation.class);
 	        	startActivity(intent);
+	        	overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
 	        	
 	        }
 	    });
+		//跳转个人信息界面
 		permsg.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
@@ -38,6 +41,7 @@ public class MainManage extends Activity {
 	        	Intent intent = new Intent();
 	        	intent.setClass(MainManage.this, PersonMsg.class);
 	        	startActivity(intent);
+	        	overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
 	        	
 	        }
 	    });
