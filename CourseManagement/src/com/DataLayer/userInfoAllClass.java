@@ -13,8 +13,8 @@ public class userInfoAllClass {
 	private String flag;
 	private String return_flag;
 	private JSONArray return_arr;
-	private List<teacher> tlist;//系负责人
-    private List<departmentmanager> dlist;//教师
+	private List<teacher> tlist;//教师
+    private List<departmentmanager> dlist;//系负责人
 	
 
 

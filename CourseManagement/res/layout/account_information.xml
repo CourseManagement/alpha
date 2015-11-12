@@ -1,31 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" 
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <Button
-        android:id="@+id/change2"
+    <com.UIxml.ListViewCompat
+        android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="修改教师信息" />
+        android:layout_height="368dp"
+        android:layout_above="@+id/add"
+        android:layout_alignParentTop="true"
+        android:background="#fff4f7f9"
+        android:cacheColorHint="#00000000"
+        android:divider="#dddbdb"
+        android:dividerHeight="1.0px"
+        android:drawSelectorOnTop="false"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none" />
 
     <Button
-        android:id="@+id/change1"
+        android:id="@+id/add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="修改系负责人信息" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="添加帐号" />
 
-    <Button
-        android:id="@+id/addteacher"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="添加教师帐号" />
-
-    <Button
-        android:id="@+id/addX"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="添加系负责人帐号" />
-
-</LinearLayout>
+</RelativeLayout>

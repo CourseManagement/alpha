@@ -42,6 +42,7 @@
         <activity android:name="com.DomainLayer.Teacher"></activity>
         <activity android:name="com.DomainLayer.Xmanage"></activity>
         <activity android:name="com.DomainLayer.PersonMsg"></activity>
+        <activity android:name="com.DomainLayer.Addaccount"></activity>
     </application>
 
 </manifest>
