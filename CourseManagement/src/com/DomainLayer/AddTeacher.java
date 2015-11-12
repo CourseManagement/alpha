@@ -2,10 +2,13 @@ package com.DomainLayer;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.DUtils.FileUtils;
 import com.DataLayer.addCounts;
 import com.DataLayer.Model.teacher;
+import com.DataLayer.Runnable.getInfoFromExcel;
 import com.control.R;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -34,7 +37,7 @@ public class AddTeacher extends Activity {
 		final TextView ps = (TextView) findViewById(R.id.init_password_edit);
 		final TextView na = (TextView) findViewById(R.id.name_edit);
 		Button add = (Button) findViewById(R.id.make_sure);
-		
+
 		add.setOnClickListener(new OnClickListener() {
 
 			@SuppressLint("ShowToast")
@@ -52,13 +55,15 @@ public class AddTeacher extends Activity {
 				addc.setFlag("2");
 				String flag = addc.doComfirm();
 				if (flag.equals("y1")) {
-					Toast.makeText(getApplicationContext(), "添加成功！", 200).show();
+					Toast.makeText(getApplicationContext(), "添加成功！", 200)
+							.show();
 
 				} else if (flag.equals("n1")) {
-					Toast.makeText(getApplicationContext(), "添加失败！", 200).show();
+					Toast.makeText(getApplicationContext(), "添加失败！", 200)
+							.show();
 
-				} 
-				//TODO “n2”未知错误；“n3”json格式错误
+				}
+				// TODO “n2”未知错误；“n3”json格式错误
 			}
 		});
 
@@ -94,15 +99,20 @@ public class AddTeacher extends Activity {
 				Uri uri = data.getData();
 				String path = FileUtils.getPath(this, uri);
 				Log.i("filepath", path);
-				readExcelAndInsert(path);// //读取信息，并插入
+				getInfoFromExcel getInfoFromExcel = new getInfoFromExcel();
+				getInfoFromExcel.setPath(path);
+				getInfoFromExcel.run();
+				try {
+					getInfoFromExcel.join();
+					System.out.println(getInfoFromExcel.getResult());//返回状态标识
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			break;
 		}
 		super.onActivityResult(requestCode, resultCode, data);
-	}
-
-	public void readExcelAndInsert(String path) {// 读取信息，并插入
-
 	}
 
 }
