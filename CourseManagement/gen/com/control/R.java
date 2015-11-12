@@ -482,7 +482,7 @@ public final class R {
         public static final int action_settings=0x7f0a0032;
         public static final int add=0x7f0a0001;
         public static final int add_T=0x7f0a0005;
-        public static final int add_X=0x7f0a000f;
+        public static final int add_X=0x7f0a000e;
         public static final int bnLogin=0x7f0a0004;
         public static final int btchange=0x7f0a0027;
         public static final int course=0x7f0a001c;
@@ -499,16 +499,16 @@ public final class R {
         public static final int init_password_text=0x7f0a0008;
         public static final int left_holder=0x7f0a0028;
         public static final int list=0x7f0a0000;
-        public static final int major_spinner=0x7f0a0015;
-        public static final int major_text=0x7f0a0014;
+        public static final int major_spinner=0x7f0a0014;
+        public static final int major_text=0x7f0a0013;
         public static final int make_sure=0x7f0a000c;
-        public static final int makesure=0x7f0a000e;
+        public static final int makesure=0x7f0a0015;
         public static final int msg=0x7f0a001a;
         public static final int name_edit=0x7f0a000b;
         public static final int name_text=0x7f0a000a;
         public static final int passwdText=0x7f0a0003;
-        public static final int password_edit=0x7f0a0013;
-        public static final int password_text=0x7f0a0012;
+        public static final int password_edit=0x7f0a0012;
+        public static final int password_text=0x7f0a0011;
         public static final int pmsg=0x7f0a001e;
         public static final int reset=0x7f0a0016;
         public static final int right_holder=0x7f0a002b;
@@ -525,8 +525,8 @@ public final class R {
         public static final int title_acomplish=0x7f0a0030;
         public static final int title_cancel=0x7f0a002e;
         public static final int title_text=0x7f0a002f;
-        public static final int userID_edit=0x7f0a0011;
-        public static final int userID_text=0x7f0a0010;
+        public static final int userID_edit=0x7f0a0010;
+        public static final int userID_text=0x7f0a000f;
         public static final int userNameText=0x7f0a0002;
         public static final int view_content=0x7f0a002a;
     }

@@ -1,8 +1,12 @@
 package com.DomainLayer;
 
+import java.util.ArrayList;
+import java.util.List;
 import com.DUtils.FileUtils;
+import com.DataLayer.addCounts;
+import com.DataLayer.Model.teacher;
 import com.control.R;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,9 +14,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
-
 
 public class AddTeacher extends Activity {
 
@@ -24,6 +29,38 @@ public class AddTeacher extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.addteacher);
+
+		final TextView user = (TextView) findViewById(R.id.gongID_edit);
+		final TextView ps = (TextView) findViewById(R.id.init_password_edit);
+		final TextView na = (TextView) findViewById(R.id.name_edit);
+		Button add = (Button) findViewById(R.id.make_sure);
+		
+		add.setOnClickListener(new OnClickListener() {
+
+			@SuppressLint("ShowToast")
+			@Override
+			public void onClick(View v) {
+
+				List<teacher> teach = new ArrayList();
+				teacher itteacher = new teacher();
+				itteacher.setUser_name(user.getText().toString());
+				itteacher.setPassword(ps.getText().toString());
+				itteacher.setName(na.getText().toString());
+				teach.add(itteacher);
+				addCounts addc = new addCounts();
+				addc.setTeachers(teach);
+				addc.setFlag("2");
+				String flag = addc.doComfirm();
+				if (flag.equals("y1")) {
+					Toast.makeText(getApplicationContext(), "添加成功！", 200).show();
+
+				} else if (flag.equals("n1")) {
+					Toast.makeText(getApplicationContext(), "添加失败！", 200).show();
+
+				} 
+				//TODO “n2”未知错误；“n3”json格式错误
+			}
+		});
 
 		tableimportBt = (Button) findViewById(R.id.tableimport);
 		tableimportBt.setOnClickListener(new OnClickListener() {
@@ -57,14 +94,14 @@ public class AddTeacher extends Activity {
 				Uri uri = data.getData();
 				String path = FileUtils.getPath(this, uri);
 				Log.i("filepath", path);
-				readExcelAndInsert(path);////读取信息，并插入
+				readExcelAndInsert(path);// //读取信息，并插入
 			}
 			break;
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
 
-	public void readExcelAndInsert(String path) {//读取信息，并插入
+	public void readExcelAndInsert(String path) {// 读取信息，并插入
 
 	}
 
