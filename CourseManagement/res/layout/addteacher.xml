@@ -79,7 +79,7 @@
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_alignParentLeft="true"
-             android:layout_alignTop="@+id/makesure"
+             android:layout_alignTop="@+id/make_sure"
              android:layout_marginLeft="52dp"
              android:background="#ADD8E6"
              android:text="一键导入"
