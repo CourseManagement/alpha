@@ -15,40 +15,30 @@ public class fixThread extends Thread {
 	private String flag;
 	private JSONObject jsonObject;
 	private String return_flag;
-	
-	
+
 	public String getFlag() {
 		return flag;
 	}
-
 
 	public void setFlag(String flag) {
 		this.flag = flag;
 	}
 
-
-
-
-
 	public JSONObject getJsonObject() {
 		return jsonObject;
 	}
-
 
 	public void setJsonObject(JSONObject jsonObject) {
 		this.jsonObject = jsonObject;
 	}
 
-
 	public String getReturn_flag() {
 		return return_flag;
 	}
 
-
 	public void setReturn_flag(String return_flag) {
 		this.return_flag = return_flag;
 	}
-
 
 	@Override
 	public void run() {
@@ -57,9 +47,10 @@ public class fixThread extends Thread {
 		return_flag = null;
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		// 添加要传递的参数
-        
+
 		NameValuePair pair1 = new BasicNameValuePair("flag", flag);
-		NameValuePair pair2 = new BasicNameValuePair("info", jsonObject.toString());
+		NameValuePair pair2 = new BasicNameValuePair("info",
+				jsonObject.toString());
 		params.add(pair1);
 		params.add(pair2);
 		// "HttpClient_android_Post"));
