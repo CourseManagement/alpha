@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 public class AddTeacher extends Activity {
 
 	private static final int FILE_SELECT_CODE = 1;
@@ -23,6 +24,7 @@ public class AddTeacher extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.addteacher);
+
 		tableimportBt = (Button) findViewById(R.id.tableimport);
 		tableimportBt.setOnClickListener(new OnClickListener() {
 

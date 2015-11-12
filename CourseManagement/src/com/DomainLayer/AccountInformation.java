@@ -21,202 +21,264 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.DataLayer.userInfoAllClass;
+import com.DataLayer.Model.departmentmanager;
+import com.DataLayer.Model.teacher;
 import com.UIxml.ListViewCompat;
 import com.UIxml.SlideView;
 import com.UIxml.SlideView.OnSlideListener;
 import com.control.R;
 
-public class AccountInformation extends Activity implements OnItemClickListener, OnClickListener,
-        OnSlideListener {
+public class AccountInformation extends Activity implements
+		OnItemClickListener, OnClickListener, OnSlideListener {
 
-    private static final String TAG = "MainActivity";
+	private static final String TAG = "MainActivity";
 
-    private ListViewCompat mListView;
-    SlideAdapter slideAdapter;
-    private List<MessageItem> mMessageItems = new ArrayList<AccountInformation.MessageItem>();
+	private ListViewCompat mListView;
+	SlideAdapter slideAdapter;
+	private List<MessageItem> mMessageItems = new ArrayList<AccountInformation.MessageItem>();
 
-    private SlideView mLastSlideViewWithStatusOn;
+	private SlideView mLastSlideViewWithStatusOn;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.account_information);
-        initView();
-        Button Add;
-        Add=(Button) findViewById(R.id.add);
-        Add.setOnClickListener(new OnClickListener() {
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.account_information);
+		initView();
+		Button Add;
+		Add = (Button) findViewById(R.id.add);
+		Add.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.setClass(AccountInformation.this, Addaccount.class);
 				startActivity(intent);
-				overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
-				
+				overridePendingTransition(R.anim.in_from_right,
+						R.anim.out_to_left); // 切换动画
+
 			}
-        });
+		});
 
-    }
+	}
 
-    private void initView() {
-        mListView = (ListViewCompat) findViewById(R.id.list);
+	private void initView() {
+		mListView = (ListViewCompat) findViewById(R.id.list);
+		userInfoAllClass userIf = new userInfoAllClass();
+		userIf.setFlag("1");
+		userIf.doComfirm();
+		List<departmentmanager> departmentmanagers = userIf.getDlist();
 
-        for (int i = 0; i < 10; i++) {
-            MessageItem item = new MessageItem();
-            if (i % 3 == 0) {
-                item.iconRes = R.drawable.default_qq_avatar;
-                item.title = "系负责人";
-                item.msg = "点击查看详细信息";
-                item.time = "18:18";
-            } else {
-                item.iconRes = R.drawable.wechat_icon;
-                item.title = "教师";
-                item.msg = "点击查看详细信息";
-                item.time = "11月12日";
-            }
-            mMessageItems.add(item);
-        }
-        
-//        footer = LayoutInflater.from(this).inflate(R.layout.footer, null);
-//        mListView.addFooterView(footer);
-        slideAdapter = new SlideAdapter();
-        mListView.setAdapter(slideAdapter);
-        mListView.setOnItemClickListener(this);
-    }
+		for (departmentmanager Item : departmentmanagers) {
 
-    private class SlideAdapter extends BaseAdapter {
+			MessageItem item = new MessageItem();
+			item.iconRes = R.drawable.default_qq_avatar;
+			item.title = "系负责人";
+			item.msg = Item.getUser_name();
+			item.time = "18:18";
+			item.password = Item.getPassword();
+			item.department = Item.getDepartment();
+			mMessageItems.add(item);
 
-        private LayoutInflater mInflater;
+		}
 
-        SlideAdapter() {
-            super();
-            mInflater = getLayoutInflater();
-        }
+		userIf.setFlag("2");
+		userIf.doComfirm();
 
-        @Override
-        public int getCount() {
-            return mMessageItems.size();
-        }
+		List<teacher> teachers = userIf.getTlist();
 
-        @Override
-        public Object getItem(int position) {
-            return mMessageItems.get(position);
-        }
+		for (teacher Item : teachers) {
 
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
+			MessageItem item = new MessageItem();
+			item.iconRes = R.drawable.default_qq_avatar;
+			item.title = "教师";
+			item.msg = Item.getName();
+			item.time = "18:18";
+			item.user_name = Item.getUser_name();
+			item.password = Item.getPassword();
+			item.email = Item.getEmail();
+			item.telephone = Item.getTelephone();
+			item.sex = Item.getSex();
+			item.birthday = Item.getBirthday();
+			mMessageItems.add(item);
 
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder;
-            SlideView slideView = (SlideView) convertView;
-            if (slideView == null) {
-                View itemView = mInflater.inflate(R.layout.list_item, null);
+		}
 
-                slideView = new SlideView(AccountInformation.this);
-                slideView.setContentView(itemView);
+		slideAdapter = new SlideAdapter();
+		mListView.setAdapter(slideAdapter);
+		mListView.setOnItemClickListener(this);
+	}
 
-                holder = new ViewHolder(slideView);
-                slideView.setOnSlideListener(AccountInformation.this);
-                slideView.setTag(holder);
-            } else {
-                holder = (ViewHolder) slideView.getTag();
-            }
-            MessageItem item = mMessageItems.get(position);
-            item.slideView = slideView;
-            item.slideView.reset();
-            holder.icon.setImageResource(item.iconRes);
-            holder.title.setText(item.title);
-            holder.msg.setText(item.msg);
-            holder.time.setText(item.time);
-            holder.leftHolder.setOnClickListener(AccountInformation.this);
-            holder.rightHolder.setOnClickListener(AccountInformation.this);
-            return slideView;
-        }
+	private class SlideAdapter extends BaseAdapter {
 
-    }
+		private LayoutInflater mInflater;
 
-    public class MessageItem {
-        public int iconRes;
-        public String title;
-        public String msg;
-        public String time;
-        public SlideView slideView;
-    }
+		SlideAdapter() {
+			super();
+			mInflater = getLayoutInflater();
+		}
 
-    private static class ViewHolder {
-        public ImageView icon;
-        public TextView title;
-        public TextView msg;
-        public TextView time;
-        public ViewGroup leftHolder;
-        public ViewGroup rightHolder;
+		@Override
+		public int getCount() {
+			return mMessageItems.size();
+		}
 
-        ViewHolder(View view) {
-            icon = (ImageView) view.findViewById(R.id.icon);
-            title = (TextView) view.findViewById(R.id.title);
-            msg = (TextView) view.findViewById(R.id.msg);
-            time = (TextView) view.findViewById(R.id.time);
-            leftHolder = (ViewGroup)view.findViewById(R.id.left_holder);
-            rightHolder = (ViewGroup)view.findViewById(R.id.right_holder);
-        }
-    }
+		@Override
+		public Object getItem(int position) {
+			return mMessageItems.get(position);
+		}
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position,
-            long id) {
-        Log.e(TAG, "onItemClick position=" + position);
-        SlideView slideView =  mMessageItems.get(position).slideView;
-        if(slideView.ismIsMoveClick()){//如果是滑动中触发的点击事件，不做处理
-        	return;
-        }
-        if (slideView.close() && slideView.getScrollX() == 0) {
-			if (mLastSlideViewWithStatusOn == null || mLastSlideViewWithStatusOn.getScrollX() == 0) {
-				//此处添加item的点击事件
-				Toast.makeText(this, "onItemClick position=" + position, 100).show();
+		@Override
+		public long getItemId(int position) {
+			return position;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			ViewHolder holder;
+			SlideView slideView = (SlideView) convertView;
+			if (slideView == null) {
+				View itemView = mInflater.inflate(R.layout.list_item, null);
+
+				slideView = new SlideView(AccountInformation.this);
+				slideView.setContentView(itemView);
+
+				holder = new ViewHolder(slideView);
+				slideView.setOnSlideListener(AccountInformation.this);
+				slideView.setTag(holder);
+			} else {
+				holder = (ViewHolder) slideView.getTag();
+			}
+			MessageItem item = mMessageItems.get(position);
+			item.slideView = slideView;
+			item.slideView.reset();
+			holder.icon.setImageResource(item.iconRes);
+			holder.title.setText(item.title);
+			holder.msg.setText(item.msg);
+			holder.time.setText(item.time);
+			holder.leftHolder.setOnClickListener(AccountInformation.this);
+			holder.rightHolder.setOnClickListener(AccountInformation.this);
+			return slideView;
+		}
+
+	}
+
+	public class MessageItem {
+		public int iconRes;
+		public String title;
+		public String msg;
+		public String time;
+		public SlideView slideView;
+		public String user_name;
+		public String password;
+		public String name;
+		public String email;
+		public String telephone;
+		public String sex;
+		public String birthday;
+		public String department;
+	}
+
+	private static class ViewHolder {
+		public ImageView icon;
+		public TextView title;
+		public TextView msg;
+		public TextView time;
+		public ViewGroup leftHolder;
+		public ViewGroup rightHolder;
+
+		ViewHolder(View view) {
+			icon = (ImageView) view.findViewById(R.id.icon);
+			title = (TextView) view.findViewById(R.id.title);
+			msg = (TextView) view.findViewById(R.id.msg);
+			time = (TextView) view.findViewById(R.id.time);
+			leftHolder = (ViewGroup) view.findViewById(R.id.left_holder);
+			rightHolder = (ViewGroup) view.findViewById(R.id.right_holder);
+		}
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		Log.e(TAG, "onItemClick position=" + position);
+		SlideView slideView = mMessageItems.get(position).slideView;
+		if (slideView.ismIsMoveClick()) {// 如果是滑动中触发的点击事件，不做处理
+			return;
+		}
+		if (slideView.close() && slideView.getScrollX() == 0) {
+			if (mLastSlideViewWithStatusOn == null
+					|| mLastSlideViewWithStatusOn.getScrollX() == 0) {
+				MessageItem item = (MessageItem) parent
+						.getItemAtPosition(position);
+				// 此处添加item的点击事件
+				if (item.title.equals("教师")) {
+
+					new AlertDialog.Builder(this)
+							.setTitle("详细信息")
+							.setItems(
+									new String[] { "工号：" + item.user_name,
+											"密码：" + item.password,
+											"姓名：" + item.name, "性别" + item.sex,
+											"生日：" + item.birthday,
+											"邮箱：" + item.email,
+											"手机号：" + item.telephone }, null)
+							.setNegativeButton("确定", null).show();
+
+				}
+				else {
+					new AlertDialog.Builder(this)
+					.setTitle("详细信息")
+					.setItems(
+							new String[] { "用户名：" + item.user_name,
+									"密码：" + item.password,
+									"所属系："+ item.department}, null)
+					.setNegativeButton("确定", null).show();
+					
+				}
 			}
 		}
-    }
+	}
 
-    @Override
-    public void onSlide(View view, int status) {
-        if (mLastSlideViewWithStatusOn != null && mLastSlideViewWithStatusOn != view) {
-            mLastSlideViewWithStatusOn.shrink();
-        }
+	@Override
+	public void onSlide(View view, int status) {
+		if (mLastSlideViewWithStatusOn != null
+				&& mLastSlideViewWithStatusOn != view) {
+			mLastSlideViewWithStatusOn.shrink();
+		}
 
-        if (status == SLIDE_STATUS_ON) {
-            mLastSlideViewWithStatusOn = (SlideView) view;
-        }
-    }
+		if (status == SLIDE_STATUS_ON) {
+			mLastSlideViewWithStatusOn = (SlideView) view;
+		}
+	}
 
-    @Override
-    public void onClick(View v) {
-    	if (v.getId() == R.id.left_holder) {
-            Log.e(TAG, "onClick v=" + v);
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.left_holder) {
+			Log.e(TAG, "onClick v=" + v);
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("提示").setMessage("确定删此条目？")  
+			builder.setTitle("提示").setMessage("确定删此条目？")
 					.setNegativeButton("取消", null);
-			builder.setPositiveButton("删除", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int which) {
-					mMessageItems.remove(mListView.getPosition());
-					slideAdapter.notifyDataSetChanged();
-				}
-			});
+			builder.setPositiveButton("删除",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							mMessageItems.remove(mListView.getPosition());
+							slideAdapter.notifyDataSetChanged();
+						}
+					});
 			builder.show();
-        }else if (v.getId() == R.id.right_holder) {
-            Log.e(TAG, "onClick v=" + v);
+		} else if (v.getId() == R.id.right_holder) {
+			Log.e(TAG, "onClick v=" + v);
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("提示").setMessage("确定删此条目？")  
+			builder.setTitle("提示").setMessage("确定删此条目？")
 					.setNegativeButton("取消", null);
-			builder.setPositiveButton("删除", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int which) {
-					mMessageItems.remove(mListView.getPosition());
-					slideAdapter.notifyDataSetChanged();
-				}
-			});
+			builder.setPositiveButton("删除",
+					new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							mMessageItems.remove(mListView.getPosition());
+							slideAdapter.notifyDataSetChanged();
+						}
+					});
 			builder.show();
-        }
-    }
+		}
+	}
 }

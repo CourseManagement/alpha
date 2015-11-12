@@ -63,7 +63,7 @@
             android:textSize="24dp" />
 
          <Button
-             android:id="@+id/makesure"
+             android:id="@+id/make_sure"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_alignRight="@+id/name_edit"
