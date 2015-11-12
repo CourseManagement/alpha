@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.DataLayer.deleteCount;
 import com.DataLayer.userInfoAllClass;
 import com.DataLayer.Model.departmentmanager;
 import com.DataLayer.Model.teacher;
@@ -92,9 +93,9 @@ public class AccountInformation extends Activity implements
 			MessageItem item = new MessageItem();
 			item.iconRes = R.drawable.default_qq_avatar;
 			item.title = "教师";
-			item.msg = Item.getName();
+			item.msg = Item.getUser_name();
 			item.time = "18:18";
-			item.user_name = Item.getUser_name();
+			item.name = Item.getName();
 			item.password = Item.getPassword();
 			item.email = Item.getEmail();
 			item.telephone = Item.getTelephone();
@@ -216,24 +217,23 @@ public class AccountInformation extends Activity implements
 					new AlertDialog.Builder(this)
 							.setTitle("详细信息")
 							.setItems(
-									new String[] { "工号：" + item.user_name,
+									new String[] { "工号：" + item.msg,
 											"密码：" + item.password,
-											"姓名：" + item.name, "性别" + item.sex,
+											"姓名：" + item.name, "性别：" + item.sex,
 											"生日：" + item.birthday,
 											"邮箱：" + item.email,
 											"手机号：" + item.telephone }, null)
 							.setNegativeButton("确定", null).show();
 
-				}
-				else {
+				} else {
 					new AlertDialog.Builder(this)
-					.setTitle("详细信息")
-					.setItems(
-							new String[] { "用户名：" + item.user_name,
-									"密码：" + item.password,
-									"所属系："+ item.department}, null)
-					.setNegativeButton("确定", null).show();
-					
+							.setTitle("详细信息")
+							.setItems(
+									new String[] { "用户名：" + item.msg,
+											"密码：" + item.password,
+											"所属系：" + item.department }, null)
+							.setNegativeButton("确定", null).show();
+
 				}
 			}
 		}
@@ -256,11 +256,36 @@ public class AccountInformation extends Activity implements
 		if (v.getId() == R.id.left_holder) {
 			Log.e(TAG, "onClick v=" + v);
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("提示").setMessage("确定删此条目？")
+			builder.setTitle("提示").setMessage("确定删除此条信息？")
 					.setNegativeButton("取消", null);
 			builder.setPositiveButton("删除",
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
+
+							deleteCount delete = new deleteCount();
+							String tstr;
+							if (mMessageItems.get(mListView.getPosition()).title
+									.equals("教师")) {
+
+								delete.setFlag("2");
+								delete.setUser_name(mMessageItems.get(mListView
+										.getPosition()).msg);
+								tstr = delete.doComfirm();
+							} else {
+								delete.setFlag("1");
+								delete.setUser_name(mMessageItems.get(mListView
+										.getPosition()).msg);
+								tstr = delete.doComfirm();
+							}
+							if (tstr.equals("y2") || tstr.equals("y3")) {
+
+								Toast.makeText(getApplicationContext(),
+										"删除成功！", 200).show();
+
+							} else if (tstr.equals("n4")) {
+								Toast.makeText(getApplicationContext(),
+										"用户不存在！", 200).show();
+							}
 							mMessageItems.remove(mListView.getPosition());
 							slideAdapter.notifyDataSetChanged();
 						}
@@ -269,11 +294,35 @@ public class AccountInformation extends Activity implements
 		} else if (v.getId() == R.id.right_holder) {
 			Log.e(TAG, "onClick v=" + v);
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("提示").setMessage("确定删此条目？")
+			builder.setTitle("提示").setMessage("确定删除此条信息？")
 					.setNegativeButton("取消", null);
 			builder.setPositiveButton("删除",
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
+							deleteCount delete = new deleteCount();
+							String tstr;
+							if (mMessageItems.get(mListView.getPosition()).title
+									.equals("教师")) {
+
+								delete.setFlag("2");
+								delete.setUser_name(mMessageItems.get(mListView
+										.getPosition()).msg);
+								tstr = delete.doComfirm();
+							} else {
+								delete.setFlag("1");
+								delete.setUser_name(mMessageItems.get(mListView
+										.getPosition()).msg);
+								tstr = delete.doComfirm();
+							}
+							if (tstr.equals("y2") || tstr.equals("y3")) {
+
+								Toast.makeText(getApplicationContext(),
+										"删除成功！", 200).show();
+
+							} else if (tstr.equals("n4")) {
+								Toast.makeText(getApplicationContext(),
+										"用户不存在！", 200).show();
+							}
 							mMessageItems.remove(mListView.getPosition());
 							slideAdapter.notifyDataSetChanged();
 						}
