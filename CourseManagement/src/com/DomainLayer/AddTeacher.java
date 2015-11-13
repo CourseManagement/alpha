@@ -103,8 +103,19 @@ public class AddTeacher extends Activity {
 				getInfoFromExcel.setPath(path);
 				getInfoFromExcel.run();
 				try {
+					String flag;
 					getInfoFromExcel.join();
-					System.out.println(getInfoFromExcel.getResult());//返回状态标识
+					flag = getInfoFromExcel.getResult();// 返回状态标识
+					if (flag.equals("y1")) {
+						Toast.makeText(getApplicationContext(), "添加成功！", 200)
+								.show();
+
+					} else if (flag.equals("n1")) {
+						Toast.makeText(getApplicationContext(), "添加失败！", 200)
+								.show();
+
+					}
+					// TODO “n2”未知错误；“n3”json格式错误
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
