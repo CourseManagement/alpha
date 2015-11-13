@@ -15,7 +15,7 @@ package com.DataLayer.Model;
  * 
  * 
  */
-public class Perior {
+public class Period {
 	private String periodid;
 	private String flag;
 

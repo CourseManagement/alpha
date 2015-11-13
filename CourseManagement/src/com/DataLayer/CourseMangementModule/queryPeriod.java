@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import com.DataLayer.Model.Perior;
+import com.DataLayer.Model.Period;
 import com.DataLayer.Runnable.threadAdapterForPost;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -17,17 +17,17 @@ import com.google.gson.reflect.TypeToken;
  *            学期查询接口，直接调用无需设置参数
  *
  */
-public class queryPerior {
+public class queryPeriod {
 
 	private static String flag = "1";
-	private List<Perior> periors;
+	private List<Period> periods;
 
-	public List<Perior> getPeriors() {
-		return periors;
+	public List<Period> getPeriors() {
+		return periods;
 	}
 
-	public void setPeriors(List<Perior> periors) {
-		this.periors = periors;
+	public void setPeriors(List<Period> periods) {
+		this.periods = periods;
 	}
 
 	public String docomfirm() {
@@ -36,7 +36,7 @@ public class queryPerior {
 		Gson gson = new Gson();
 
 		// pre
-		periors = new ArrayList<Perior>();
+		periods = new ArrayList<Period>();
 		threadAdapterForPost nthread = new threadAdapterForPost();
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		NameValuePair pair1 = new BasicNameValuePair("flag", flag);
@@ -55,9 +55,9 @@ public class queryPerior {
 
 		// result
 		result = nthread.getJsonObject().get("return_flag").toString();
-		periors = gson.fromJson(
+		periods = gson.fromJson(
 				nthread.getJsonObject().getJSONArray("result_arr").toString(),
-				new TypeToken<List<Perior>>() {
+				new TypeToken<List<Period>>() {
 				}.getType());
 		return result;
 	}
