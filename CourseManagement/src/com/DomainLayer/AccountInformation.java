@@ -21,8 +21,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.DataLayer.deleteCount;
-import com.DataLayer.userInfoAllClass;
+import com.DataLayer.CountManagementModule.deleteCount;
+import com.DataLayer.CountManagementModule.userInfoAllClass;
 import com.DataLayer.Model.departmentmanager;
 import com.DataLayer.Model.teacher;
 import com.UIxml.ListViewCompat;

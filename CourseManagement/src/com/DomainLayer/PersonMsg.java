@@ -10,8 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.DataLayer.fixClass;
-import com.DataLayer.queryClass;
+import com.DataLayer.CountManagementModule.fixClass;
+import com.DataLayer.CountManagementModule.queryClass;
 import com.control.R;
 
 public class PersonMsg extends Activity {

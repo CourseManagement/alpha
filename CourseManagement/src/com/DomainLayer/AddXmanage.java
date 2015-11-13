@@ -1,6 +1,6 @@
 package com.DomainLayer;
 
-import com.DataLayer.addCounts;
+import com.DataLayer.CountManagementModule.addCounts;
 import com.DataLayer.Model.departmentmanager;
 import com.control.R;
 
