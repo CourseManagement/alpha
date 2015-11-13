@@ -17,6 +17,15 @@ public class courseInfo {
 	private String coursehour;
 	private String testhour;
 	private String practicehour;
+	private String type;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public String getCoursename() {
 		return coursename;
