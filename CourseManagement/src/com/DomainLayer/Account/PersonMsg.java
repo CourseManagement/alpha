@@ -1,9 +1,10 @@
-package com.DomainLayer;
+package com.DomainLayer.Account;
 
 import net.sf.json.JSONObject;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import com.control.R;
 public class PersonMsg extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.personmsg);
 
 		final EditText edtName;
@@ -35,7 +37,7 @@ public class PersonMsg extends Activity {
 		query.doComfirm();
 		String jsonstr = query.getReturn_arr().toString();
 		JSONObject json = JSONObject.fromObject(jsonstr);
-		username.setText("  "+json.getString("user_name"));
+		username.setText(json.getString("user_name"));
 		edtPsd.setText(json.getString("password"));
 		edtName.setText(json.getString("name"));
 		edtPh.setText(json.getString("telephone"));
@@ -57,6 +59,7 @@ public class PersonMsg extends Activity {
 				js.put("telephone", edtPh.getText().toString());
 				fix.setjsonObject(js);
 				fix.doComfirm();
+				System.out.println(js.toString());
 				Toast.makeText(PersonMsg.this, "ÐÞ¸Ä³É¹¦£¡", Toast.LENGTH_LONG).show();
 
 			}

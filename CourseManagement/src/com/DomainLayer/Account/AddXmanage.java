@@ -1,4 +1,4 @@
-package com.DomainLayer;
+package com.DomainLayer.Account;
 
 import com.DataLayer.CountManagementModule.addCounts;
 import com.DataLayer.Model.departmentmanager;

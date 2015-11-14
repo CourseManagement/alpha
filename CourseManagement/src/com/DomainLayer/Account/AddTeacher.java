@@ -1,4 +1,4 @@
-package com.DomainLayer;
+package com.DomainLayer.Account;
 
 import java.util.ArrayList;
 import java.util.List;

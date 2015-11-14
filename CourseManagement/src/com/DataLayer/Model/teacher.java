@@ -8,22 +8,26 @@ public class teacher {
 	private String telephone;
 	private String sex;
 	private String birthday;
-	
+	private String department;
+
 	public teacher() {
 		super();
 		// TODO Auto-generated constructor stub
-		}
-		public teacher(String user_name, String password,
-		String name, String email, String telephone,String sex,String birthday) {
+	}
+
+	public teacher(String user_name, String password, String name,
+			String email, String telephone, String sex, String birthday,
+			String department) {
 		super();
 		this.user_name = user_name;
-		this.password=password;
-		this.name=name;
-		this.email=email;
-		this.telephone=telephone;
-		this.sex=sex;
-		this.birthday=birthday;
-		}
+		this.password = password;
+		this.name = name;
+		this.email = email;
+		this.telephone = telephone;
+		this.sex = sex;
+		this.birthday = birthday;
+		this.department = department;
+	}
 
 	public String getUser_name() {
 		return user_name;
@@ -80,10 +84,21 @@ public class teacher {
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
+
+	@Override
 	public String toString() {
-		return "[user_name=" + this.user_name + ", password="
-		+ this.password + ", name=" + this.name + ", email="
-		+ this.email + ", telephone=" + this.telephone + ", sex=" + this.sex+ ", birthday=" + this.birthday+ "]";
-		}
+		return "teacher [user_name=" + user_name + ", password=" + password
+				+ ", name=" + name + ", email=" + email + ", telephone="
+				+ telephone + ", sex=" + sex + ", birthday=" + birthday
+				+ ", department=" + department + "]";
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
 
 }

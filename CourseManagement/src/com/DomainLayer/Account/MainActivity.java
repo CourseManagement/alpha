@@ -1,4 +1,4 @@
-package com.DomainLayer;
+package com.DomainLayer.Account;
 
 import android.app.Activity;
 import android.content.Intent;

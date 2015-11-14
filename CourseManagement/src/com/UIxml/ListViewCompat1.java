@@ -1,7 +1,7 @@
 package com.UIxml;
 
 import com.UIxml.SlideView;
-import com.DomainLayer.Account.AccountInformation.MessageItem;
+import com.DomainLayer.Course.Ccoursemage.MessageItem;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -10,23 +10,23 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ListView;
 
-public class ListViewCompat extends ListView {
+public class ListViewCompat1 extends ListView {
 
-    private static final String TAG = "ListViewCompat";
+    private static final String TAG = "ListViewCompat1";
 
     private SlideView mFocusedItemView;
 
     private int position;
     
-    public ListViewCompat(Context context) {
+    public ListViewCompat1(Context context) {
         super(context);
     }
 
-    public ListViewCompat(Context context, AttributeSet attrs) {
+    public ListViewCompat1(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ListViewCompat(Context context, AttributeSet attrs, int defStyle) {
+    public ListViewCompat1(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
