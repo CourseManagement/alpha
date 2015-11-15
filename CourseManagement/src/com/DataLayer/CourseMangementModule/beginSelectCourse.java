@@ -6,24 +6,21 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
-import com.DataLayer.Model.majorState;
 import com.DataLayer.Runnable.threadAdapterForPost;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 /**
- * @parameter
- *
- *            查询课表导入情况
- *
+ * @parameter *
  */
-public class queryMajorState {
+public class beginSelectCourse {
 
-	private static String URL = "http://test.micromi.net/service/CourseManagement/queryChecks.php";
 	private String periodid;
-	private List<majorState> majorStates;
 	private String starttime;
 	private String deadline;
+	private String flag;
+
+	private static String URL = "http://test.micromi.net/service/CourseManagement/beginSelectCourse.php";
 
 	public String getPeriodid() {
 		return periodid;
@@ -31,14 +28,6 @@ public class queryMajorState {
 
 	public void setPeriodid(String periodid) {
 		this.periodid = periodid;
-	}
-
-	public List<majorState> getMajorStates() {
-		return majorStates;
-	}
-
-	public void setMajorStates(List<majorState> majorStates) {
-		this.majorStates = majorStates;
 	}
 
 	public String getStarttime() {
@@ -63,11 +52,16 @@ public class queryMajorState {
 		Gson gson = new Gson();
 
 		// pre
-		majorStates = new ArrayList<majorState>();
 		threadAdapterForPost nthread = new threadAdapterForPost();
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		NameValuePair pair1 = new BasicNameValuePair("periodid", periodid);
+		NameValuePair pair2 = new BasicNameValuePair("starttime", starttime);
+		NameValuePair pair3 = new BasicNameValuePair("deadline", deadline);
+		NameValuePair pair4 = new BasicNameValuePair("deadline", flag);
 		params.add(pair1);
+		params.add(pair2);
+		params.add(pair3);
+		params.add(pair4);
 		nthread.setUrlString(URL);
 		nthread.setParams(params);
 
@@ -81,13 +75,7 @@ public class queryMajorState {
 		}
 
 		// result
-		starttime = nthread.getJsonObject().get("starttime").toString();;
-		deadline = nthread.getJsonObject().get("deadline").toString();
 		result = nthread.getJsonObject().get("return_flag").toString();
-		majorStates = gson.fromJson(
-				nthread.getJsonObject().getJSONArray("result_arr").toString(),
-				new TypeToken<List<majorState>>() {
-				}.getType());
 		return result;
 	}
 
