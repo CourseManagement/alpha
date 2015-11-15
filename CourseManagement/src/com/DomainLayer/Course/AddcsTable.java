@@ -3,19 +3,25 @@ package com.DomainLayer.Course;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.DUtils.FileUtils;
+import com.DataLayer.CourseMangementModule.addCourses;
+import com.DataLayer.CourseMangementModule.doUpload;
+import com.DataLayer.CourseMangementModule.getInfoFromExcelAboutCourses;
 import com.DataLayer.CourseMangementModule.queryMajorState;
 import com.DataLayer.Model.majorState;
 import com.control.R;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothClass.Device.Major;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class AddcsTable extends Activity {
+public class AddcsTable extends Activity implements OnClickListener {
 
 	Button btjs;
 	Button btjz;
@@ -25,6 +31,11 @@ public class AddcsTable extends Activity {
 	Button btsx;
 	Button btwl;
 	Button btxa;
+	private String majorid;
+	private String periodid;
+	private String path;
+
+	private static final int FILE_SELECT_CODE = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +53,8 @@ public class AddcsTable extends Activity {
 
 		Intent intent = getIntent();
 		queryMajorState major = new queryMajorState();
-		major.setPeriodid(intent.getStringExtra("per"));
+		periodid = intent.getStringExtra("per");
+		major.setPeriodid(periodid);
 		major.docomfirm();
 		List<majorState> majorstates = new ArrayList<majorState>();
 		majorstates = major.getMajorStates();
@@ -83,71 +95,100 @@ public class AddcsTable extends Activity {
 
 		}
 
-		btjs.setOnClickListener(new OnClickListener() {
+		btjs.setOnClickListener(this);
+		btjz.setOnClickListener(this);
+		btjsj.setOnClickListener(this);
+		btrj.setOnClickListener(this);
+		btsxsy.setOnClickListener(this);
+		btsx.setOnClickListener(this);
+		btwl.setOnClickListener(this);
+		btxa.setOnClickListener(this);
 
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "11", 200).show();
+	}
 
-			}
-		});
-		btjz.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "11", 200).show();
-				
-			}
-		});
-		btjsj.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "11", 200).show();
-				
-			}
-		});
-		btrj.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "11", 200).show();
-				
-			}
-		});
-		btsxsy.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "11", 200).show();
-				
-			}
-		});
-		btsx.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "11", 200).show();
-				
-			}
-		});
-		btwl.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "11", 200).show();
-				
-			}
-		});
-		btxa.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "11", 200).show();
-				
-			}
-		});
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
 
+		switch (v.getId()) {
+		case R.id.jsjsy:
+			majorid = "0";
+			break;
+		case R.id.jsjzy:
+			majorid = "1";
+			break;
+		case R.id.jsj:
+			majorid = "2";
+			break;
+		case R.id.rjgc:
+			majorid = "3";
+			break;
+		case R.id.sxsy:
+			majorid = "4";
+			break;
+		case R.id.sx:
+			majorid = "5";
+			break;
+		case R.id.wlgc:
+			majorid = "6";
+			break;
+		case R.id.xxaq:
+			majorid = "7";
+			break;
+		default:
+			break;
+		}
+		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+		intent.setType("*/*");
+		intent.addCategory(Intent.CATEGORY_OPENABLE);
+		try {
+			startActivityForResult(
+					Intent.createChooser(intent, "Select a File to Upload"),
+					FILE_SELECT_CODE);
+		} catch (android.content.ActivityNotFoundException ex) {
+			Toast.makeText(getApplicationContext(),
+					"Please install a File Manager.", Toast.LENGTH_SHORT)
+					.show();
+		}
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		switch (requestCode) {
+		case FILE_SELECT_CODE:
+			if (resultCode == RESULT_OK) {
+				// Get the Uri of the selected file
+				Uri uri = data.getData();
+				String path = FileUtils.getPath(this, uri);
+				// 上传课表
+				String a = path;
+				String b = a.substring(a.lastIndexOf("/") + 1, a.length());
+				doUpload doUpload = new doUpload();
+				doUpload.setFilename(b);
+				doUpload.setUploadfile(a);
+				doUpload.setMajor(majorid);
+				doUpload.setPeroidid(periodid);
+				doUpload.docomfirm();
+				Toast.makeText(getApplicationContext(), "上传成功",
+						Toast.LENGTH_SHORT).show();
+				// 向数据库中插入课表
+				getInfoFromExcelAboutCourses getInfo = new getInfoFromExcelAboutCourses();
+				getInfo.setPath(path);
+				getInfo.setPeriodid(periodid);
+				getInfo.setMajor(majorid);
+				getInfo.start();
+				try {
+					getInfo.join();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				String result = getInfo.getResult();
+				if(result.equals("")){}//TODO
+				break;
+			}
+			super.onActivityResult(requestCode, resultCode, data);
+		}
 	}
 
 	
