@@ -22,6 +22,8 @@ public class queryMajorState {
 	private static String URL = "http://test.micromi.net/service/CourseManagement/queryChecks.php";
 	private String periodid;
 	private List<majorState> majorStates;
+	private String starttime;
+	private String deadline;
 
 	public String getPeriodid() {
 		return periodid;
@@ -37,6 +39,22 @@ public class queryMajorState {
 
 	public void setMajorStates(List<majorState> majorStates) {
 		this.majorStates = majorStates;
+	}
+
+	public String getStarttime() {
+		return starttime;
+	}
+
+	public void setStarttime(String starttime) {
+		this.starttime = starttime;
+	}
+
+	public String getDeadline() {
+		return deadline;
+	}
+
+	public void setDeadline(String deadline) {
+		this.deadline = deadline;
 	}
 
 	public String docomfirm() {
@@ -63,6 +81,8 @@ public class queryMajorState {
 		}
 
 		// result
+		starttime = nthread.getJsonObject().get("starttime").toString();;
+		deadline = nthread.getJsonObject().get("deadline").toString();
 		result = nthread.getJsonObject().get("return_flag").toString();
 		majorStates = gson.fromJson(
 				nthread.getJsonObject().getJSONArray("result_arr").toString(),
