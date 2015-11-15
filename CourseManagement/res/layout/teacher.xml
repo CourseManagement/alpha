@@ -1,13 +1,187 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="教师信息查看与修改" />
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/teacher_title" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/message_update"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+        <TextView
+            android:id="@+id/username_text"
+            android:layout_width="98dp"
+            android:layout_height="45dp"
+            android:text="工    号："
+            android:textSize="24dp"
+            android:textColor="#6CA6CD"
+         />
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:textColor="#6CA6CD"
+            android:layout_toRightOf="@+id/username_text"
+            />
+
+
+        <TextView
+            android:id="@+id/password_text"
+            android:layout_width="98dp"
+            android:layout_height="45dp"
+            android:text="密    码："
+            android:textSize="24dp"
+            android:textColor="#6CA6CD"
+            android:layout_below="@+id/username_text"
+            />
+
+        <TextView
+            android:id="@+id/name_text"
+            android:layout_width="98dp"
+            android:layout_height="45dp"
+            android:text="姓    名："
+            android:textSize="24dp"
+            android:textColor="#6CA6CD"
+            android:layout_below="@+id/password_text"
+            />
+
+        <TextView
+            android:id="@+id/major_text"
+            android:layout_width="98dp"
+            android:layout_height="45dp"
+            android:text="所属系："
+            android:textSize="24dp"
+            android:textColor="#6CA6CD"
+            android:layout_below="@+id/name_text"
+             />
+        <TextView
+            android:id="@+id/mail_text"
+            android:layout_width="98dp"
+            android:layout_height="45dp"
+            android:text="邮    箱："
+            android:textSize="24dp"
+            android:textColor="#6CA6CD"
+            android:layout_below="@+id/major_text"
+             />
+
+        <TextView
+            android:id="@+id/phone_text"
+            android:layout_width="98dp"
+            android:layout_height="45dp"
+            android:text="手    机："
+            android:textSize="24dp"
+            android:textColor="#6CA6CD"
+            android:layout_below="@+id/mail_text"
+            />
+        <TextView
+            android:id="@+id/sex_text"
+            android:layout_width="98dp"
+            android:layout_height="45dp"
+            android:text="性    别："
+            android:textSize="24dp"
+            android:textColor="#6CA6CD"
+            android:layout_below="@+id/phone_text"
+            />
+        <TextView
+            android:id="@+id/birthday_text"
+            android:layout_width="98dp"
+            android:layout_height="45dp"
+            android:text="生    日："
+            android:textSize="24dp"
+            android:textColor="#6CA6CD"
+            android:layout_below="@+id/sex_text"
+           />
+
+        <EditText
+            android:id="@+id/password_edit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/password_text"
+            android:layout_alignBottom="@+id/password_text"
+            android:layout_toRightOf="@+id/username_text"
+            android:ems="10"
+            android:textColor="#6CA6CD"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/name_edit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/name_text"
+            android:layout_alignBottom="@+id/name_text"
+            android:layout_toRightOf="@+id/password_text"
+            android:ems="10"
+            android:textColor="#6CA6CD"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/major_edit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/major_text"
+            android:layout_alignBottom="@+id/major_text"
+            android:layout_toRightOf="@+id/name_text"
+            android:ems="10"
+            android:textColor="#6CA6CD"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/mail_edit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/mail_text"
+            android:layout_alignBottom="@+id/mail_text"
+            android:layout_toRightOf="@+id/major_text"
+            android:ems="10"
+            android:textColor="#6CA6CD"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/phone_edit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/phone_text"
+            android:layout_alignBottom="@+id/phone_text"
+            android:layout_toRightOf="@+id/mail_text"
+            android:ems="10"
+            android:textColor="#6CA6CD"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/sex_edit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/sex_text"
+            android:layout_alignBottom="@+id/sex_text"
+            android:layout_toRightOf="@+id/phone_text"
+            android:ems="10"
+            android:textColor="#6CA6CD"
+            android:textSize="24dp" />
+
+        <EditText
+            android:id="@+id/birthday_edit"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/birthday_text"
+            android:layout_alignBottom="@+id/birthday_text"
+            android:layout_alignLeft="@+id/sex_edit"
+            android:ems="10"
+            android:textColor="#6CA6CD"
+            android:textSize="24dp" />
+
+    </RelativeLayout>
+
+
+
 
 </LinearLayout>

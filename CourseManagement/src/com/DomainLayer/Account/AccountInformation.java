@@ -1,4 +1,4 @@
-package com.DomainLayer;
+package com.DomainLayer.Account;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,12 +11,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,10 +46,13 @@ public class AccountInformation extends Activity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.account_information);
 		initView();
-		Button Add;
-		Add = (Button) findViewById(R.id.add);
+		ImageButton Add;
+		ImageButton fanh;
+		Add = (ImageButton) findViewById(R.id.add_person);
+		fanh = (ImageButton) findViewById(R.id.back);
 		Add.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -57,6 +62,17 @@ public class AccountInformation extends Activity implements
 				startActivity(intent);
 				overridePendingTransition(R.anim.in_from_right,
 						R.anim.out_to_left); // 切换动画
+
+			}
+		});
+		fanh.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+				onBackPressed();
+				overridePendingTransition(android.R.anim.slide_in_left,
+						android.R.anim.slide_out_right); // 切换动画
+				
 
 			}
 		});
@@ -101,6 +117,7 @@ public class AccountInformation extends Activity implements
 			item.telephone = Item.getTelephone();
 			item.sex = Item.getSex();
 			item.birthday = Item.getBirthday();
+			item.department = Item.getDepartment();
 			mMessageItems.add(item);
 
 		}
@@ -110,11 +127,11 @@ public class AccountInformation extends Activity implements
 		mListView.setOnItemClickListener(this);
 	}
 
-	private class SlideAdapter extends BaseAdapter {
+	public class SlideAdapter extends BaseAdapter {
 
 		private LayoutInflater mInflater;
 
-		SlideAdapter() {
+		public SlideAdapter() {
 			super();
 			mInflater = getLayoutInflater();
 		}
@@ -213,26 +230,48 @@ public class AccountInformation extends Activity implements
 						.getItemAtPosition(position);
 				// 此处添加item的点击事件
 				if (item.title.equals("教师")) {
+					
+					Intent intent = new Intent();
+					intent.setClass(AccountInformation.this, Teacher.class);
+					intent.putExtra("username", item.msg);
+					intent.putExtra("password", item.password);
+					intent.putExtra("name", item.name);
+					intent.putExtra("department", item.department);
+					intent.putExtra("email", item.email);
+					intent.putExtra("telephone", item.telephone);
+					intent.putExtra("sex", item.sex);
+					intent.putExtra("birth", item.birthday);
+					startActivity(intent);
+					overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
 
-					new AlertDialog.Builder(this)
-							.setTitle("详细信息")
-							.setItems(
-									new String[] { "工号：" + item.msg,
-											"密码：" + item.password,
-											"姓名：" + item.name, "性别：" + item.sex,
-											"生日：" + item.birthday,
-											"邮箱：" + item.email,
-											"手机号：" + item.telephone }, null)
-							.setNegativeButton("确定", null).show();
+//					new AlertDialog.Builder(this)
+//							.setTitle("详细信息")
+//							.setItems(
+//									new String[] { "工号：" + item.msg,
+//											"密码：" + item.password,
+//											"姓名：" + item.name, "性别：" + item.sex,
+//											"生日：" + item.birthday,
+//											"邮箱：" + item.email,
+//											"手机号：" + item.telephone, 
+//											"系:"+item.department}, null)
+//							.setNegativeButton("确定", null).show();
 
 				} else {
-					new AlertDialog.Builder(this)
-							.setTitle("详细信息")
-							.setItems(
-									new String[] { "用户名：" + item.msg,
-											"密码：" + item.password,
-											"所属系：" + item.department }, null)
-							.setNegativeButton("确定", null).show();
+					Intent intent = new Intent();
+					intent.setClass(AccountInformation.this, Xmanage.class);
+					intent.putExtra("username", item.msg);
+					intent.putExtra("password", item.password);
+					intent.putExtra("department", item.department);
+					startActivity(intent);
+					overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
+
+//					new AlertDialog.Builder(this)
+//							.setTitle("详细信息")
+//							.setItems(
+//									new String[] { "用户名：" + item.msg,
+//											"密码：" + item.password,
+//											"所属系：" + item.department }, null)
+//							.setNegativeButton("确定", null).show();
 
 				}
 			}

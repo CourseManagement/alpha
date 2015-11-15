@@ -2,18 +2,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FF72CAE1"
-    android:orientation="horizontal" >
-
+    android:orientation="horizontal">
     <Button
         android:id="@+id/title_cancel"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
+        android:layout_width="62dp"
+        android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_margin="5dip"
         android:background="#ADD8E6"
-        android:text="返回"
-        android:textColor="#fff" />
-
+        android:text="取消"
+        android:textColor="#fff"/>
     <TextView
         android:id="@+id/title_text"
         android:layout_width="wrap_content"
@@ -21,18 +19,16 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="添加账号 "
+        android:text="编辑资料 "
         android:textColor="#fff"
-        android:textSize="20sp" />
-
+        android:textSize="20sp"/>
     <Button
         android:id="@+id/title_acomplish"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
+        android:layout_width="62dp"
+        android:layout_height="30dp"
         android:layout_gravity="center"
         android:layout_margin="5dip"
         android:background="#ADD8E6"
-        android:text="取消"
-        android:textColor="#fff" />
-
+        android:text="完成"
+        android:textColor="#fff"/>
 </LinearLayout>
