@@ -8,15 +8,19 @@ public class fixClass {
 	private String flag;
 	private JSONObject jsonObject;
 	private String return_flag;
+
 	public String getFlag() {
 		return flag;
 	}
+
 	public void setFlag(String flag) {
 		this.flag = flag;
 	}
+
 	public JSONObject getjsonObject() {
 		return jsonObject;
 	}
+
 	public void setjsonObject(JSONObject jsonObject) {
 		this.jsonObject = jsonObject;
 	}
