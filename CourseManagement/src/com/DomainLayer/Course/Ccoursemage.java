@@ -49,8 +49,8 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 		OnClickListener, OnSlideListener {
 
 	private static final String TAG = "MainActivity";
-	
-	int iflag=0;//判断新学期列表中是否有内容
+
+	int iflag = 0;// 判断新学期列表中是否有内容
 
 	private ListViewCompat1 mListView;
 	SlideAdapter slideAdapter;
@@ -72,7 +72,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 		// 解析数据，根据状态值flag判断对应控件
 		for (Period period2 : periods) {
 			if (period2.getFlag().equals("1")) {
-				iflag=1;
+				iflag = 1;
 				mListView = (ListViewCompat1) findViewById(R.id.listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
@@ -85,7 +85,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 				mListView.setOnItemClickListener(this);
 			}
 			if (period2.getFlag().equals("2")) {
-				iflag=1;
+				iflag = 1;
 				mListView = (ListViewCompat1) findViewById(R.id.listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
@@ -99,7 +99,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 
 			}
 			if (period2.getFlag().equals("3") || period2.getFlag().equals("4")) {
-				iflag=1;
+				iflag = 1;
 				mListView = (ListViewCompat1) findViewById(R.id.listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
@@ -141,7 +141,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 							public void onClick(DialogInterface dialog,
 									int whichButton) {
 								// 事件处理
-								if (iflag==1) {
+								if (iflag == 1) {
 									Toast.makeText(getApplicationContext(),
 											"已存在新学期，请删除后重试！", 200).show();
 
@@ -149,38 +149,24 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 									EditText newper = (EditText) textEntryView
 											.findViewById(R.id.etUserName);
 									addPeriod addper = new addPeriod();
-									addper.setPeriodid(newper.getText()
-											.toString());
-									if (addper.docomfirm().equals("y1")) {
-										queryPeriod period = new queryPeriod();
-										period.docomfirm();// 连接服务器，获取信息
-										List<Period> periods = new ArrayList<Period>();
-										periods = period.getPeriors();
-										// 解析数据，根据状态值flag判断对应控件
-										for (Period period2 : periods) {
-											if (period2.getFlag().equals("1")) {
-												iflag=1;
-												mListView = (ListViewCompat1) findViewById(R.id.listnow);
-												MessageItem item = new MessageItem();
-												item.iconRes = R.drawable.default_qq_avatar;
-												item.title = "新学期";
-												item.msg = period2.getPeriodid();
-												item.time = "未开始";
-												mMessageItems.add(item);
-												slideAdapter = new SlideAdapter();
-												mListView.setAdapter(slideAdapter);
-											}
-										}
-										Toast.makeText(getApplicationContext(),
-												"添加成功！", 200).show();
-									} else {
-										Toast.makeText(getApplicationContext(),
-												"添加失败！", 200).show();
-									}
-
+									addper.setPeriodid(newper.getText().toString());
+									addper.docomfirm();
+									iflag = 1;
+									mListView = (ListViewCompat1) findViewById(R.id.listnow);
+									MessageItem item = new MessageItem();
+									item.iconRes = R.drawable.default_qq_avatar;
+									item.title = "新学期";
+									item.msg = newper.getText().toString();
+									item.time = "未开始";
+									mMessageItems.add(item);
+									slideAdapter = new SlideAdapter();
+									mListView.setAdapter(slideAdapter);
+									Toast.makeText(getApplicationContext(),
+											"添加成功！", 200).show();
 								}
 
 							}
+
 						});
 				builder.setNegativeButton("取消",
 						new DialogInterface.OnClickListener() {
@@ -290,7 +276,16 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 				MessageItem item = (MessageItem) parent
 						.getItemAtPosition(position);
 				// 此处添加item的点击事件
-				Toast.makeText(getApplicationContext(), "111", 200).show();
+				if (mMessageItems.get(0).time
+				.equals("未开始")) {
+					Intent intent = new Intent(Ccoursemage.this,AddcsTable.class);
+					intent.putExtra("per", mMessageItems.get(0).msg);
+					startActivity(intent);
+					overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
+					
+				} else {
+
+				}
 
 			}
 		}
@@ -323,7 +318,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 							delete.setPeriodid(mMessageItems.get(mListView
 									.getPosition()).msg);
 							if (delete.docomfirm().equals("y1")) {
-								iflag=0;
+								iflag = 0;
 								mMessageItems.remove(mListView.getPosition());
 								slideAdapter.notifyDataSetChanged();
 								Toast.makeText(getApplicationContext(),
@@ -348,7 +343,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 							delete.setPeriodid(mMessageItems.get(mListView
 									.getPosition()).msg);
 							if (delete.docomfirm().equals("y1")) {
-								iflag=0;
+								iflag = 0;
 								mMessageItems.remove(mListView.getPosition());
 								slideAdapter.notifyDataSetChanged();
 								Toast.makeText(getApplicationContext(),

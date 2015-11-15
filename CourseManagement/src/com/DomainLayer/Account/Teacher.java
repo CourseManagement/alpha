@@ -46,7 +46,9 @@ public class Teacher extends Activity {
 		password.setSelection(intent.getStringExtra("password").length());// 设置光标位置为末尾
 		
 		Button cgmsg;
+		Button fanh;
 		cgmsg = (Button) findViewById(R.id.title_acomplish);
+		fanh = (Button) findViewById(R.id.title_cancel);
 		cgmsg.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -64,7 +66,24 @@ public class Teacher extends Activity {
 				js.put("birthday", birth.getText().toString());
 				fix.setjsonObject(js);
 				fix.doComfirm();
-				Toast.makeText(getApplicationContext(), "修改成功！", Toast.LENGTH_LONG).show();
+				if (fix.getReturn_flag().equals("y3")) {
+					Toast.makeText(Teacher.this, "修改成功！", Toast.LENGTH_LONG).show();
+					
+				} else {
+					Toast.makeText(Teacher.this, "修改失败！", Toast.LENGTH_LONG).show();
+
+				}
+
+			}
+		});
+		fanh.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+				onBackPressed();
+				overridePendingTransition(android.R.anim.slide_in_left,
+						android.R.anim.slide_out_right); // 切换动画
+				
 
 			}
 		});

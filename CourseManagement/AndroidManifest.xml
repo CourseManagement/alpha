@@ -44,6 +44,7 @@
         <activity android:name="com.DomainLayer.Account.PersonMsg"></activity>
         <activity android:name="com.DomainLayer.Account.Teacher"></activity>
         <activity android:name="com.DomainLayer.Account.Xmanage"></activity>
+        <activity android:name="com.DomainLayer.Course.AddcsTable"></activity>
         
     </application>
 

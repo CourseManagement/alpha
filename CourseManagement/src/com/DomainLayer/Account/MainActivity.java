@@ -60,13 +60,14 @@ public class MainActivity extends Activity {
 //						login.setPswd(pswd);
 //						login.doComfirm();
 //						reString = login.getResult();
-						userID ID=(userID)getApplication();
-						ID.setID("hello");
+//						userID ID=(userID)getApplication();
+//						ID.setID("hello");
 						//根据返回值跳转对应界面
 //						if (reString.equals("y1")) {
 							Intent intent = new Intent();
 							intent.setClass(MainActivity.this, MainManage.class);
 							startActivity(intent);
+							finish();
 							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
 //						}
 //						if (reString.equals("y2")) {

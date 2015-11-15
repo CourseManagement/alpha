@@ -2,7 +2,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FF72CAE1"
-    android:orientation="horizontal">
+    android:orientation="horizontal" >
+
     <Button
         android:id="@+id/title_cancel"
         android:layout_width="70dp"
@@ -11,7 +12,8 @@
         android:layout_margin="5dip"
         android:background="#ADD8E6"
         android:text="返回"
-        android:textColor="#fff"/>
+        android:textColor="#fff" />
+
     <TextView
         android:id="@+id/title_text"
         android:layout_width="wrap_content"
@@ -21,7 +23,8 @@
         android:gravity="center"
         android:text="添加账号 "
         android:textColor="#fff"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
+
     <Button
         android:id="@+id/title_acomplish"
         android:layout_width="70dp"
@@ -30,5 +33,6 @@
         android:layout_margin="5dip"
         android:background="#ADD8E6"
         android:text="取消"
-        android:textColor="#fff"/>
+        android:textColor="#fff" />
+
 </LinearLayout>

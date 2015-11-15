@@ -24,6 +24,7 @@ public class AddXmanage extends Activity {
 		final TextView ps = (TextView) findViewById(R.id.password_edit);
 		final TextView na = (TextView) findViewById(R.id.major_spinner);
 		Button add = (Button) findViewById(R.id.makesure);
+		Button ret = (Button) findViewById(R.id.reset);
 		
 		add.setOnClickListener(new OnClickListener() {
 
@@ -47,6 +48,16 @@ public class AddXmanage extends Activity {
 
 				} 
 				//TODO ¡°n2¡±Î´Öª´íÎó£»¡°n3¡±json¸ñÊ½´íÎó
+			}
+		});
+		ret.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				user.setText("");
+				ps.setText("");
+				na.setText("");
+				
 			}
 		});
 	}

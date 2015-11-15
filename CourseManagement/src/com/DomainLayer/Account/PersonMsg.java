@@ -29,8 +29,8 @@ public class PersonMsg extends Activity {
 		edtPsd = (EditText) findViewById(R.id.edtpsd);
 		edtName = (EditText) findViewById(R.id.edtname);
 		edtPh = (EditText) findViewById(R.id.edtph);
-		
-		//返回服务端信息并显示
+
+		// 返回服务端信息并显示
 		queryClass query = new queryClass();
 		query.setFlag("1");
 		query.setUser_name("y1");
@@ -41,9 +41,9 @@ public class PersonMsg extends Activity {
 		edtPsd.setText(json.getString("password"));
 		edtName.setText(json.getString("name"));
 		edtPh.setText(json.getString("telephone"));
-		edtPsd.setSelection(json.getString("password").length());//设置光标位置为末尾
+		edtPsd.setSelection(json.getString("password").length());// 设置光标位置为末尾
 
-		//提交修改信息
+		// 提交修改信息
 		Button cgmsg;
 		cgmsg = (Button) findViewById(R.id.btchange);
 		cgmsg.setOnClickListener(new OnClickListener() {
@@ -59,12 +59,30 @@ public class PersonMsg extends Activity {
 				js.put("telephone", edtPh.getText().toString());
 				fix.setjsonObject(js);
 				fix.doComfirm();
-				System.out.println(js.toString());
-				Toast.makeText(PersonMsg.this, "修改成功！", Toast.LENGTH_LONG).show();
+				if (fix.getReturn_flag().equals("y1")) {
+					Toast.makeText(PersonMsg.this, "修改成功！", Toast.LENGTH_LONG)
+							.show();
+
+				} else {
+					Toast.makeText(PersonMsg.this, "修改失败！", Toast.LENGTH_LONG)
+							.show();
+
+				}
 
 			}
 		});
+		Button fanh = (Button) findViewById(R.id.title_cancel);
+		fanh.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+				onBackPressed();
+				overridePendingTransition(android.R.anim.slide_in_left,
+						android.R.anim.slide_out_right); // 切换动画
+				
 
+			}
+		});
 	}
 
 }

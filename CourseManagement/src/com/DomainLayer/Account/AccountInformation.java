@@ -50,7 +50,9 @@ public class AccountInformation extends Activity implements
 		setContentView(R.layout.account_information);
 		initView();
 		ImageButton Add;
+		ImageButton fanh;
 		Add = (ImageButton) findViewById(R.id.add_person);
+		fanh = (ImageButton) findViewById(R.id.back);
 		Add.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -60,6 +62,17 @@ public class AccountInformation extends Activity implements
 				startActivity(intent);
 				overridePendingTransition(R.anim.in_from_right,
 						R.anim.out_to_left); // ÇÐ»»¶¯»­
+
+			}
+		});
+		fanh.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				
+				onBackPressed();
+				overridePendingTransition(android.R.anim.slide_in_left,
+						android.R.anim.slide_out_right); // ÇÐ»»¶¯»­
+				
 
 			}
 		});
