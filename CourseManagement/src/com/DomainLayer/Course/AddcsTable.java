@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.DUtils.FileUtils;
 import com.DataLayer.CourseMangementModule.addPeriod;
+import com.DataLayer.CourseMangementModule.beginSelectCourse;
 import com.DataLayer.CourseMangementModule.doUpload;
 import com.DataLayer.CourseMangementModule.getInfoFromExcelAboutCourses;
 import com.DataLayer.CourseMangementModule.queryMajorState;
@@ -53,12 +54,16 @@ public class AddcsTable extends Activity implements OnClickListener {
 	TextView cltest;
 
 	private static final int FILE_SELECT_CODE = 1;
+	private String starttime;
+	private String deadline;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.addcstable);
+		Intent intent = getIntent();
+		periodid = intent.getStringExtra("per");
 
 		btjs = (Button) findViewById(R.id.jsjsy);
 		btjz = (Button) findViewById(R.id.jsjzy);
@@ -70,6 +75,8 @@ public class AddcsTable extends Activity implements OnClickListener {
 		btxa = (Button) findViewById(R.id.xxaq);
 		back = (Button) findViewById(R.id.title_cancel);
 		settime = (Button) findViewById(R.id.settime);
+		bgtest = (TextView) findViewById(R.id.begintext);
+		cltest = (TextView) findViewById(R.id.closetext);
 		// 返回上一级
 		back.setOnClickListener(new OnClickListener() {
 
@@ -101,32 +108,46 @@ public class AddcsTable extends Activity implements OnClickListener {
 										.findViewById(R.id.begin);
 								close = (DatePicker) textEntryView
 										.findViewById(R.id.close);
-								bgtest = (TextView) findViewById(R.id.begintext);
-								cltest = (TextView) findViewById(R.id.closetext);
+
 								int y1, y2, m1, m2, d1, d2;
 								y1 = begin.getYear();
 								y2 = close.getYear();
-								m1 = begin.getMonth();
-								m2 = close.getMonth();
+								m1 = begin.getMonth() + 1;
+								m2 = close.getMonth() + 1;
 								d1 = begin.getDayOfMonth();
 								d2 = close.getDayOfMonth();
+								beginSelectCourse beginSelectCourse = new beginSelectCourse();
+								starttime = String.valueOf(y1) + "-"
+										+ String.valueOf(m1) + "-"
+										+ String.valueOf(d1);
+								deadline = String.valueOf(y2) + "-"
+										+ String.valueOf(m2) + "-"
+										+ String.valueOf(d2);
+								beginSelectCourse.setDeadline(deadline);
+								beginSelectCourse.setStarttime(starttime);
+								beginSelectCourse.setFlag("1");
+								beginSelectCourse.setPeriodid(periodid);
+
 								if (y2 > y1) {
 									bgtest.setText("开始时间：" + y1 + "-" + m1
 											+ "-" + d1);
 									cltest.setText("结束时间：" + y2 + "-" + m2
 											+ "-" + d2);
+									beginSelectCourse.docomfirm();
 
 								} else if (m2 > m1) {
 									bgtest.setText("开始时间：" + y1 + "-" + m1
 											+ "-" + d1);
 									cltest.setText("结束时间：" + y2 + "-" + m2
 											+ "-" + d2);
+									beginSelectCourse.docomfirm();
 
 								} else if (d2 > d1) {
 									bgtest.setText("开始时间：" + y1 + "-" + m1
 											+ "-" + d1);
 									cltest.setText("结束时间：" + y2 + "-" + m2
 											+ "-" + d2);
+									beginSelectCourse.docomfirm();
 
 								} else {
 									Toast.makeText(getApplicationContext(),
@@ -148,11 +169,14 @@ public class AddcsTable extends Activity implements OnClickListener {
 			}
 		});
 
-		Intent intent = getIntent();
 		queryMajorState major = new queryMajorState();
-		periodid = intent.getStringExtra("per");
+
 		major.setPeriodid(periodid);
 		major.docomfirm();
+		starttime = major.getStarttime();
+		deadline = major.getDeadline();
+		bgtest.setText("开始时间：" + starttime);
+		cltest.setText("结束时间：" + deadline);
 		List<majorState> majorstates = new ArrayList<majorState>();
 		majorstates = major.getMajorStates();
 		for (majorState mState : majorstates) {
