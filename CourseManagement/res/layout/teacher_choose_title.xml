@@ -19,16 +19,16 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="历史信息"
+        android:text="开始选课"
         android:textColor="#fff"
         android:textSize="20sp"/>
     <ImageButton
-        android:id="@+id/daochu"
+        android:id="@+id/confirm"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="5dip"
         android:background="#FF72CAE1"
-        android:src="@drawable/daochu"
+        android:src="@drawable/confirm"
         />
 </LinearLayout>
