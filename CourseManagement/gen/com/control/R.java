@@ -597,16 +597,17 @@ public final class R {
         public static final int date_dialog=0x7f03000b;
         public static final int dialog=0x7f03000c;
         public static final int footer=0x7f03000d;
-        public static final int list_item=0x7f03000e;
-        public static final int mainmanage=0x7f03000f;
-        public static final int personmsg=0x7f030010;
-        public static final int personmsg_title=0x7f030011;
-        public static final int slide_view_merge=0x7f030012;
-        public static final int teacher=0x7f030013;
-        public static final int teacher_title=0x7f030014;
-        public static final int title=0x7f030015;
-        public static final int xmanage=0x7f030016;
-        public static final int xmanage_title=0x7f030017;
+        public static final int history=0x7f03000e;
+        public static final int list_item=0x7f03000f;
+        public static final int mainmanage=0x7f030010;
+        public static final int personmsg=0x7f030011;
+        public static final int personmsg_title=0x7f030012;
+        public static final int slide_view_merge=0x7f030013;
+        public static final int teacher=0x7f030014;
+        public static final int teacher_title=0x7f030015;
+        public static final int title=0x7f030016;
+        public static final int xmanage=0x7f030017;
+        public static final int xmanage_title=0x7f030018;
     }
     public static final class menu {
         public static final int main=0x7f090000;
