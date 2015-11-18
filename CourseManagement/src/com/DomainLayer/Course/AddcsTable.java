@@ -50,7 +50,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 	DatePicker close;
 	TextView bgtest;
 	TextView cltest;
-	int[] marflag = {0,0,0,0,0,0,0,0};
+	int[] marflag = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
 	private static final int FILE_SELECT_CODE = 1;
 	private String starttime;
@@ -167,7 +167,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 
 			}
 		});
-		
+
 		queryMajorState major = new queryMajorState();
 
 		major.setPeriodid(periodid);
@@ -266,12 +266,13 @@ public class AddcsTable extends Activity implements OnClickListener {
 		default:
 			break;
 		}
-		
-		if (marflag[Integer.parseInt(majorid)]==1) {
+
+		if (marflag[Integer.parseInt(majorid)] == 1) {
 			Intent intent = new Intent(AddcsTable.this, ShowTable.class);
 			intent.putExtra("major", majorid);
 			intent.putExtra("per", periodid);
 			startActivity(intent);
+			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); // ÇÐ»»¶¯»­
 		} else {
 			Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 			intent.setType("*/*");
