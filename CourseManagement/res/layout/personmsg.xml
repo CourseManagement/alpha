@@ -1,94 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        layout="@layout/personmsg_title" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/per_massage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
     <TextView
         android:id="@+id/showuser"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="31dp"
-        android:layout_marginTop="14dp"
+        android:layout_width="98dp"
+        android:layout_height="41dp"
+        android:textColor="#6CA6CD"
+        android:textSize="24dp" 
         android:text="用户名："
-        android:textSize="20sp" />
+         />
 
     <TextView
         android:id="@+id/showpsd"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
+        android:layout_width="98dp"
+        android:layout_height="41dp"
         android:layout_alignLeft="@+id/showuser"
         android:layout_below="@+id/showuser"
-        android:layout_marginTop="40dp"
-        android:text="密码："
-        android:textSize="20sp" />
+        android:text="密    码："
+        android:textColor="#6CA6CD"
+        android:textSize="24dp" />
 
     <TextView
         android:id="@+id/showname"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
+        android:layout_width="98dp"
+        android:layout_height="41dp"
         android:layout_alignLeft="@+id/showpsd"
         android:layout_below="@+id/showpsd"
-        android:layout_marginTop="40dp"
-        android:text="姓名："
-        android:textSize="20sp" />
+        android:text="姓    名："
+        android:textColor="#6CA6CD"
+        android:textSize="24dp"  />
 
     <TextView
         android:id="@+id/showph"
-        android:layout_width="100dp"
-        android:layout_height="35dp"
+        android:layout_width="98dp"
+        android:layout_height="41dp"
         android:layout_alignLeft="@+id/showname"
         android:layout_below="@+id/showname"
-        android:layout_marginTop="40dp"
-        android:text="手机："
-        android:textSize="20sp" />
+        android:text="手    机："
+         android:textColor="#6CA6CD"
+        android:textSize="24dp" />
 
     <TextView
         android:id="@+id/textusername"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:layout_alignBaseline="@+id/showuser"
-        android:layout_alignBottom="@+id/showuser"
+        android:layout_width="200dp"
+        android:layout_height="41dp"
         android:layout_toRightOf="@+id/showuser"
-        android:text=" "
-        android:textSize="20sp" />
+        android:textColor="#6CA6CD"
+        android:textSize="24dp"
+        android:text=" " />
 
     <EditText
         android:id="@+id/edtpsd"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:layout_alignBaseline="@+id/showpsd"
-        android:layout_alignBottom="@+id/showpsd"
-        android:layout_alignLeft="@+id/textusername"
-        android:ems="10" />
+        android:layout_width="200dp"
+        android:layout_height="41dp"
+        android:layout_below="@id/textusername"
+        android:layout_toRightOf="@+id/showpsd"
+        android:textColor="#6CA6CD"
+        android:textSize="24dp" />
 
     <EditText
         android:id="@+id/edtname"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:layout_alignBaseline="@+id/showname"
-        android:layout_alignBottom="@+id/showname"
-        android:layout_alignLeft="@+id/edtpsd"
-        android:ems="10" />
+        android:layout_width="200dp"
+        android:layout_height="41dp"
+        android:layout_below="@id/edtpsd"
+        android:layout_toRightOf="@+id/showname"
+        android:textColor="#6CA6CD"
+        android:textSize="24dp" />
 
     <EditText
         android:id="@+id/edtph"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
-        android:layout_alignBaseline="@+id/showph"
-        android:layout_alignBottom="@+id/showph"
-        android:layout_alignLeft="@+id/edtname"
-        android:ems="10" />
+        android:layout_width="200dp"
+        android:layout_height="41dp"
+        android:layout_below="@id/edtname"
+        android:layout_toRightOf="@+id/showph"
+        android:textColor="#6CA6CD"
+        android:textSize="24dp" />
 
     <Button
         android:id="@+id/btchange"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="52dp"
         android:layout_below="@+id/showph"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
-        android:text="确认修改" />
-
-</RelativeLayout>
+        android:background="#ADD8E6"
+        android:textColor="#fff"
+        android:text="确认修改" 
+        android:textSize="20dp"/>
+    </RelativeLayout>
+</LinearLayout>

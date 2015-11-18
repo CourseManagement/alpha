@@ -3,23 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+     <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/course"
+    <include
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="报课系统" />
+        android:layout_height="50dp"
+        layout="@layout/choose_title" />
+    </LinearLayout>
+
+     <Button
+         android:id="@+id/course"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="10dp"
+         android:background="#ADD8E6"
+         android:text="报课系统"
+         android:textColor="#fff" />
 
     <Button
         android:id="@+id/account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/course"
+        android:layout_margin="10dp"
+        android:background="#ADD8E6"
+        android:textColor="#fff"
         android:text="账号管理" />
-
-    <Button
-        android:id="@+id/pmsg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="个人信息" />
 
 </LinearLayout>

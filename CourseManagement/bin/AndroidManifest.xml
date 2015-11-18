@@ -3,6 +3,7 @@
     package="com.control"
     android:versionCode="1"
     android:versionName="1.0" >
+
     <!-- SDCard中创建与删除文件权限 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <!-- 向SDCard写入数据权限 -->
@@ -14,20 +15,19 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
-    
 
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
 
     <application
-        android:name="com.DUtils.userID" 
+        android:name="com.DUtils.userID"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.DomainLayer.MainActivity"
+            android:name="com.DomainLayer.Account.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,13 +35,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.DomainLayer.AddTeacher"></activity>
-        <activity android:name="com.DomainLayer.AddXmanage"></activity>
-        <activity android:name="com.DomainLayer.AccountInformation"></activity>
-        <activity android:name="com.DomainLayer.MainManage"></activity>
-        <activity android:name="com.DomainLayer.Teacher"></activity>
-        <activity android:name="com.DomainLayer.Xmanage"></activity>
-        <activity android:name="com.DomainLayer.PersonMsg"></activity>
+        <activity android:name="com.DomainLayer.Account.AccountInformation"></activity>
+        <activity android:name="com.DomainLayer.Account.Addaccount"></activity>
+        <activity android:name="com.DomainLayer.Account.AddTeacher"></activity>
+        <activity android:name="com.DomainLayer.Account.AddXmanage"></activity>
+        <activity android:name="com.DomainLayer.Course.Ccoursemage"></activity>
+        <activity android:name="com.DomainLayer.Account.MainManage"></activity>
+        <activity android:name="com.DomainLayer.Account.PersonMsg"></activity>
+        <activity android:name="com.DomainLayer.Account.Teacher"></activity>
+        <activity android:name="com.DomainLayer.Account.Xmanage"></activity>
+        <activity android:name="com.DomainLayer.Course.AddcsTable"></activity>
+        
     </application>
 
 </manifest>
