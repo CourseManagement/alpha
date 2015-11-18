@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.DUtils.CheckNet;
 import com.DUtils.userID;
 import com.DataLayer.CountManagementModule.loginClass;
+import com.DomainLayer.TeAccount.TeMainManage;
 import com.control.R;
 
 public class MainActivity extends Activity {
@@ -44,8 +45,8 @@ public class MainActivity extends Activity {
 							.show();
 
 				} else if (username.contains("\"") || pswd.contains("\"")) {
-
-					Toast.makeText(MainActivity.this, "请检查输入信息是否正确！", 200);
+					Toast.makeText(MainActivity.this, "请检查输入信息是否正确！", 200)
+							.show();
 
 				} else {
 					// 检查是否联网
@@ -64,7 +65,7 @@ public class MainActivity extends Activity {
 						// 根据返回值跳转对应界面
 						if (reString.equals("y1")) {
 							Intent intent = new Intent();
-							intent.setClass(MainActivity.this, MainManage.class);
+							intent.setClass(MainActivity.this,MainManage.class);
 							startActivity(intent);
 							finish();
 							overridePendingTransition(R.anim.in_from_right,
@@ -72,12 +73,16 @@ public class MainActivity extends Activity {
 						} else if (reString.equals("y2")) {
 
 						} else if (reString.equals("y3")) {
+							Intent intent = new Intent();
+							intent.setClass(MainActivity.this,TeMainManage.class);
+							startActivity(intent);
+							finish();
+							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
 
 						} else if (reString.equals("n1")) {
 
 							Toast.makeText(MainActivity.this, "用户名或密码错误!",
 									Toast.LENGTH_LONG).show();
-
 						} else if (reString.equals("n2")) {
 							Toast.makeText(MainActivity.this, "数据库连接错误！",
 									Toast.LENGTH_LONG).show();
