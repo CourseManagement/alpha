@@ -3,6 +3,7 @@ package com.DomainLayer.Course;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.R.integer;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -49,6 +50,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 	DatePicker close;
 	TextView bgtest;
 	TextView cltest;
+	int[] marflag = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
 	private static final int FILE_SELECT_CODE = 1;
 	private String starttime;
@@ -174,40 +176,48 @@ public class AddcsTable extends Activity implements OnClickListener {
 		deadline = major.getDeadline();
 		bgtest.setText("开始时间：" + starttime);
 		cltest.setText("结束时间：" + deadline);
-		
+
 		majorstates = major.getMajorStates();
 		for (majorState mState : majorstates) {
 			if (mState.getMajor().equals("计算机(实验班)")
 					&& mState.getSituation().equals("1")) {
+				marflag[0] = 1;
 				btjs.setBackgroundColor(getResources().getColor(R.color.green));
 			}
 			if (mState.getMajor().equals("计算机(卓越班)")
 					&& mState.getSituation().equals("1")) {
+				marflag[1] = 1;
 				btjz.setBackgroundColor(getResources().getColor(R.color.green));
 			}
 			if (mState.getMajor().equals("计算机专业")
 					&& mState.getSituation().equals("1")) {
+				marflag[2] = 1;
 				btjsj.setBackgroundColor(getResources().getColor(R.color.green));
 			}
 			if (mState.getMajor().equals("软件工程专业")
 					&& mState.getSituation().equals("1")) {
+				marflag[3] = 1;
 				btrj.setBackgroundColor(getResources().getColor(R.color.green));
 			}
 			if (mState.getMajor().equals("数学类(实验班)")
 					&& mState.getSituation().equals("1")) {
+				marflag[4] = 1;
 				btsxsy.setBackgroundColor(getResources()
 						.getColor(R.color.green));
 			}
 			if (mState.getMajor().equals("数学类")
 					&& mState.getSituation().equals("1")) {
+				marflag[5] = 1;
 				btsx.setBackgroundColor(getResources().getColor(R.color.green));
 			}
 			if (mState.getMajor().equals("网络工程专业")
 					&& mState.getSituation().equals("1")) {
+				marflag[6] = 1;
 				btwl.setBackgroundColor(getResources().getColor(R.color.green));
 			}
 			if (mState.getMajor().equals("信息安全专业")
 					&& mState.getSituation().equals("1")) {
+				marflag[7] = 1;
 				btxa.setBackgroundColor(getResources().getColor(R.color.green));
 			}
 
@@ -256,28 +266,26 @@ public class AddcsTable extends Activity implements OnClickListener {
 		default:
 			break;
 		}
-		Button btn =(Button) this.findViewById(btid);
-		Drawable background = btn.getBackground();
-		ColorDrawable colorDrawable = (ColorDrawable) background;
-		int colorback = colorDrawable.getColor();
-		if (colorback==getResources().getColor(
-				R.color.green)) {
-			Intent intent = new Intent(AddcsTable.this,ShowTable.class);
+
+		if (marflag[Integer.parseInt(majorid)] == 1) {
+			Intent intent = new Intent(AddcsTable.this, ShowTable.class);
+			intent.putExtra("major", majorid);
+			intent.putExtra("per", periodid);
 			startActivity(intent);
-		}
-		else{
-		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-		intent.setType("*/*");
-		intent.addCategory(Intent.CATEGORY_OPENABLE);
-		try {
-			startActivityForResult(
-					Intent.createChooser(intent, "Select a File to Upload"),
-					FILE_SELECT_CODE);
-		} catch (android.content.ActivityNotFoundException ex) {
-			Toast.makeText(getApplicationContext(),
-					"Please install a File Manager.", Toast.LENGTH_SHORT)
-					.show();
-		}
+			overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); // 切换动画
+		} else {
+			Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+			intent.setType("*/*");
+			intent.addCategory(Intent.CATEGORY_OPENABLE);
+			try {
+				startActivityForResult(
+						Intent.createChooser(intent, "Select a File to Upload"),
+						FILE_SELECT_CODE);
+			} catch (android.content.ActivityNotFoundException ex) {
+				Toast.makeText(getApplicationContext(),
+						"Please install a File Manager.", Toast.LENGTH_SHORT)
+						.show();
+			}
 		}
 	}
 
@@ -324,6 +332,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 					Toast.makeText(getApplicationContext(), "插入成功！", 200)
 							.show();
 					Button temBt = (Button) this.findViewById(btid);
+					marflag[Integer.parseInt(majorid)] = 1;
 					temBt.setBackgroundColor(getResources().getColor(
 							R.color.green));
 				} else {
