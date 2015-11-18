@@ -29,7 +29,7 @@ import com.DataLayer.CourseMangementModule.deletePeriod;
 import com.DataLayer.CourseMangementModule.queryPeriod;
 import com.DataLayer.Model.Period;
 import com.DomainLayer.Course.AddcsTable;
-import com.UIxml.ListViewCompat1;
+import com.UIxml.ListViewCompat2;
 import com.UIxml.SlideView;
 import com.UIxml.SlideView.OnSlideListener;
 import com.control.R;
@@ -42,7 +42,7 @@ OnClickListener, OnSlideListener {
 
 	int iflag = 0;// 判断新学期列表中是否有内容
 
-	private ListViewCompat1 mListView;
+	private ListViewCompat2 mListView;
 	SlideAdapter slideAdapter;
 	private List<MessageItem> mMessageItems = new ArrayList<TeMainManage.MessageItem>();
 
@@ -52,7 +52,6 @@ OnClickListener, OnSlideListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// requestWindowFeature(Window.FEATURE_NO_TITLE);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.te_main);
 		queryPeriod period = new queryPeriod();
@@ -64,7 +63,7 @@ OnClickListener, OnSlideListener {
 			
 			if (period2.getFlag().equals("1")) {
 				iflag = 1;
-				mListView = (ListViewCompat1) this.findViewById(R.id.te_listnow);
+				mListView = (ListViewCompat2) this.findViewById(R.id.te_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -77,7 +76,7 @@ OnClickListener, OnSlideListener {
 			}
 			if (period2.getFlag().equals("2")) {
 				iflag = 1;
-				mListView = (ListViewCompat1) this.findViewById(R.id.te_listnow);
+				mListView = (ListViewCompat2) this.findViewById(R.id.te_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -92,7 +91,7 @@ OnClickListener, OnSlideListener {
 			
 			if (period2.getFlag().equals("3") || period2.getFlag().equals("4")) {
 				iflag = 1;
-				mListView = (ListViewCompat1) this.findViewById(R.id.te_listnow);
+				mListView = (ListViewCompat2) this.findViewById(R.id.te_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
