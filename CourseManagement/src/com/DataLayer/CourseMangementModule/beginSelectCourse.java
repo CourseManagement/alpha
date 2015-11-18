@@ -46,6 +46,14 @@ public class beginSelectCourse {
 		this.deadline = deadline;
 	}
 
+	public String getFlag() {
+		return flag;
+	}
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+	}
+
 	public String docomfirm() {
 		// init
 		String result = "";
@@ -57,7 +65,7 @@ public class beginSelectCourse {
 		NameValuePair pair1 = new BasicNameValuePair("periodid", periodid);
 		NameValuePair pair2 = new BasicNameValuePair("starttime", starttime);
 		NameValuePair pair3 = new BasicNameValuePair("deadline", deadline);
-		NameValuePair pair4 = new BasicNameValuePair("deadline", flag);
+		NameValuePair pair4 = new BasicNameValuePair("flag", flag);
 		params.add(pair1);
 		params.add(pair2);
 		params.add(pair3);

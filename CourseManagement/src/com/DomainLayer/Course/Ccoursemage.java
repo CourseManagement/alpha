@@ -63,7 +63,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// requestWindowFeature(Window.FEATURE_NO_TITLE);
-
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.coursemanage);
 		queryPeriod period = new queryPeriod();
 		period.docomfirm();// 连接服务器，获取信息
@@ -123,7 +123,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 		}
 
 		// 添加新学期
-		Button addc = (Button) findViewById(R.id.addcourse);
+		ImageButton addc = (ImageButton) findViewById(R.id.addcourse);
 		addc.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -149,7 +149,8 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 									EditText newper = (EditText) textEntryView
 											.findViewById(R.id.etUserName);
 									addPeriod addper = new addPeriod();
-									addper.setPeriodid(newper.getText().toString());
+									addper.setPeriodid(newper.getText()
+											.toString());
 									addper.docomfirm();
 									iflag = 1;
 									mListView = (ListViewCompat1) findViewById(R.id.listnow);
@@ -176,6 +177,18 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 							}
 						});
 				builder.create().show();
+
+			}
+		});
+		ImageButton back = (ImageButton) findViewById(R.id.back);
+		// 返回上一级
+		back.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+				overridePendingTransition(android.R.anim.slide_in_left,
+						android.R.anim.slide_out_right); // 切换动画
 
 			}
 		});
@@ -276,13 +289,14 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 				MessageItem item = (MessageItem) parent
 						.getItemAtPosition(position);
 				// 此处添加item的点击事件
-				if (mMessageItems.get(0).time
-				.equals("未开始")) {
-					Intent intent = new Intent(Ccoursemage.this,AddcsTable.class);
+				if (mMessageItems.get(0).time.equals("未开始")) {
+					Intent intent = new Intent(Ccoursemage.this,
+							AddcsTable.class);
 					intent.putExtra("per", mMessageItems.get(0).msg);
 					startActivity(intent);
-					overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
-					
+					overridePendingTransition(R.anim.in_from_right,
+							R.anim.out_to_left); // 切换动画
+
 				} else {
 
 				}
