@@ -2,6 +2,7 @@ package com.DomainLayer.Account;
 
 import net.sf.json.JSONObject;
 import android.app.Activity;
+import android.app.Application;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -11,15 +12,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.DUtils.userID;
 import com.DataLayer.CountManagementModule.fixClass;
 import com.DataLayer.CountManagementModule.queryClass;
 import com.control.R;
 
 public class PersonMsg extends Activity {
+	
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.personmsg);
+		userID ID = (userID) getApplication();
 
 		final EditText edtName;
 		final EditText edtPsd;
@@ -33,7 +38,7 @@ public class PersonMsg extends Activity {
 		// 返回服务端信息并显示
 		queryClass query = new queryClass();
 		query.setFlag("1");
-		query.setUser_name("y1");
+		query.setUser_name(ID.getID());
 		query.doComfirm();
 		String jsonstr = query.getReturn_arr().toString();
 		JSONObject json = JSONObject.fromObject(jsonstr);

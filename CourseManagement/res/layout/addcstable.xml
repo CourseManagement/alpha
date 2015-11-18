@@ -24,42 +24,49 @@
         android:id="@+id/jsjzy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="计算机卓越班" />
 
     <Button
         android:id="@+id/jsj"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="计算机" />
 
     <Button
         android:id="@+id/rjgc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="软件工程" />
 
     <Button
         android:id="@+id/sxsy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="数学实验班" />
 
     <Button
         android:id="@+id/sx"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="数学类" />
 
     <Button
         android:id="@+id/wlgc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="网络工程" />
 
     <Button
         android:id="@+id/xxaq"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="信息安全" />
      <TextView
         android:id="@+id/begintext"

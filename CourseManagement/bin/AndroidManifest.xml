@@ -45,6 +45,7 @@
         <activity android:name="com.DomainLayer.Account.Teacher"></activity>
         <activity android:name="com.DomainLayer.Account.Xmanage"></activity>
         <activity android:name="com.DomainLayer.Course.AddcsTable"></activity>
+        <activity android:name="com.DomainLayer.Course.ShowTable"></activity>
         
     </application>
 
