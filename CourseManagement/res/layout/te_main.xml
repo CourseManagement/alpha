@@ -15,13 +15,13 @@
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/te_inf"
+        android:id="@+id/x_inf"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff" >
 
         <com.UIxml.ListViewCompat1
-            android:id="@+id/te_listnow"
+            android:id="@+id/x_listnow"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_alignParentLeft="true"
@@ -39,19 +39,19 @@
             android:id="@+id/te_histr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/te_listnow"
+            android:layout_below="@+id/x_listnow"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="14dp"
             android:text="历史报课信息"
             android:textSize="20dp" />
 
         <ListView
-            android:id="@+id/te_listhis"
+            android:id="@+id/x_listhis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/te_histr"
+            android:layout_below="@+id/x_histr"
             android:layout_marginTop="14dp" >
         </ListView>
     </RelativeLayout>

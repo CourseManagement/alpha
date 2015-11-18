@@ -42,7 +42,7 @@ public class Addaccount extends TabActivity  {
 
             tabHost.setCurrentTab(2);
             
-            Button fanh = (Button) findViewById(R.id.title_cancel);
+            Button fanh = (Button) this.findViewById(R.id.title_cancel);
             fanh.setOnClickListener(new OnClickListener() {
     			@Override
     			public void onClick(View v) {

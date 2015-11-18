@@ -33,10 +33,10 @@ public class AddTeacher extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.addteacher);
 
-		final TextView user = (TextView) findViewById(R.id.gongID_edit);
-		final TextView ps = (TextView) findViewById(R.id.init_password_edit);
-		final TextView na = (TextView) findViewById(R.id.name_edit);
-		Button add = (Button) findViewById(R.id.make_sure);
+		final TextView user = (TextView) this.findViewById(R.id.gongID_edit);
+		final TextView ps = (TextView) this.findViewById(R.id.init_password_edit);
+		final TextView na = (TextView) this.findViewById(R.id.name_edit);
+		Button add = (Button) this.findViewById(R.id.make_sure);
 
 		add.setOnClickListener(new OnClickListener() {
 
@@ -67,7 +67,7 @@ public class AddTeacher extends Activity {
 			}
 		});
 
-		tableimportBt = (Button) findViewById(R.id.tableimport);
+		tableimportBt = (Button) this.findViewById(R.id.tableimport);
 		tableimportBt.setOnClickListener(new OnClickListener() {
 
 			@Override

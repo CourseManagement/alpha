@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.DUtils.CheckNet;
 import com.DUtils.userID;
 import com.DataLayer.CountManagementModule.loginClass;
+import com.DomainLayer.XAccount.XMainManage;
 import com.control.R;
 
 public class MainActivity extends Activity {
@@ -24,11 +25,11 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		final EditText acct = (EditText) findViewById(R.id.userNameText);
-		final EditText passwd = (EditText) findViewById(R.id.passwdText);
+		final EditText acct = (EditText) this.findViewById(R.id.userNameText);
+		final EditText passwd = (EditText) this.findViewById(R.id.passwdText);
 		//响应按钮
 		Button Login;
-		Login = (Button) findViewById(R.id.bnLogin);
+		Login = (Button) this.findViewById(R.id.bnLogin);
 		Login.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -66,7 +67,7 @@ public class MainActivity extends Activity {
 						//根据返回值跳转对应界面
 //						if (reString.equals("y1")) {
 							Intent intent = new Intent();
-							intent.setClass(MainActivity.this, MainManage.class);
+							intent.setClass(MainActivity.this,XMainManage.class);
 							startActivity(intent);
 							finish();
 							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
