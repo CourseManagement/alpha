@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            layout="@layout/course_message_title" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/login_div"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dip"
+        android:layout_margin="10dip"
+        android:background="@drawable/background_login_div_bg">
+        <!-- 起讫周序 -->
+        <TextView
+            android:id="@+id/set_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:text="起讫周序"
+            style="@style/AppTheme"/>
+        <DatePicker
+            android:id="@+id/week"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/set_week"
+            android:singleLine="true"
+            />
+        <!-- 备注text -->
+        <TextView
+            android:id="@+id/remark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/week"
+            android:layout_marginTop="15dp"
+            android:text="备注"
+            style="@style/AppTheme"/>
+        <EditText
+            android:id="@+id/remarkText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/remark"
+            android:hint="请填写备注"
+            android:password="true"
+            android:singleLine="true"
+            />
+    </RelativeLayout>
+    <!-- 课程信息显示 -->
+     <RelativeLayout
+        android:id="@+id/course_massage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff">
+    <TextView
+        android:id="@+id/showgrade"
+         android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:textColor="#6CA6CD"
+        android:textSize="18dp" 
+        android:layout_marginLeft="20dp"
+        android:text="年级："
+         />
+
+    <TextView
+        android:id="@+id/shownum"
+         android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignLeft="@+id/showgrade"
+        android:layout_below="@+id/showgrade"
+        android:text="专业人数："
+        android:textColor="#6CA6CD"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/showmark"
+         android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignLeft="@+id/shownum"
+        android:layout_below="@+id/shownum"
+        android:text="学分："
+        android:textColor="#6CA6CD"
+        android:textSize="18dp"  />
+
+    <TextView
+        android:id="@+id/showtype"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignLeft="@+id/showmark"
+        android:layout_below="@+id/showmark"
+        android:text="选修类型："
+         android:textColor="#6CA6CD"
+        android:textSize="18dp" />
+    
+    <TextView
+        android:id="@+id/showtime"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignLeft="@+id/showtype"
+        android:layout_below="@+id/showtype"
+        android:text="学时："
+         android:textColor="#6CA6CD"
+        android:textSize="18dp" />
+    
+    <TextView
+        android:id="@+id/showsjtime"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignLeft="@+id/showtime"
+        android:layout_below="@+id/showtime"
+        android:text="上机学时："
+         android:textColor="#6CA6CD"
+        android:textSize="18dp" />
+    
+    <TextView
+        android:id="@+id/showptime"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_alignLeft="@+id/showsjtime"
+        android:layout_below="@+id/showsjtime"
+        android:text="实践学时："
+         android:textColor="#6CA6CD"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/grade"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_toRightOf="@+id/showgrade"
+        android:textColor="#6CA6CD"
+        android:textSize="18dp"
+        android:text=" " />
+
+    <TextView
+        android:id="@+id/num"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@id/grade"
+        android:layout_toRightOf="@+id/shownum"
+        android:textColor="#6CA6CD"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/mark"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@id/num"
+        android:layout_toRightOf="@+id/showmark"
+        android:textColor="#6CA6CD"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@id/mark"
+        android:layout_toRightOf="@+id/showtype"
+        android:textColor="#6CA6CD"
+        android:textSize="18dp" />
+    
+    <TextView
+        android:id="@+id/stime"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@id/type"
+        android:layout_toRightOf="@+id/showtime"
+        android:textColor="#6CA6CD"
+        android:textSize="18dp" />
+    
+    <TextView
+        android:id="@+id/sjtime"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@id/stime"
+        android:layout_toRightOf="@+id/showsjtime"
+        android:textColor="#6CA6CD"
+        android:textSize="18dp" />
+    
+    <TextView
+        android:id="@+id/ptime"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
+        android:layout_below="@id/sjtime"
+        android:layout_toRightOf="@+id/showptime"
+        android:textColor="#6CA6CD"
+        android:textSize="18dp" />
+
+    </RelativeLayout>
+    
+
+</LinearLayout>
