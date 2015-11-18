@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
 
 		final EditText acct = (EditText) this.findViewById(R.id.userNameText);
 		final EditText passwd = (EditText) this.findViewById(R.id.passwdText);
-		//响应按钮
+		// 响应按钮
 		Button Login;
 		Login = (Button) this.findViewById(R.id.bnLogin);
 		Login.setOnClickListener(new OnClickListener() {
@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
 
 				final String username = acct.getText().toString();
 				final String pswd = passwd.getText().toString();
-				//判断输入框是否为空或者含有非法符号
+				// 判断输入框是否为空或者含有非法符号
 				if (TextUtils.isEmpty(acct.getText())
 						|| TextUtils.isEmpty(passwd.getText())) {
 
@@ -48,10 +48,8 @@ public class MainActivity extends Activity {
 					Toast.makeText(MainActivity.this, "请检查输入信息是否正确！", 200)
 							.show();
 
-
-				
 				} else {
-					//检查是否联网
+					// 检查是否联网
 					CheckNet checkNet = new CheckNet(
 							getApplicationContext(),
 							(ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE));
@@ -62,24 +60,29 @@ public class MainActivity extends Activity {
 						login.setPswd(pswd);
 						login.doComfirm();
 						reString = login.getResult();
-						userID ID=(userID)getApplication();
+						userID ID = (userID) getApplication();
 						ID.setID(username);
-						//根据返回值跳转对应界面
+						// 根据返回值跳转对应界面
 						if (reString.equals("y1")) {
 							Intent intent = new Intent();
 							intent.setClass(MainActivity.this,MainManage.class);
 							startActivity(intent);
 							finish();
-							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
-						}
-						if (reString.equals("y2")) {
-							
+							overridePendingTransition(R.anim.in_from_right,
+									R.anim.out_to_left); // 切换动画
+						} else if (reString.equals("y2")) {
+
 						} else if (reString.equals("y3")) {
 							Intent intent = new Intent();
 							intent.setClass(MainActivity.this,TeMainManage.class);
 							startActivity(intent);
 							finish();
 							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
+
+						} else if (reString.equals("n1")) {
+
+							Toast.makeText(MainActivity.this, "用户名或密码错误!",
+									Toast.LENGTH_LONG).show();
 						} else if (reString.equals("n2")) {
 							Toast.makeText(MainActivity.this, "数据库连接错误！",
 									Toast.LENGTH_LONG).show();
