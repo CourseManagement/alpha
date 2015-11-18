@@ -51,8 +51,8 @@ public class AccountInformation extends Activity implements
 		initView();
 		ImageButton Add;
 		ImageButton fanh;
-		Add = (ImageButton) findViewById(R.id.add_person);
-		fanh = (ImageButton) findViewById(R.id.back);
+		Add = (ImageButton) this.findViewById(R.id.add_person);
+		fanh = (ImageButton) this.findViewById(R.id.back);
 		Add.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -80,7 +80,7 @@ public class AccountInformation extends Activity implements
 	}
 
 	private void initView() {
-		mListView = (ListViewCompat) findViewById(R.id.list);
+		mListView = (ListViewCompat) this.findViewById(R.id.list);
 		userInfoAllClass userIf = new userInfoAllClass();
 		userIf.setFlag("1");
 		userIf.doComfirm();

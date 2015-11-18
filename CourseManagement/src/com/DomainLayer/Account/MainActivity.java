@@ -24,11 +24,11 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		final EditText acct = (EditText) findViewById(R.id.userNameText);
-		final EditText passwd = (EditText) findViewById(R.id.passwdText);
+		final EditText acct = (EditText) this.findViewById(R.id.userNameText);
+		final EditText passwd = (EditText) this.findViewById(R.id.passwdText);
 		//œÏ”¶∞¥≈•
 		Button Login;
-		Login = (Button) findViewById(R.id.bnLogin);
+		Login = (Button) this.findViewById(R.id.bnLogin);
 		Login.setOnClickListener(new OnClickListener() {
 
 			@Override

@@ -25,10 +25,10 @@ public class PersonMsg extends Activity {
 		final EditText edtPsd;
 		final EditText edtPh;
 		final TextView username;
-		username = (TextView) findViewById(R.id.textusername);
-		edtPsd = (EditText) findViewById(R.id.edtpsd);
-		edtName = (EditText) findViewById(R.id.edtname);
-		edtPh = (EditText) findViewById(R.id.edtph);
+		username = (TextView) this.findViewById(R.id.textusername);
+		edtPsd = (EditText) this.findViewById(R.id.edtpsd);
+		edtName = (EditText) this.findViewById(R.id.edtname);
+		edtPh = (EditText) this.findViewById(R.id.edtph);
 
 		// 返回服务端信息并显示
 		queryClass query = new queryClass();
@@ -45,7 +45,7 @@ public class PersonMsg extends Activity {
 
 		// 提交修改信息
 		Button cgmsg;
-		cgmsg = (Button) findViewById(R.id.btchange);
+		cgmsg = (Button) this.findViewById(R.id.btchange);
 		cgmsg.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -71,7 +71,7 @@ public class PersonMsg extends Activity {
 
 			}
 		});
-		Button fanh = (Button) findViewById(R.id.title_cancel);
+		Button fanh = (Button) this.findViewById(R.id.title_cancel);
 		fanh.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

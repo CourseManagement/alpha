@@ -95,6 +95,7 @@ public class getInfoFromExcelAboutCourses extends Thread {
 						.toString());
 				temcourseInfo.setTesthour(sheet.getCell(8, i).getContents()
 						.toString());
+				temcourseInfo.setCol(String.valueOf(i));
 				lists.add(temcourseInfo);
 				// System.out.println(temcourseInfo.toString());
 			}
