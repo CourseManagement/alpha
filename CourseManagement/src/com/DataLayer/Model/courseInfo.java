@@ -18,6 +18,15 @@ public class courseInfo {
 	private String testhour;
 	private String practicehour;
 	private String type;
+	private String col;
+
+	public String getCol() {
+		return col;
+	}
+
+	public void setCol(String col) {
+		this.col = col;
+	}
 
 	public String getType() {
 		return type;
@@ -97,6 +106,16 @@ public class courseInfo {
 
 	public void setPracticehour(String practicehour) {
 		this.practicehour = practicehour;
+	}
+
+	@Override
+	public String toString() {
+		return "courseInfo [coursename=" + coursename + ", courseid="
+				+ courseid + ", coursegrade=" + coursegrade + ", coursemajor="
+				+ coursemajor + ", coursepeople=" + coursepeople
+				+ ", coursescore=" + coursescore + ", coursehour=" + coursehour
+				+ ", testhour=" + testhour + ", practicehour=" + practicehour
+				+ ", type=" + type + ", col=" + col + "]";
 	}
 
 }

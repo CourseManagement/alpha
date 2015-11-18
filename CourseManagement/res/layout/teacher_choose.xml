@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <LinearLayout
+     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <include
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            layout="@layout/history_title" />
+            layout="@layout/teacher_choose_title" />
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/account_inf"
@@ -18,8 +18,8 @@
         android:layout_height="match_parent"
         android:background="#fff">
 
-    <com.UIxml.ListViewCompat_history
-        android:id="@+id/list_history"
+    <com.UIxml.ListViewCompat_teacher_choose
+        android:id="@+id/list_teacher_choose"
         android:layout_width="match_parent"
         android:layout_height="368dp"
         android:layout_alignParentBottom="true"
@@ -33,8 +33,6 @@
         android:scrollbars="none" />
 
     </RelativeLayout>
-    
-    
     
 
 </LinearLayout>

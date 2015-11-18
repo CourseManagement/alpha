@@ -65,18 +65,18 @@ public class AddcsTable extends Activity implements OnClickListener {
 		Intent intent = getIntent();
 		periodid = intent.getStringExtra("per");
 
-		btjs = (Button) findViewById(R.id.jsjsy);
-		btjz = (Button) findViewById(R.id.jsjzy);
-		btjsj = (Button) findViewById(R.id.jsj);
-		btrj = (Button) findViewById(R.id.rjgc);
-		btsxsy = (Button) findViewById(R.id.sxsy);
-		btsx = (Button) findViewById(R.id.sx);
-		btwl = (Button) findViewById(R.id.wlgc);
-		btxa = (Button) findViewById(R.id.xxaq);
-		back = (Button) findViewById(R.id.title_cancel);
-		settime = (Button) findViewById(R.id.settime);
-		bgtest = (TextView) findViewById(R.id.begintext);
-		cltest = (TextView) findViewById(R.id.closetext);
+		btjs = (Button) this.findViewById(R.id.jsjsy);
+		btjz = (Button) this.findViewById(R.id.jsjzy);
+		btjsj = (Button) this.findViewById(R.id.jsj);
+		btrj = (Button) this.findViewById(R.id.rjgc);
+		btsxsy = (Button) this.findViewById(R.id.sxsy);
+		btsx = (Button) this.findViewById(R.id.sx);
+		btwl = (Button) this.findViewById(R.id.wlgc);
+		btxa = (Button) this.findViewById(R.id.xxaq);
+		back = (Button) this.findViewById(R.id.title_cancel);
+		settime = (Button) this.findViewById(R.id.settime);
+		bgtest = (TextView) this.findViewById(R.id.begintext);
+		cltest = (TextView) this.findViewById(R.id.closetext);
 		// 返回上一级
 		back.setOnClickListener(new OnClickListener() {
 
@@ -315,7 +315,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 				if (result.equals("y1")) {
 					Toast.makeText(getApplicationContext(), "插入成功！", 200)
 							.show();
-					Button temBt = (Button) findViewById(btid);
+					Button temBt = (Button) this.findViewById(btid);
 					temBt.setBackgroundColor(getResources().getColor(
 							R.color.green));
 				} else {

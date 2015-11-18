@@ -25,9 +25,9 @@ public class Xmanage extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.xmanage);
 		
-		final TextView username = (TextView) findViewById(R.id.username1);
-		final EditText password = (EditText) findViewById(R.id.password_edit1);
-		final EditText major = (EditText) findViewById(R.id.major_edit1);
+		final TextView username = (TextView) this.findViewById(R.id.username1);
+		final EditText password = (EditText) this.findViewById(R.id.password_edit1);
+		final EditText major = (EditText) this.findViewById(R.id.major_edit1);
 
 		Intent intent = getIntent();
 		username.setText(intent.getStringExtra("username"));
@@ -37,8 +37,8 @@ public class Xmanage extends Activity {
 		
 		Button cgmsg;
 		Button fanh;
-		cgmsg = (Button) findViewById(R.id.title_acomplish1);
-		fanh = (Button) findViewById(R.id.title_cancel);
+		cgmsg = (Button) this.findViewById(R.id.title_acomplish1);
+		fanh = (Button) this.findViewById(R.id.title_cancel);
 		cgmsg.setOnClickListener(new OnClickListener() {
 
 			@Override

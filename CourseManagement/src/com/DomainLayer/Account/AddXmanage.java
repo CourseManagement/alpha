@@ -20,11 +20,11 @@ public class AddXmanage extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.addxmanage);
 		
-		final TextView user = (TextView) findViewById(R.id.userID_edit);
-		final TextView ps = (TextView) findViewById(R.id.password_edit);
-		final TextView na = (TextView) findViewById(R.id.major_spinner);
-		Button add = (Button) findViewById(R.id.makesure);
-		Button ret = (Button) findViewById(R.id.reset);
+		final TextView user = (TextView) this.findViewById(R.id.userID_edit);
+		final TextView ps = (TextView) this.findViewById(R.id.password_edit);
+		final TextView na = (TextView) this.findViewById(R.id.major_spinner);
+		Button add = (Button) this.findViewById(R.id.makesure);
+		Button ret = (Button) this.findViewById(R.id.reset);
 		
 		add.setOnClickListener(new OnClickListener() {
 
