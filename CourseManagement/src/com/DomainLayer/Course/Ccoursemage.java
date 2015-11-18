@@ -73,7 +73,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 		for (Period period2 : periods) {
 			if (period2.getFlag().equals("1")) {
 				iflag = 1;
-				mListView = (ListViewCompat1) findViewById(R.id.listnow);
+				mListView = (ListViewCompat1) this.findViewById(R.id.listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -86,7 +86,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 			}
 			if (period2.getFlag().equals("2")) {
 				iflag = 1;
-				mListView = (ListViewCompat1) findViewById(R.id.listnow);
+				mListView = (ListViewCompat1) this.findViewById(R.id.listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -100,7 +100,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 			}
 			if (period2.getFlag().equals("3") || period2.getFlag().equals("4")) {
 				iflag = 1;
-				mListView = (ListViewCompat1) findViewById(R.id.listnow);
+				mListView = (ListViewCompat1) this.findViewById(R.id.listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -113,7 +113,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 
 			}
 			if (period2.getFlag().equals("5")) {
-				ListView lv = (ListView) findViewById(R.id.listhis);
+				ListView lv = (ListView) this.findViewById(R.id.listhis);
 				String str = period2.getPeriodid();
 				ListV.add(str);
 				lv.setAdapter(new ArrayAdapter<String>(this,
@@ -123,7 +123,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 		}
 
 		// 添加新学期
-		ImageButton addc = (ImageButton) findViewById(R.id.addcourse);
+		ImageButton addc = (ImageButton) this.findViewById(R.id.addcourse);
 		addc.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -180,7 +180,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 
 			}
 		});
-		ImageButton back = (ImageButton) findViewById(R.id.back);
+		ImageButton back = (ImageButton) this.findViewById(R.id.back);
 		// 返回上一级
 		back.setOnClickListener(new OnClickListener() {
 
@@ -221,11 +221,12 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
+
 			ViewHolder holder;
 			SlideView slideView = (SlideView) convertView;
 			if (slideView == null) {
-				View itemView = mInflater.inflate(R.layout.list_item, null);
 
+				View itemView = mInflater.inflate(R.layout.list_item, null);
 				slideView = new SlideView(Ccoursemage.this);
 				slideView.setContentView(itemView);
 

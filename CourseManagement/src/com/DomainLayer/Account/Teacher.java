@@ -25,14 +25,14 @@ public class Teacher extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.teacher);
 
-		final TextView username = (TextView) findViewById(R.id.username);
-		final EditText password = (EditText) findViewById(R.id.password_edit);
-		final EditText name = (EditText) findViewById(R.id.name_edit);
-		final EditText major = (EditText) findViewById(R.id.major_edit);
-		final EditText mail = (EditText) findViewById(R.id.mail_edit);
-		final EditText phone = (EditText) findViewById(R.id.phone_edit);
-		final EditText sex = (EditText) findViewById(R.id.sex_edit);
-		final EditText birth = (EditText) findViewById(R.id.birthday_edit);
+		final TextView username = (TextView) this.findViewById(R.id.username);
+		final EditText password = (EditText) this.findViewById(R.id.password_edit);
+		final EditText name = (EditText) this.findViewById(R.id.name_edit);
+		final EditText major = (EditText) this.findViewById(R.id.major_edit);
+		final EditText mail = (EditText) this.findViewById(R.id.mail_edit);
+		final EditText phone = (EditText) this.findViewById(R.id.phone_edit);
+		final EditText sex = (EditText) this.findViewById(R.id.sex_edit);
+		final EditText birth = (EditText) this.findViewById(R.id.birthday_edit);
 
 		Intent intent = getIntent();
 		username.setText(intent.getStringExtra("username"));
@@ -47,8 +47,8 @@ public class Teacher extends Activity {
 		
 		Button cgmsg;
 		Button fanh;
-		cgmsg = (Button) findViewById(R.id.title_acomplish);
-		fanh = (Button) findViewById(R.id.title_cancel);
+		cgmsg = (Button) this.findViewById(R.id.title_acomplish);
+		fanh = (Button) this.findViewById(R.id.title_cancel);
 		cgmsg.setOnClickListener(new OnClickListener() {
 
 			@Override

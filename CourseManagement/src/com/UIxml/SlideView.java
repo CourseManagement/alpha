@@ -57,14 +57,14 @@ public class SlideView extends LinearLayout {
 
         setOrientation(LinearLayout.HORIZONTAL);
         View.inflate(mContext, R.layout.slide_view_merge, this);
-        mViewContent = (LinearLayout) findViewById(R.id.view_content);
+        mViewContent = (LinearLayout) this.findViewById(R.id.view_content);
         mHolderWidth = Math.round(TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, mHolderWidth, getResources()
                         .getDisplayMetrics()));
     }
 
     public void setButtonText(CharSequence text) {
-        ((TextView)findViewById(R.id.delete)).setText(text);
+        ((TextView)this.findViewById(R.id.delete)).setText(text);
     }
 
     public void setContentView(View view) {

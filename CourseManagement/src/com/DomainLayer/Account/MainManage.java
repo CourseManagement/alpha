@@ -25,10 +25,10 @@ public class MainManage extends Activity {
 		ImageButton permsg;
 		ImageButton fanh;
 		Button course;
-		course = (Button) findViewById(R.id.course);
-		manage = (Button) findViewById(R.id.account);
-		permsg = (ImageButton) findViewById(R.id.person);
-		fanh = (ImageButton) findViewById(R.id.back);
+		course = (Button) this.findViewById(R.id.course);
+		manage = (Button) this.findViewById(R.id.account);
+		permsg = (ImageButton) this.findViewById(R.id.person);
+		fanh = (ImageButton) this.findViewById(R.id.back);
 		// 跳转账号管理界面
 		manage.setOnClickListener(new OnClickListener() {
 			@Override
