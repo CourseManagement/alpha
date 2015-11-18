@@ -14,7 +14,7 @@
             android:id="@+id/gongID_text"
             android:layout_width="98dp"
             android:layout_height="41dp"
-            android:text="工    号："
+            android:text="工   号："
             android:textColor="#6CA6CD"
             android:textSize="24dp" />
 
@@ -31,7 +31,7 @@
             android:layout_width="98dp"
             android:layout_height="41dp"
             android:layout_below="@id/gongID_text"
-            android:text="密    码："
+            android:text="密   码："
             android:textColor="#6CA6CD"
             android:textSize="24dp" />
 
@@ -49,7 +49,7 @@
             android:layout_width="98dp"
             android:layout_height="41dp"
             android:layout_below="@+id/init_password_text"
-            android:text="姓    名："
+            android:text="姓   名："
             android:textColor="#6CA6CD"
             android:textSize="24dp" />
 

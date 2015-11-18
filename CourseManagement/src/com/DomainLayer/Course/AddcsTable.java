@@ -3,34 +3,30 @@ package com.DomainLayer.Course;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.DUtils.FileUtils;
-import com.DataLayer.CourseMangementModule.addPeriod;
 import com.DataLayer.CourseMangementModule.beginSelectCourse;
 import com.DataLayer.CourseMangementModule.doUpload;
 import com.DataLayer.CourseMangementModule.getInfoFromExcelAboutCourses;
 import com.DataLayer.CourseMangementModule.queryMajorState;
 import com.DataLayer.Model.majorState;
-import com.DomainLayer.Course.Ccoursemage.MessageItem;
-import com.DomainLayer.Course.Ccoursemage.SlideAdapter;
-import com.UIxml.ListViewCompat1;
 import com.control.R;
-
-import android.R.integer;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Window;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class AddcsTable extends Activity implements OnClickListener {
 
@@ -44,6 +40,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 	Button btxa;
 	Button back;
 	Button settime;
+	List<majorState> majorstates = new ArrayList<majorState>();
 	private String majorid;
 	private String periodid;
 	private String path;
@@ -177,7 +174,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 		deadline = major.getDeadline();
 		bgtest.setText("开始时间：" + starttime);
 		cltest.setText("结束时间：" + deadline);
-		List<majorState> majorstates = new ArrayList<majorState>();
+		
 		majorstates = major.getMajorStates();
 		for (majorState mState : majorstates) {
 			if (mState.getMajor().equals("计算机(实验班)")
@@ -259,6 +256,16 @@ public class AddcsTable extends Activity implements OnClickListener {
 		default:
 			break;
 		}
+		Button btn =(Button) this.findViewById(btid);
+		Drawable background = btn.getBackground();
+		ColorDrawable colorDrawable = (ColorDrawable) background;
+		int colorback = colorDrawable.getColor();
+		if (colorback==getResources().getColor(
+				R.color.green)) {
+			Intent intent = new Intent(AddcsTable.this,ShowTable.class);
+			startActivity(intent);
+		}
+		else{
 		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 		intent.setType("*/*");
 		intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -270,6 +277,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 			Toast.makeText(getApplicationContext(),
 					"Please install a File Manager.", Toast.LENGTH_SHORT)
 					.show();
+		}
 		}
 	}
 

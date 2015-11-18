@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.DUtils.CheckNet;
 import com.DUtils.userID;
 import com.DataLayer.CountManagementModule.loginClass;
-import com.DomainLayer.XAccount.XMainManage;
+import com.DomainLayer.TeAccount.TeMainManage;
 import com.control.R;
 
 public class MainActivity extends Activity {
@@ -52,38 +52,42 @@ public class MainActivity extends Activity {
 				
 				} else {
 					//检查是否联网
-//					CheckNet checkNet = new CheckNet(
-//							getApplicationContext(),
-//							(ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE));
-//					if (checkNet.checknet()) {
-//						String reString = "";
-//						loginClass login = new loginClass();
-//						login.setUsername(username);
-//						login.setPswd(pswd);
-//						login.doComfirm();
-//						reString = login.getResult();
-//						userID ID=(userID)getApplication();
-//						ID.setID("hello");
+					CheckNet checkNet = new CheckNet(
+							getApplicationContext(),
+							(ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE));
+					if (checkNet.checknet()) {
+						String reString = "";
+						loginClass login = new loginClass();
+						login.setUsername(username);
+						login.setPswd(pswd);
+						login.doComfirm();
+						reString = login.getResult();
+						userID ID=(userID)getApplication();
+						ID.setID(username);
 						//根据返回值跳转对应界面
-//						if (reString.equals("y1")) {
+						if (reString.equals("y1")) {
 							Intent intent = new Intent();
-							intent.setClass(MainActivity.this,XMainManage.class);
+							intent.setClass(MainActivity.this,MainManage.class);
 							startActivity(intent);
 							finish();
 							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
-//						}
-//						if (reString.equals("y2")) {
-//
-//						} else if (reString.equals("y3")) {
-//
-//						} else if (reString.equals("n2")) {
-//							Toast.makeText(MainActivity.this, "数据库连接错误！",
-//									Toast.LENGTH_LONG).show();
-//						} else if (reString.equals("n4")) {
-//							Toast.makeText(MainActivity.this, "用户不存在！",
-//									Toast.LENGTH_LONG).show();
-//						}
-//					}
+						}
+						if (reString.equals("y2")) {
+							
+						} else if (reString.equals("y3")) {
+							Intent intent = new Intent();
+							intent.setClass(MainActivity.this,TeMainManage.class);
+							startActivity(intent);
+							finish();
+							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //切换动画
+						} else if (reString.equals("n2")) {
+							Toast.makeText(MainActivity.this, "数据库连接错误！",
+									Toast.LENGTH_LONG).show();
+						} else if (reString.equals("n4")) {
+							Toast.makeText(MainActivity.this, "用户不存在！",
+									Toast.LENGTH_LONG).show();
+						}
+					}
 				}
 			}
 		});

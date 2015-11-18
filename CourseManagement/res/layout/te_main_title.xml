@@ -19,7 +19,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="报课系统"
+        android:text="首页"
         android:textColor="#fff"
         android:textSize="20sp"/>
     <ImageButton

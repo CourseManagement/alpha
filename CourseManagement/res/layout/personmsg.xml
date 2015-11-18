@@ -32,7 +32,7 @@
         android:layout_height="41dp"
         android:layout_alignLeft="@+id/showuser"
         android:layout_below="@+id/showuser"
-        android:text="密    码："
+        android:text="密   码："
         android:textColor="#6CA6CD"
         android:textSize="24dp" />
 
@@ -42,7 +42,7 @@
         android:layout_height="41dp"
         android:layout_alignLeft="@+id/showpsd"
         android:layout_below="@+id/showpsd"
-        android:text="姓    名："
+        android:text="姓   名："
         android:textColor="#6CA6CD"
         android:textSize="24dp"  />
 
@@ -52,7 +52,7 @@
         android:layout_height="41dp"
         android:layout_alignLeft="@+id/showname"
         android:layout_below="@+id/showname"
-        android:text="手    机："
+        android:text="手   机："
          android:textColor="#6CA6CD"
         android:textSize="24dp" />
 

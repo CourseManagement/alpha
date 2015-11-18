@@ -34,7 +34,7 @@
             android:layout_width="98dp"
             android:layout_height="41dp"
             android:layout_below="@id/userID_text"
-            android:text="密    码："
+            android:text="密   码："
             android:textColor="#6CA6CD"
             android:textSize="24dp" />
 
@@ -54,7 +54,7 @@
             android:layout_below="@+id/password_text"
             android:textColor="#6CA6CD"
             android:textSize="24dp" 
-            android:text="院    系：" />
+            android:text="院   系：" />
 
         <EditText
             android:id="@+id/major_spinner"
