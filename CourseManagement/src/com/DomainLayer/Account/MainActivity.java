@@ -1,5 +1,5 @@
 package com.DomainLayer.Account;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 		Login = (Button) this.findViewById(R.id.bnLogin);
 		Login.setOnClickListener(new OnClickListener() {
 
-			@Override
+			@SuppressLint("ShowToast") @Override
 			public void onClick(View v) {
 
 				final String username = acct.getText().toString();
