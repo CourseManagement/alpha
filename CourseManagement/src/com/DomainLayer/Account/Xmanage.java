@@ -3,7 +3,6 @@ package com.DomainLayer.Account;
 import net.sf.json.JSONObject;
 
 import com.DataLayer.CountManagementModule.fixClass;
-import com.DataLayer.CountManagementModule.queryClass;
 import com.control.R;
 
 import android.app.Activity;
