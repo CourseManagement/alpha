@@ -7,24 +7,36 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import com.DataLayer.Model.courseInfo;
+import com.DataLayer.Model.teacherAndSelectInfo;
 import com.DataLayer.Runnable.threadAdapterForPost;
+import com.DomainLayer.Account.Teacher;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 /**
  * @parameter *
- *
- *            查询系的课程 通过major和periodid
- * 
- *
  */
-public class queryCourseInfoForMajor {
-	private static String URL = "http://test.micromi.net/service/CourseManagement/queryCoursesForMajor.php";
+public class queryTeacherByCourse {
+	private List<teacherAndSelectInfo> teachers;
+	private String courseid;
 	private String periodid;
-	private String major;
-	private List<courseInfo> courseInfos;
+	private static String URL = "http://test.micromi.net/service/CourseManagement/queryteacherBycourse.php";
 
+	public List<teacherAndSelectInfo> getTeachers() {
+		return teachers;
+	}
 
+	public void setTeachers(List<teacherAndSelectInfo> teachers) {
+		this.teachers = teachers;
+	}
+
+	public String getCourseid() {
+		return courseid;
+	}
+
+	public void setCourseid(String courseid) {
+		this.courseid = courseid;
+	}
 
 	public String getPeriodid() {
 		return periodid;
@@ -34,34 +46,18 @@ public class queryCourseInfoForMajor {
 		this.periodid = periodid;
 	}
 
-	
-
-	public String getMajor() {
-		return major;
-	}
-
-	public void setMajor(String major) {
-		this.major = major;
-	}
-
-	public List<courseInfo> getCourseInfos() {
-		return courseInfos;
-	}
-
-	public void setCourseInfos(List<courseInfo> courseInfos) {
-		this.courseInfos = courseInfos;
-	}
-
+	//
 	public String docomfirm() {
 		// init
 		String result = "";
 		Gson gson = new Gson();
 
 		// pre
+		teachers = new ArrayList<teacherAndSelectInfo>();
 		threadAdapterForPost nthread = new threadAdapterForPost();
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		NameValuePair pair1 = new BasicNameValuePair("periodid", periodid);
-		NameValuePair pair2 = new BasicNameValuePair("major", major);
+		NameValuePair pair2 = new BasicNameValuePair("courseid", courseid);
 		params.add(pair1);
 		params.add(pair2);
 		nthread.setUrlString(URL);
@@ -78,11 +74,10 @@ public class queryCourseInfoForMajor {
 
 		// result
 		result = nthread.getJsonObject().get("return_flag").toString();
-		courseInfos = gson.fromJson(nthread.getJsonObject()
-				.getJSONArray("result_arr").toString(),
-				new TypeToken<List<courseInfo>>() {
+		teachers = gson.fromJson(
+				nthread.getJsonObject().getJSONArray("result_arr").toString(),
+				new TypeToken<List<teacherAndSelectInfo>>() {
 				}.getType());
 		return result;
 	}
-
 }

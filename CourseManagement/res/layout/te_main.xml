@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            layout="@layout/te_main_title" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/te_inf"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff" >
+
+        <com.UIxml.ListViewCompat2
+            android:id="@+id/te_listnow"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="#fff4f7f9"
+            android:cacheColorHint="#00000000"
+            android:divider="#dddbdb"
+            android:dividerHeight="1.0px"
+            android:drawSelectorOnTop="false"
+            android:listSelector="@android:color/transparent"
+            android:scrollbars="none" >
+        </com.UIxml.ListViewCompat2>
+
+        <TextView
+            android:id="@+id/te_histr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/te_listnow"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:text="历史报课信息"
+            android:textSize="20dp" />
+
+        <ListView
+            android:id="@+id/te_listhis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/te_histr"
+            android:layout_marginTop="14dp" >
+        </ListView>
+    </RelativeLayout>
+
+</LinearLayout>

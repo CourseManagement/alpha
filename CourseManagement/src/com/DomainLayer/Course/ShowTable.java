@@ -4,22 +4,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.DUtils.FileUtils;
+import com.DataLayer.CourseMangementModule.addPeriod;
 import com.DataLayer.CourseMangementModule.doUpload;
 import com.DataLayer.CourseMangementModule.getInfoFromExcelAboutCourses;
 import com.DataLayer.CourseMangementModule.queryCourseInfoForMajor;
 import com.DataLayer.Model.courseInfo;
+import com.DomainLayer.Course.Ccoursemage.MessageItem;
+import com.DomainLayer.Course.Ccoursemage.SlideAdapter;
+import com.UIxml.ListViewCompat1;
 import com.control.R;
 
 public class ShowTable extends Activity {
@@ -42,14 +53,13 @@ public class ShowTable extends Activity {
 		periodid = intent.getStringExtra("per");
 		String major = majorid;
 		String per = periodid;
-		List<courseInfo> lvcourseInfo = new ArrayList<courseInfo>();
 		ListView lv = (ListView) this.findViewById(R.id.lvcourse);
 		List<String> Courselv = new ArrayList<String>();
 		queryCourseInfoForMajor queyrCou = new queryCourseInfoForMajor();
 		queyrCou.setMajor(major);
 		queyrCou.setPeriodid(per);
 		queyrCou.docomfirm();
-		lvcourseInfo = queyrCou.getCourseInfos();
+		final List<courseInfo> lvcourseInfo = queyrCou.getCourseInfos();
 		for (courseInfo courseInfo1 : lvcourseInfo) {
 			String str = courseInfo1.getCoursename();
 			Courselv.add(str);
@@ -88,6 +98,45 @@ public class ShowTable extends Activity {
 				}
 			}
 		});
+		lv.setOnItemClickListener(new OnItemClickListener(){
+			 
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+                    long arg3) {
+                // TODO Auto-generated method stub
+            	
+            	AlertDialog.Builder builder = new AlertDialog.Builder(
+						ShowTable.this);
+				LayoutInflater factory = LayoutInflater.from(ShowTable.this);
+				final View textEntryView = factory.inflate(R.layout.coursemsg_dialog,
+						null);
+				builder.setView(textEntryView);
+				courseInfo Info = lvcourseInfo.get(position);
+				TextView nianji =  (TextView) textEntryView.findViewById(R.id.nianji);
+				TextView zhuanye =  (TextView) textEntryView.findViewById(R.id.zhuanye);
+				TextView renshu =  (TextView) textEntryView.findViewById(R.id.renshu);
+				TextView mingchen =  (TextView) textEntryView.findViewById(R.id.mingchen);
+				TextView leixing =  (TextView) textEntryView.findViewById(R.id.leixing);
+				TextView xuefen =  (TextView) textEntryView.findViewById(R.id.xuefen);
+				TextView xueshi =  (TextView) textEntryView.findViewById(R.id.xueshi);
+				TextView shiyan =  (TextView) textEntryView.findViewById(R.id.shiyan);
+				TextView shangji =  (TextView) textEntryView.findViewById(R.id.shangji);
+				
+				nianji.setText("年级："+Info.getCoursegrade());
+				zhuanye.setText("专业："+Info.getCoursemajor());
+				renshu.setText("专业人数："+Info.getCoursepeople());
+				mingchen.setText("课程名称："+Info.getCoursename());
+				leixing.setText("选修类型："+Info.getType());
+				xuefen.setText("学分："+Info.getCoursescore());
+				xueshi.setText("学时："+Info.getCoursehour());
+				shiyan.setText("实验学时："+Info.getPracticehour());
+				shangji.setText("上机学时："+Info.getTesthour());
+				builder.setTitle("课程详情");
+				builder.create().show();
+
+			}
+             
+        });
 
 	}
 
