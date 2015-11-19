@@ -14,7 +14,7 @@ import com.google.gson.reflect.TypeToken;
 /**
  * @parameter *
  *
- *            查询单个课程 通过课程id和periodid
+ *            查询系的课程 通过major和periodid
  * 
  *
  */
