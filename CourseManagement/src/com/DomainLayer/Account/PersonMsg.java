@@ -50,7 +50,7 @@ public class PersonMsg extends Activity {
 
 		// 提交修改信息
 		Button cgmsg;
-		cgmsg = (Button) this.findViewById(R.id.btchange);
+		cgmsg = (Button) this.findViewById(R.id.title_acomplish);
 		cgmsg.setOnClickListener(new OnClickListener() {
 
 			@Override

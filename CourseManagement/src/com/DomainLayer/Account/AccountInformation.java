@@ -60,6 +60,7 @@ public class AccountInformation extends Activity implements
 				Intent intent = new Intent();
 				intent.setClass(AccountInformation.this, Addaccount.class);
 				startActivity(intent);
+				finish();
 				overridePendingTransition(R.anim.in_from_right,
 						R.anim.out_to_left); // ÇÐ»»¶¯»­
 

@@ -70,20 +70,17 @@ public class MainActivity extends Activity {
 							Intent intent = new Intent();
 							intent.setClass(MainActivity.this,MainManage.class);
 							startActivity(intent);
-							finish();
 							overridePendingTransition(R.anim.in_from_right,
 									R.anim.out_to_left); // ÇÐ»»¶¯»­
 						} else if (reString.equals("y2")) {
 							Intent intent = new Intent();
 							intent.setClass(MainActivity.this,XMainManage.class);
 							startActivity(intent);
-							finish();
 							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //ÇÐ»»¶¯»­
 						} else if (reString.equals("y3")) {
 							Intent intent = new Intent();
 							intent.setClass(MainActivity.this,TeMainManage.class);
 							startActivity(intent);
-							finish();
 							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //ÇÐ»»¶¯»­
 
 						} else if (reString.equals("n1")) {
