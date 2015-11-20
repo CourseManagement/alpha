@@ -51,6 +51,8 @@
         <activity android:name="com.DomainLayer.XAccount.XPersonMsg"></activity>
         <activity android:name="com.DomainLayer.Course.ShowTable"></activity>
         <activity android:name="com.DomainLayer.TeAccount.SelectCourse"></activity>
+        <activity android:name="com.DomainLayer.XAccount.CheckSelectInfo"></activity>
+        <activity android:name="com.DomainLayer.XAccount.showCourseInfoAndSelectedTeacher"></activity>
 
         
     </application>

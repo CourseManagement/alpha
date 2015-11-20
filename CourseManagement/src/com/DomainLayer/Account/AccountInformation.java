@@ -93,7 +93,6 @@ public class AccountInformation extends Activity implements
 			item.iconRes = R.drawable.default_qq_avatar;
 			item.title = "系负责人";
 			item.msg = Item.getUser_name();
-			item.time = "18:18";
 			item.password = Item.getPassword();
 			item.department = Item.getDepartment();
 			mMessageItems.add(item);
@@ -111,7 +110,6 @@ public class AccountInformation extends Activity implements
 			item.iconRes = R.drawable.default_qq_avatar;
 			item.title = "教师";
 			item.msg = Item.getUser_name();
-			item.time = "18:18";
 			item.name = Item.getName();
 			item.password = Item.getPassword();
 			item.email = Item.getEmail();

@@ -1,6 +1,8 @@
 package com.DomainLayer.XAccount;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -18,7 +20,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.DUtils.CheckNet;
+import com.DUtils.userID;
 import com.DataLayer.CourseMangementModule.queryPeriod;
 import com.DataLayer.Model.Period;
 import com.UIxml.ListViewCompat3;
@@ -56,8 +60,7 @@ public class XMainManage extends Activity implements OnItemClickListener,
 
 			if (period2.getFlag().equals("1")) {
 				iflag = 1;
-				mListView = (ListViewCompat3) this
-						.findViewById(R.id.x_listnow);
+				mListView = (ListViewCompat3) this.findViewById(R.id.x_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -69,9 +72,8 @@ public class XMainManage extends Activity implements OnItemClickListener,
 				mListView.setOnItemClickListener(this);
 			}
 			if (period2.getFlag().equals("2")) {
-				iflag = 1;
-				mListView = (ListViewCompat3) this
-						.findViewById(R.id.x_listnow);
+				iflag = 2;
+				mListView = (ListViewCompat3) this.findViewById(R.id.x_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -84,15 +86,28 @@ public class XMainManage extends Activity implements OnItemClickListener,
 
 			}
 
-			if (period2.getFlag().equals("3") || period2.getFlag().equals("4")) {
-				iflag = 1;
-				mListView = (ListViewCompat3) this
-						.findViewById(R.id.x_listnow);
+			if (period2.getFlag().equals("3")) {
+				iflag = 3;
+				mListView = (ListViewCompat3) this.findViewById(R.id.x_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "进行中";
+				mMessageItems.add(item);
+				slideAdapter = new SlideAdapter();
+				mListView.setAdapter(slideAdapter);
+				mListView.setOnItemClickListener(this);
+
+			}
+			if (period2.getFlag().equals("4")) {
+				iflag = 4;
+				mListView = (ListViewCompat3) this.findViewById(R.id.x_listnow);
+				MessageItem item = new MessageItem();
+				item.iconRes = R.drawable.default_qq_avatar;
+				item.title = "新学期";
+				item.msg = period2.getPeriodid();
+				item.time = "系负责人审核中";
 				mMessageItems.add(item);
 				slideAdapter = new SlideAdapter();
 				mListView.setAdapter(slideAdapter);
@@ -234,6 +249,17 @@ public class XMainManage extends Activity implements OnItemClickListener,
 				MessageItem item = (MessageItem) parent
 						.getItemAtPosition(position);
 				// 此处添加item的点击事件
+
+				String periodid = "";
+				if (item.time.equals("系负责人审核中")) {
+					periodid = mMessageItems.get(0).msg;
+					Intent intent = new Intent(XMainManage.this,
+							CheckSelectInfo.class);
+					intent.putExtra("periodid", periodid);
+					startActivity(intent);
+					overridePendingTransition(R.anim.in_from_right,
+							R.anim.out_to_left); // 切换动画
+				}
 
 				// if (mMessageItems.get(0).time.equals("未开始")) {
 				// Intent intent = new Intent(TeMainManage.this,

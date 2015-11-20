@@ -309,6 +309,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 							AddcsTable.class);
 					intent.putExtra("per", mMessageItems.get(0).msg);
 					startActivity(intent);
+					finish();
 					overridePendingTransition(R.anim.in_from_right,
 							R.anim.out_to_left); // 切换动画
 
@@ -337,7 +338,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 		if (v.getId() == R.id.left_holder) {
 			Log.e(TAG, "onClick v=" + v);
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("提示").setMessage("确定删除此条信息？")
+			builder.setTitle("提示").setMessage("确定删除此条报课信息？")
 					.setNegativeButton("取消", null);
 			builder.setPositiveButton("删除",
 					new DialogInterface.OnClickListener() {
@@ -363,7 +364,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 		} else if (v.getId() == R.id.right_holder) {
 			Log.e(TAG, "onClick v=" + v);
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("提示").setMessage("确定删除此条信息？")
+			builder.setTitle("提示").setMessage("确定删除此条报课信息？")
 					.setNegativeButton("取消", null);
 			builder.setPositiveButton("删除",
 					new DialogInterface.OnClickListener() {

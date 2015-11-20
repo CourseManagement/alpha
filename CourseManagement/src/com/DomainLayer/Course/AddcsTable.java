@@ -41,6 +41,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 	Button btxa;
 	Button back;
 	Button settime;
+	Button complish;
 	List<majorState> majorstates = new ArrayList<majorState>();
 	private String majorid;
 	private String periodid;
@@ -51,6 +52,8 @@ public class AddcsTable extends Activity implements OnClickListener {
 	TextView bgtest;
 	TextView cltest;
 	int[] marflag = { 0, 0, 0, 0, 0, 0, 0, 0 };
+	int timeflag = 0;
+	
 
 	private static final int FILE_SELECT_CODE = 1;
 	private String starttime;
@@ -73,6 +76,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 		btwl = (Button) this.findViewById(R.id.wlgc);
 		btxa = (Button) this.findViewById(R.id.xxaq);
 		back = (Button) this.findViewById(R.id.title_cancel);
+		complish = (Button) this.findViewById(R.id.title_acomplish);
 		settime = (Button) this.findViewById(R.id.settime);
 		bgtest = (TextView) this.findViewById(R.id.begintext);
 		cltest = (TextView) this.findViewById(R.id.closetext);
@@ -81,10 +85,46 @@ public class AddcsTable extends Activity implements OnClickListener {
 
 			@Override
 			public void onClick(View v) {
-				onBackPressed();
+				Intent intent = new Intent(AddcsTable.this,Ccoursemage.class);
+				startActivity(intent);
+				finish();
 				overridePendingTransition(android.R.anim.slide_in_left,
 						android.R.anim.slide_out_right); // 切换动画
 
+			}
+		});
+		complish.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				int n = 0;
+				for (int i = 0; i < 8; i++) {
+					if (marflag[1]==0) {
+						n=1;
+					}
+				}
+				if (n==0 && timeflag==1) {
+					beginSelectCourse beginSelectCourse = new beginSelectCourse();
+					beginSelectCourse.setPeriodid(periodid);
+					beginSelectCourse.setFlag("2");
+					beginSelectCourse.setStarttime(starttime);
+					beginSelectCourse.setDeadline(deadline);
+					if (beginSelectCourse.docomfirm().equals("y1")) {
+						Intent intent = new Intent(AddcsTable.this,Ccoursemage.class);
+						startActivity(intent);
+						finish();
+						overridePendingTransition(android.R.anim.slide_in_left,
+								android.R.anim.slide_out_right); // 切换动画
+						
+					} else {
+						Toast.makeText(getApplicationContext(), "提交失败，请重试！", 200).show();
+					}
+					
+				} else {
+					Toast.makeText(getApplicationContext(), "课表未完全导入或未设置时间", 200).show();
+				}
+				
+				
 			}
 		});
 		settime.setOnClickListener(new OnClickListener() {
@@ -133,6 +173,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 									cltest.setText("结束时间：" + y2 + "-" + m2
 											+ "-" + d2);
 									beginSelectCourse.docomfirm();
+									timeflag = 1;
 
 								} else if (m2 > m1) {
 									bgtest.setText("开始时间：" + y1 + "-" + m1
@@ -140,6 +181,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 									cltest.setText("结束时间：" + y2 + "-" + m2
 											+ "-" + d2);
 									beginSelectCourse.docomfirm();
+									timeflag = 1;
 
 								} else if (d2 > d1) {
 									bgtest.setText("开始时间：" + y1 + "-" + m1
@@ -147,6 +189,7 @@ public class AddcsTable extends Activity implements OnClickListener {
 									cltest.setText("结束时间：" + y2 + "-" + m2
 											+ "-" + d2);
 									beginSelectCourse.docomfirm();
+									timeflag = 1;
 
 								} else {
 									Toast.makeText(getApplicationContext(),
@@ -176,6 +219,11 @@ public class AddcsTable extends Activity implements OnClickListener {
 		deadline = major.getDeadline();
 		bgtest.setText("开始时间：" + starttime);
 		cltest.setText("结束时间：" + deadline);
+		if (starttime.equals("0000-00-00")) {
+			
+		}else {
+			timeflag = 1;
+		}
 
 		majorstates = major.getMajorStates();
 		for (majorState mState : majorstates) {
