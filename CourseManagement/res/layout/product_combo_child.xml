@@ -20,19 +20,35 @@
             android:layout_marginBottom="5dp"
             android:layout_marginTop="10dp"
             android:ellipsize="end"
+            android:maxEms="10"
             android:paddingLeft="10dp"
             android:paddingRight="5dp"
             android:singleLine="true"
-            android:text="赠品：多美滋奶粉盒"
-            android:textColor="#33342f"
+            android:text="课程"
+            android:textColor="#6CA6CD"
             android:textSize="16sp" />
 
         <CheckBox
             android:id="@+id/selectCourse"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/shzhouxu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            />
+            android:text=""
+            android:textColor="#FF0000" />
+
+        <TextView
+            android:id="@+id/shbeizhu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text=""
+            android:textColor="#FF0000" />
     </LinearLayout>
 
     <View

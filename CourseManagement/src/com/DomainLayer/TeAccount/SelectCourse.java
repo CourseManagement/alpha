@@ -1,9 +1,10 @@
 package com.DomainLayer.TeAccount;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -16,16 +17,23 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.DUtils.CollapsableLinearLayout;
 import com.DUtils.PromProductBean;
 import com.DUtils.PromotionInfoBean;
+import com.DataLayer.CourseMangementModule.addPeriod;
 import com.DataLayer.CourseMangementModule.queryCourseInfoForMajor;
 import com.DataLayer.Model.courseInfo;
+import com.DomainLayer.Course.Ccoursemage;
+import com.DomainLayer.Course.Ccoursemage.MessageItem;
+import com.DomainLayer.Course.Ccoursemage.SlideAdapter;
+import com.UIxml.ListViewCompat1;
 import com.control.R;
 
 	public class SelectCourse extends Activity implements OnCheckedChangeListener,OnClickListener{
@@ -66,6 +74,16 @@ import com.control.R;
 			for (courseInfo courseInfo1 : lvcourseInfo) {
 				PromProductBean mPromProductBean1 = new PromProductBean();
 				mPromProductBean1.ProductName = courseInfo1.getCoursename();
+				mPromProductBean1.courseid = courseInfo1.getCourseid();
+				mPromProductBean1.coursegrade = courseInfo1.getCoursegrade();
+				mPromProductBean1.coursemajor = courseInfo1.getCoursemajor();
+				mPromProductBean1.coursepeople = courseInfo1.getCoursepeople();
+				mPromProductBean1.coursescore = courseInfo1.getCoursescore();
+				mPromProductBean1.coursehour = courseInfo1.getCoursehour();
+				mPromProductBean1.practicehour = courseInfo1.getPracticehour();
+				mPromProductBean1.type = courseInfo1.getType();
+				mPromProductBean1.testhour = courseInfo1.getTesthour();
+				mPromProductBean1.practicehour = courseInfo1.getPracticehour();
 				mPromotionInfoBean1.PromProducts.add(mPromProductBean1);
 				
 			}
@@ -79,6 +97,16 @@ import com.control.R;
 			for (courseInfo courseInfo1 : lvcourseInfo) {
 				PromProductBean mPromProductBean2 = new PromProductBean();
 				mPromProductBean2.ProductName = courseInfo1.getCoursename();
+				mPromProductBean2.courseid = courseInfo1.getCourseid();
+				mPromProductBean2.coursegrade = courseInfo1.getCoursegrade();
+				mPromProductBean2.coursemajor = courseInfo1.getCoursemajor();
+				mPromProductBean2.coursepeople = courseInfo1.getCoursepeople();
+				mPromProductBean2.coursescore = courseInfo1.getCoursescore();
+				mPromProductBean2.coursehour = courseInfo1.getCoursehour();
+				mPromProductBean2.practicehour = courseInfo1.getPracticehour();
+				mPromProductBean2.type = courseInfo1.getType();
+				mPromProductBean2.testhour = courseInfo1.getTesthour();
+				mPromProductBean2.practicehour = courseInfo1.getPracticehour();
 				mPromotionInfoBean2.PromProducts.add(mPromProductBean2);
 				
 			}
@@ -92,6 +120,16 @@ import com.control.R;
 			for (courseInfo courseInfo1 : lvcourseInfo) {
 				PromProductBean mPromProductBean3 = new PromProductBean();
 				mPromProductBean3.ProductName = courseInfo1.getCoursename();
+				mPromProductBean3.courseid = courseInfo1.getCourseid();
+				mPromProductBean3.coursegrade = courseInfo1.getCoursegrade();
+				mPromProductBean3.coursemajor = courseInfo1.getCoursemajor();
+				mPromProductBean3.coursepeople = courseInfo1.getCoursepeople();
+				mPromProductBean3.coursescore = courseInfo1.getCoursescore();
+				mPromProductBean3.coursehour = courseInfo1.getCoursehour();
+				mPromProductBean3.practicehour = courseInfo1.getPracticehour();
+				mPromProductBean3.type = courseInfo1.getType();
+				mPromProductBean3.testhour = courseInfo1.getTesthour();
+				mPromProductBean3.practicehour = courseInfo1.getPracticehour();
 				mPromotionInfoBean3.PromProducts.add(mPromProductBean3);
 				
 			}
@@ -105,6 +143,16 @@ import com.control.R;
 			for (courseInfo courseInfo1 : lvcourseInfo) {
 				PromProductBean mPromProductBean4 = new PromProductBean();
 				mPromProductBean4.ProductName = courseInfo1.getCoursename();
+				mPromProductBean4.courseid = courseInfo1.getCourseid();
+				mPromProductBean4.coursegrade = courseInfo1.getCoursegrade();
+				mPromProductBean4.coursemajor = courseInfo1.getCoursemajor();
+				mPromProductBean4.coursepeople = courseInfo1.getCoursepeople();
+				mPromProductBean4.coursescore = courseInfo1.getCoursescore();
+				mPromProductBean4.coursehour = courseInfo1.getCoursehour();
+				mPromProductBean4.practicehour = courseInfo1.getPracticehour();
+				mPromProductBean4.type = courseInfo1.getType();
+				mPromProductBean4.testhour = courseInfo1.getTesthour();
+				mPromProductBean4.practicehour = courseInfo1.getPracticehour();
 				mPromotionInfoBean4.PromProducts.add(mPromProductBean4);
 				
 			}
@@ -118,6 +166,16 @@ import com.control.R;
 			for (courseInfo courseInfo1 : lvcourseInfo) {
 				PromProductBean mPromProductBean5 = new PromProductBean();
 				mPromProductBean5.ProductName = courseInfo1.getCoursename();
+				mPromProductBean5.courseid = courseInfo1.getCourseid();
+				mPromProductBean5.coursegrade = courseInfo1.getCoursegrade();
+				mPromProductBean5.coursemajor = courseInfo1.getCoursemajor();
+				mPromProductBean5.coursepeople = courseInfo1.getCoursepeople();
+				mPromProductBean5.coursescore = courseInfo1.getCoursescore();
+				mPromProductBean5.coursehour = courseInfo1.getCoursehour();
+				mPromProductBean5.practicehour = courseInfo1.getPracticehour();
+				mPromProductBean5.type = courseInfo1.getType();
+				mPromProductBean5.testhour = courseInfo1.getTesthour();
+				mPromProductBean5.practicehour = courseInfo1.getPracticehour();
 				mPromotionInfoBean5.PromProducts.add(mPromProductBean5);
 				
 			}
@@ -131,6 +189,16 @@ import com.control.R;
 			for (courseInfo courseInfo1 : lvcourseInfo) {
 				PromProductBean mPromProductBean6 = new PromProductBean();
 				mPromProductBean6.ProductName = courseInfo1.getCoursename();
+				mPromProductBean6.courseid = courseInfo1.getCourseid();
+				mPromProductBean6.coursegrade = courseInfo1.getCoursegrade();
+				mPromProductBean6.coursemajor = courseInfo1.getCoursemajor();
+				mPromProductBean6.coursepeople = courseInfo1.getCoursepeople();
+				mPromProductBean6.coursescore = courseInfo1.getCoursescore();
+				mPromProductBean6.coursehour = courseInfo1.getCoursehour();
+				mPromProductBean6.practicehour = courseInfo1.getPracticehour();
+				mPromProductBean6.type = courseInfo1.getType();
+				mPromProductBean6.testhour = courseInfo1.getTesthour();
+				mPromProductBean6.practicehour = courseInfo1.getPracticehour();
 				mPromotionInfoBean6.PromProducts.add(mPromProductBean6);
 				
 			}
@@ -144,6 +212,16 @@ import com.control.R;
 			for (courseInfo courseInfo1 : lvcourseInfo) {
 				PromProductBean mPromProductBean7 = new PromProductBean();
 				mPromProductBean7.ProductName = courseInfo1.getCoursename();
+				mPromProductBean7.courseid = courseInfo1.getCourseid();
+				mPromProductBean7.coursegrade = courseInfo1.getCoursegrade();
+				mPromProductBean7.coursemajor = courseInfo1.getCoursemajor();
+				mPromProductBean7.coursepeople = courseInfo1.getCoursepeople();
+				mPromProductBean7.coursescore = courseInfo1.getCoursescore();
+				mPromProductBean7.coursehour = courseInfo1.getCoursehour();
+				mPromProductBean7.practicehour = courseInfo1.getPracticehour();
+				mPromProductBean7.type = courseInfo1.getType();
+				mPromProductBean7.testhour = courseInfo1.getTesthour();
+				mPromProductBean7.practicehour = courseInfo1.getPracticehour();
 				mPromotionInfoBean7.PromProducts.add(mPromProductBean7);
 				
 			}
@@ -157,6 +235,16 @@ import com.control.R;
 			for (courseInfo courseInfo1 : lvcourseInfo) {
 				PromProductBean mPromProductBean8 = new PromProductBean();
 				mPromProductBean8.ProductName = courseInfo1.getCoursename();
+				mPromProductBean8.courseid = courseInfo1.getCourseid();
+				mPromProductBean8.coursegrade = courseInfo1.getCoursegrade();
+				mPromProductBean8.coursemajor = courseInfo1.getCoursemajor();
+				mPromProductBean8.coursepeople = courseInfo1.getCoursepeople();
+				mPromProductBean8.coursescore = courseInfo1.getCoursescore();
+				mPromProductBean8.coursehour = courseInfo1.getCoursehour();
+				mPromProductBean8.practicehour = courseInfo1.getPracticehour();
+				mPromProductBean8.type = courseInfo1.getType();
+				mPromProductBean8.testhour = courseInfo1.getTesthour();
+				mPromProductBean8.practicehour = courseInfo1.getPracticehour();
 				mPromotionInfoBean8.PromProducts.add(mPromProductBean8);
 				
 			}
@@ -260,14 +348,68 @@ import com.control.R;
 					.findViewById(R.id.combo_product_name);
 
 			childNameView.setText(childBean.ProductName);
-			CheckBox cb;
+			final CheckBox cb;
 			cb = (CheckBox) comboChildItem.findViewById(R.id.selectCourse);
+			final TextView shzx =  (TextView)comboChildItem.findViewById(R.id.shzhouxu);
+			final TextView shbz =  (TextView)comboChildItem.findViewById(R.id.shbeizhu);
 			cb.setTag(childBean);
 			cb.setOnCheckedChangeListener(this);
 			product_linear.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Log.e(SelectCourse.class.getName(), "点击商品");
+					AlertDialog.Builder builder = new AlertDialog.Builder(
+							SelectCourse.this);
+					LayoutInflater factory = LayoutInflater.from(SelectCourse.this);
+					final View textEntryView = factory.inflate(R.layout.selectcourse_addmsg,
+							null);
+					builder.setTitle("课程详情");
+					builder.setView(textEntryView);
+					TextView nianji =  (TextView) textEntryView.findViewById(R.id.nianji);
+					TextView zhuanye =  (TextView) textEntryView.findViewById(R.id.zhuanye);
+					TextView renshu =  (TextView) textEntryView.findViewById(R.id.renshu);
+					TextView mingchen =  (TextView) textEntryView.findViewById(R.id.mingchen);
+					TextView leixing =  (TextView) textEntryView.findViewById(R.id.leixing);
+					TextView xuefen =  (TextView) textEntryView.findViewById(R.id.xuefen);
+					TextView xueshi =  (TextView) textEntryView.findViewById(R.id.xueshi);
+					TextView shiyan =  (TextView) textEntryView.findViewById(R.id.shiyan);
+					TextView shangji =  (TextView) textEntryView.findViewById(R.id.shangji);
+					final EditText zhouxu = (EditText) textEntryView.findViewById(R.id.zhouxu);
+					final EditText beizhu = (EditText) textEntryView.findViewById(R.id.beizhu);
+					nianji.setText("年级："+childBean.coursegrade);
+					zhuanye.setText("专业："+childBean.coursemajor);
+					renshu.setText("专业人数："+childBean.coursepeople);
+					mingchen.setText("课程名称："+childBean.ProductName);
+					leixing.setText("选修类型："+childBean.type);
+					xuefen.setText("学分："+childBean.coursescore);
+					xueshi.setText("学时："+childBean.coursehour);
+					shiyan.setText("实验学时："+childBean.practicehour);
+					shangji.setText("上机学时："+childBean.testhour);
+					zhouxu.setText(childBean.Zhouxu);
+					beizhu.setText(childBean.Beizhu);
+					builder.setPositiveButton("确定",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int whichButton) {
+									// 事件处理
+									
+									childBean.Zhouxu = zhouxu.getText().toString();
+									childBean.Beizhu = beizhu.getText().toString();
+									cb.setChecked(false);
+									shzx.setText(childBean.Zhouxu);
+									shbz.setText(childBean.Beizhu);
+
+								}
+
+							});
+					builder.setNegativeButton("取消",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int whichButton) {
+
+								}
+							});
+					builder.create().show();
+					
 				}
 			});
 			return comboChildItem;
@@ -289,12 +431,10 @@ import com.control.R;
 		public void onClick(View arg0) {
 			// TODO Auto-generated method stub
 			for(PromProductBean productBean : pros){
-				System.out.println(productBean.ProductName);
+				System.out.println(productBean.ProductName+productBean.Zhouxu+productBean.Beizhu);
 			}
 			
 		}
 
 	}
 	
-
-
