@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import com.DUtils.CheckNet;
 import com.DUtils.userID;
 import com.DataLayer.CountManagementModule.loginClass;
 import com.DomainLayer.TeAccount.TeMainManage;
+import com.DomainLayer.XAccount.XMainManage;
 import com.control.R;
 
 public class MainActivity extends Activity {
@@ -23,6 +25,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 
 		final EditText acct = (EditText) this.findViewById(R.id.userNameText);
@@ -71,7 +74,11 @@ public class MainActivity extends Activity {
 							overridePendingTransition(R.anim.in_from_right,
 									R.anim.out_to_left); // ÇÐ»»¶¯»­
 						} else if (reString.equals("y2")) {
-
+							Intent intent = new Intent();
+							intent.setClass(MainActivity.this,XMainManage.class);
+							startActivity(intent);
+							finish();
+							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //ÇÐ»»¶¯»­
 						} else if (reString.equals("y3")) {
 							Intent intent = new Intent();
 							intent.setClass(MainActivity.this,TeMainManage.class);

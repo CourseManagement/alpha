@@ -29,20 +29,21 @@ import com.DataLayer.CourseMangementModule.deletePeriod;
 import com.DataLayer.CourseMangementModule.queryPeriod;
 import com.DataLayer.Model.Period;
 import com.DomainLayer.Course.AddcsTable;
-import com.UIxml.ListViewCompat1;
+import com.UIxml.ListViewCompat2;
 import com.UIxml.SlideView;
 import com.UIxml.SlideView.OnSlideListener;
 import com.control.R;
+
 public class TeMainManage extends Activity implements OnItemClickListener,
-OnClickListener, OnSlideListener {
-	
-//		userID userid = (userID) getApplication();
-//		String aString =userid.getID();
-    	private static final String TAG = "TeMainManage";
+		OnSlideListener {
+
+	// userID userid = (userID) getApplication();
+	// String aString =userid.getID();
+	private static final String TAG = "TeMainManage";
 
 	int iflag = 0;// 判断新学期列表中是否有内容
 
-	private ListViewCompat1 mListView;
+	private ListViewCompat2 mListView;
 	SlideAdapter slideAdapter;
 	private List<MessageItem> mMessageItems = new ArrayList<TeMainManage.MessageItem>();
 
@@ -52,7 +53,6 @@ OnClickListener, OnSlideListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// requestWindowFeature(Window.FEATURE_NO_TITLE);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.te_main);
 		queryPeriod period = new queryPeriod();
@@ -61,10 +61,11 @@ OnClickListener, OnSlideListener {
 		periods = period.getPeriors();
 		// 解析数据，根据状态值flag判断对应控件
 		for (Period period2 : periods) {
-			
+
 			if (period2.getFlag().equals("1")) {
 				iflag = 1;
-				mListView = (ListViewCompat1) this.findViewById(R.id.te_listnow);
+				mListView = (ListViewCompat2) this
+						.findViewById(R.id.te_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -77,7 +78,8 @@ OnClickListener, OnSlideListener {
 			}
 			if (period2.getFlag().equals("2")) {
 				iflag = 1;
-				mListView = (ListViewCompat1) this.findViewById(R.id.te_listnow);
+				mListView = (ListViewCompat2) this
+						.findViewById(R.id.te_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -89,10 +91,11 @@ OnClickListener, OnSlideListener {
 				mListView.setOnItemClickListener(this);
 
 			}
-			
+
 			if (period2.getFlag().equals("3") || period2.getFlag().equals("4")) {
 				iflag = 1;
-				mListView = (ListViewCompat1) this.findViewById(R.id.te_listnow);
+				mListView = (ListViewCompat2) this
+						.findViewById(R.id.te_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -115,8 +118,8 @@ OnClickListener, OnSlideListener {
 		}
 
 		ImageButton back = (ImageButton) this.findViewById(R.id.te_back);
-		ImageButton inforButton=(ImageButton) findViewById(R.id.te_information);
-		
+		ImageButton inforButton = (ImageButton) findViewById(R.id.te_information);
+
 		// 返回上一级
 		back.setOnClickListener(new OnClickListener() {
 
@@ -129,24 +132,24 @@ OnClickListener, OnSlideListener {
 			}
 		});
 		// 跳转个人信息界面
-				inforButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						// 检查是否联网
-						CheckNet checkNet = new CheckNet(
-								getApplicationContext(),
-								(ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE));
-						
-						if (checkNet.checknet()) {
-						Intent intent = new Intent();
-						intent.setClass(TeMainManage.this, TePersonMsg.class);
-						startActivity(intent);
-						overridePendingTransition(R.anim.in_from_right,
-								R.anim.out_to_left); // 切换动画
-						}
+		inforButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// 检查是否联网
+				CheckNet checkNet = new CheckNet(
+						getApplicationContext(),
+						(ConnectivityManager) getSystemService(Activity.CONNECTIVITY_SERVICE));
 
-					}
-				});
+				if (checkNet.checknet()) {
+					Intent intent = new Intent();
+					intent.setClass(TeMainManage.this, TePersonMsg.class);
+					startActivity(intent);
+					overridePendingTransition(R.anim.in_from_right,
+							R.anim.out_to_left); // 切换动画
+				}
+
+			}
+		});
 
 	}
 
@@ -198,8 +201,6 @@ OnClickListener, OnSlideListener {
 			holder.title.setText(item.title);
 			holder.msg.setText(item.msg);
 			holder.time.setText(item.time);
-			holder.leftHolder.setOnClickListener(TeMainManage.this);
-			holder.rightHolder.setOnClickListener(TeMainManage.this);
 			return slideView;
 		}
 
@@ -219,16 +220,12 @@ OnClickListener, OnSlideListener {
 		public TextView title;
 		public TextView msg;
 		public TextView time;
-		public ViewGroup leftHolder;
-		public ViewGroup rightHolder;
 
 		ViewHolder(View view) {
 			icon = (ImageView) view.findViewById(R.id.icon);
 			title = (TextView) view.findViewById(R.id.title);
 			msg = (TextView) view.findViewById(R.id.msg);
 			time = (TextView) view.findViewById(R.id.time);
-			leftHolder = (ViewGroup) view.findViewById(R.id.left_holder);
-			rightHolder = (ViewGroup) view.findViewById(R.id.right_holder);
 		}
 	}
 
@@ -245,18 +242,18 @@ OnClickListener, OnSlideListener {
 				MessageItem item = (MessageItem) parent
 						.getItemAtPosition(position);
 				// 此处添加item的点击事件
-				
-//				if (mMessageItems.get(0).time.equals("未开始")) {
-//					Intent intent = new Intent(TeMainManage.this,
-//							AddcsTable.class);
-//					intent.putExtra("per", mMessageItems.get(0).msg);
-//					startActivity(intent);
-//					overridePendingTransition(R.anim.in_from_right,
-//							R.anim.out_to_left); // 切换动画
-//
-//				} else {
-//
-//				}
+
+				// if (mMessageItems.get(0).time.equals("未开始")) {
+				// Intent intent = new Intent(TeMainManage.this,
+				// AddcsTable.class);
+				// intent.putExtra("per", mMessageItems.get(0).msg);
+				// startActivity(intent);
+				// overridePendingTransition(R.anim.in_from_right,
+				// R.anim.out_to_left); // 切换动画
+				//
+				// } else {
+				//
+				// }
 
 			}
 		}
@@ -274,58 +271,4 @@ OnClickListener, OnSlideListener {
 		}
 	}
 
-	@Override
-	public void onClick(View v) {
-		if (v.getId() == R.id.left_holder) {
-			Log.e(TAG, "onClick v=" + v);
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("提示").setMessage("确定删除此条信息？")
-					.setNegativeButton("取消", null);
-			builder.setPositiveButton("删除",
-					new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int which) {
-
-							deletePeriod delete = new deletePeriod();
-							delete.setPeriodid(mMessageItems.get(mListView
-									.getPosition()).msg);
-							if (delete.docomfirm().equals("y1")) {
-								iflag = 0;
-								mMessageItems.remove(mListView.getPosition());
-								slideAdapter.notifyDataSetChanged();
-								Toast.makeText(getApplicationContext(),
-										"删除成功！", 200).show();
-							} else {
-								Toast.makeText(getApplicationContext(),
-										"删除失败！", 200).show();
-							}
-
-						}
-					});
-			builder.show();
-		} else if (v.getId() == R.id.right_holder) {
-			Log.e(TAG, "onClick v=" + v);
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("提示").setMessage("确定删除此条信息？")
-					.setNegativeButton("取消", null);
-			builder.setPositiveButton("删除",
-					new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int which) {
-							deletePeriod delete = new deletePeriod();
-							delete.setPeriodid(mMessageItems.get(mListView
-									.getPosition()).msg);
-							if (delete.docomfirm().equals("y1")) {
-								iflag = 0;
-								mMessageItems.remove(mListView.getPosition());
-								slideAdapter.notifyDataSetChanged();
-								Toast.makeText(getApplicationContext(),
-										"删除成功！", 200).show();
-							} else {
-								Toast.makeText(getApplicationContext(),
-										"删除失败！", 200).show();
-							}
-						}
-					});
-			builder.show();
-		}
-	}
 }
