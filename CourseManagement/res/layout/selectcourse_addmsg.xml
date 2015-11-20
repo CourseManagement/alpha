@@ -49,102 +49,130 @@
         android:textColor="#6CA6CD"
         android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/xuefen"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="学分:"
-        android:textColor="#6CA6CD"
-        android:textSize="20dp" />
+         >
 
-    <TextView
-        android:id="@+id/xueshi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="学时:"
-        android:textColor="#6CA6CD"
-        android:textSize="20dp" />
+        <TextView
+            android:id="@+id/xuefen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="5dp"
+            android:text="学分:"
+            android:textColor="#6CA6CD"
+            android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/shiyan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="实验学时:"
-        android:textColor="#6CA6CD"
-        android:textSize="20dp" />
+        <TextView
+            android:id="@+id/xueshi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/shangji"
+            android:layout_marginLeft="38dp"
+            android:layout_toRightOf="@+id/shiyan"
+            android:text="学时:"
+            android:textColor="#6CA6CD"
+            android:textSize="20dp" />
 
-    <TextView
-        android:id="@+id/shangji"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/shiyan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/xuefen"
+            android:layout_below="@+id/xuefen"
+            android:text="实验学时:"
+            android:textColor="#6CA6CD"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/shangji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/xueshi"
+            android:layout_below="@+id/xuefen"
+            android:text="上机学时:"
+            android:textColor="#6CA6CD"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="上机学时:"
-        android:textColor="#6CA6CD"
-        android:textSize="20dp" />
+        android:layout_gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="起讫周序："
+            android:textColor="#6CA6CD"
+            android:textSize="20dp" />
+
+        <NumberPicker
+            android:id="@+id/beginpicker"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="————" />
+
+        <NumberPicker
+            android:id="@+id/closepicker"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="周" />
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-        
+
         <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="22dp"
-        android:textColor="#6CA6CD"
-        android:textSize="20dp"
-        android:text="起讫周序：" />
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/zhouxu"
+            android:layout_marginTop="26dp"
+            android:gravity="right"
+            android:text="备注："
+            android:textColor="#6CA6CD"
+            android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/zhouxu"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView1"
-        android:layout_alignBottom="@+id/textView1"
-        android:layout_alignParentRight="true"
-        android:textColor="#6CA6CD"
-        android:textSize="20dp"
-        android:ems="10" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/beizhu"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:orientation="vertical" >
+        </LinearLayout>
 
-        <requestFocus />
-    </EditText>
+        <EditText
+            android:id="@+id/beizhu"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/textView2"
+            android:ems="10"
+            android:textColor="#6CA6CD"
+            android:textSize="20dp" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/zhouxu"
-        android:layout_marginTop="26dp"
-        android:textColor="#6CA6CD"
-        android:gravity="right"
-        android:textSize="20dp"
-        android:text="备注：" />
-
-    <EditText
-        android:id="@+id/beizhu"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignParentRight="true"
-        android:textColor="#6CA6CD"
-        android:textSize="20dp"
-        android:ems="10" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/beizhu"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:orientation="vertical" >
-    </LinearLayout>
+            <requestFocus />
+        </EditText>
     </RelativeLayout>
 
 </LinearLayout>

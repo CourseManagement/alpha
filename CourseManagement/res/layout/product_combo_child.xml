@@ -43,6 +43,13 @@
             android:textColor="#FF0000" />
 
         <TextView
+            android:id="@+id/test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="   " />
+
+        <TextView
             android:id="@+id/shbeizhu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

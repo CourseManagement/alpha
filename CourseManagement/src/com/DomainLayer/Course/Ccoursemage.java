@@ -112,6 +112,20 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 				mListView.setOnItemClickListener(this);
 
 			}
+			if (period2.getFlag().equals("4")) {
+				iflag = 1;
+				mListView = (ListViewCompat1) this.findViewById(R.id.listnow);
+				MessageItem item = new MessageItem();
+				item.iconRes = R.drawable.default_qq_avatar;
+				item.title = "新学期";
+				item.msg = period2.getPeriodid();
+				item.time = "系负责人审核中";
+				mMessageItems.add(item);
+				slideAdapter = new SlideAdapter();
+				mListView.setAdapter(slideAdapter);
+				mListView.setOnItemClickListener(this);
+				
+			}
 			if (period2.getFlag().equals("5")) {
 				ListView lv = (ListView) this.findViewById(R.id.listhis);
 				String str = period2.getPeriodid();
