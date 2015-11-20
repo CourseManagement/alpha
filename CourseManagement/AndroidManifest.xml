@@ -50,6 +50,7 @@
         <activity android:name="com.DomainLayer.TeAccount.TeMainManage"></activity>
         <activity android:name="com.DomainLayer.XAccount.XPersonMsg"></activity>
         <activity android:name="com.DomainLayer.Course.ShowTable"></activity>
+        <activity android:name="com.DomainLayer.TeAccount.SelectCourse"></activity>
 
         
     </application>
