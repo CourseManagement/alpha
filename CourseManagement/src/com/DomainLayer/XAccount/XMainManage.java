@@ -1,14 +1,10 @@
-package com.DomainLayer.TeAccount;
-
+package com.DomainLayer.XAccount;
 import java.util.ArrayList;
 import java.util.List;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,30 +18,26 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.DUtils.CheckNet;
-import com.DataLayer.CourseMangementModule.deletePeriod;
 import com.DataLayer.CourseMangementModule.queryPeriod;
 import com.DataLayer.Model.Period;
-import com.DomainLayer.Course.AddcsTable;
-import com.UIxml.ListViewCompat2;
+import com.UIxml.ListViewCompat3;
 import com.UIxml.SlideView;
 import com.UIxml.SlideView.OnSlideListener;
 import com.control.R;
 
-public class TeMainManage extends Activity implements OnItemClickListener,
+public class XMainManage extends Activity implements OnItemClickListener,
 		OnSlideListener {
 
 	// userID userid = (userID) getApplication();
 	// String aString =userid.getID();
-	private static final String TAG = "TeMainManage";
+	private static final String TAG = "XMainManage";
 
 	int iflag = 0;// 判断新学期列表中是否有内容
 
-	private ListViewCompat2 mListView;
+	private ListViewCompat3 mListView;
 	SlideAdapter slideAdapter;
-	private List<MessageItem> mMessageItems = new ArrayList<TeMainManage.MessageItem>();
+	private List<MessageItem> mMessageItems = new ArrayList<XMainManage.MessageItem>();
 
 	private SlideView mLastSlideViewWithStatusOn;
 	List<String> ListV = new ArrayList<String>();
@@ -54,7 +46,7 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.te_main);
+		setContentView(R.layout.x_main);
 		queryPeriod period = new queryPeriod();
 		period.docomfirm();// 连接服务器，获取信息
 		List<Period> periods = new ArrayList<Period>();
@@ -64,8 +56,8 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 
 			if (period2.getFlag().equals("1")) {
 				iflag = 1;
-				mListView = (ListViewCompat2) this
-						.findViewById(R.id.te_listnow);
+				mListView = (ListViewCompat3) this
+						.findViewById(R.id.x_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -78,8 +70,8 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 			}
 			if (period2.getFlag().equals("2")) {
 				iflag = 1;
-				mListView = (ListViewCompat2) this
-						.findViewById(R.id.te_listnow);
+				mListView = (ListViewCompat3) this
+						.findViewById(R.id.x_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -94,8 +86,8 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 
 			if (period2.getFlag().equals("3") || period2.getFlag().equals("4")) {
 				iflag = 1;
-				mListView = (ListViewCompat2) this
-						.findViewById(R.id.te_listnow);
+				mListView = (ListViewCompat3) this
+						.findViewById(R.id.x_listnow);
 				MessageItem item = new MessageItem();
 				item.iconRes = R.drawable.default_qq_avatar;
 				item.title = "新学期";
@@ -108,7 +100,7 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 
 			}
 			if (period2.getFlag().equals("5")) {
-				ListView lv = (ListView) this.findViewById(R.id.te_listhis);
+				ListView lv = (ListView) this.findViewById(R.id.x_listhis);
 				String str = period2.getPeriodid();
 				ListV.add(str);
 				lv.setAdapter(new ArrayAdapter<String>(this,
@@ -117,8 +109,8 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 
 		}
 
-		ImageButton back = (ImageButton) this.findViewById(R.id.te_back);
-		ImageButton inforButton = (ImageButton) findViewById(R.id.te_information);
+		ImageButton back = (ImageButton) this.findViewById(R.id.x_back);
+		ImageButton inforButton = (ImageButton) findViewById(R.id.x_information);
 
 		// 返回上一级
 		back.setOnClickListener(new OnClickListener() {
@@ -142,7 +134,7 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 
 				if (checkNet.checknet()) {
 					Intent intent = new Intent();
-					intent.setClass(TeMainManage.this, TePersonMsg.class);
+					intent.setClass(XMainManage.this, XPersonMsg.class);
 					startActivity(intent);
 					overridePendingTransition(R.anim.in_from_right,
 							R.anim.out_to_left); // 切换动画
@@ -185,11 +177,11 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 			if (slideView == null) {
 
 				View itemView = mInflater.inflate(R.layout.list_item, null);
-				slideView = new SlideView(TeMainManage.this);
+				slideView = new SlideView(XMainManage.this);
 				slideView.setContentView(itemView);
 
 				holder = new ViewHolder(slideView);
-				slideView.setOnSlideListener(TeMainManage.this);
+				slideView.setOnSlideListener(XMainManage.this);
 				slideView.setTag(holder);
 			} else {
 				holder = (ViewHolder) slideView.getTag();
@@ -243,17 +235,17 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 						.getItemAtPosition(position);
 				// 此处添加item的点击事件
 
-//				 if (mMessageItems.get(0).time.equals("未开始")) {
-				 Intent intent = new Intent(TeMainManage.this,
-				 SelectCourse.class);
-				 intent.putExtra("per", mMessageItems.get(0).msg);
-				 startActivity(intent);
-				 overridePendingTransition(R.anim.in_from_right,
-				 R.anim.out_to_left); // 切换动画
-				
-//				 } else {
-//				
-//				 }
+				// if (mMessageItems.get(0).time.equals("未开始")) {
+				// Intent intent = new Intent(TeMainManage.this,
+				// AddcsTable.class);
+				// intent.putExtra("per", mMessageItems.get(0).msg);
+				// startActivity(intent);
+				// overridePendingTransition(R.anim.in_from_right,
+				// R.anim.out_to_left); // 切换动画
+				//
+				// } else {
+				//
+				// }
 
 			}
 		}

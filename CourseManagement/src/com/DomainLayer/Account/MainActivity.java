@@ -1,5 +1,5 @@
 package com.DomainLayer.Account;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -17,6 +17,7 @@ import com.DUtils.CheckNet;
 import com.DUtils.userID;
 import com.DataLayer.CountManagementModule.loginClass;
 import com.DomainLayer.TeAccount.TeMainManage;
+import com.DomainLayer.XAccount.XMainManage;
 import com.control.R;
 
 public class MainActivity extends Activity {
@@ -34,7 +35,7 @@ public class MainActivity extends Activity {
 		Login = (Button) this.findViewById(R.id.bnLogin);
 		Login.setOnClickListener(new OnClickListener() {
 
-			@Override
+			@SuppressLint("ShowToast") @Override
 			public void onClick(View v) {
 
 				final String username = acct.getText().toString();
@@ -73,7 +74,11 @@ public class MainActivity extends Activity {
 							overridePendingTransition(R.anim.in_from_right,
 									R.anim.out_to_left); // ÇÐ»»¶¯»­
 						} else if (reString.equals("y2")) {
-
+							Intent intent = new Intent();
+							intent.setClass(MainActivity.this,XMainManage.class);
+							startActivity(intent);
+							finish();
+							overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left); //ÇÐ»»¶¯»­
 						} else if (reString.equals("y3")) {
 							Intent intent = new Intent();
 							intent.setClass(MainActivity.this,TeMainManage.class);
