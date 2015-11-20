@@ -243,17 +243,17 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 						.getItemAtPosition(position);
 				// 此处添加item的点击事件
 
-				// if (mMessageItems.get(0).time.equals("未开始")) {
-				// Intent intent = new Intent(TeMainManage.this,
-				// AddcsTable.class);
-				// intent.putExtra("per", mMessageItems.get(0).msg);
-				// startActivity(intent);
-				// overridePendingTransition(R.anim.in_from_right,
-				// R.anim.out_to_left); // 切换动画
-				//
-				// } else {
-				//
-				// }
+//				 if (mMessageItems.get(0).time.equals("未开始")) {
+				 Intent intent = new Intent(TeMainManage.this,
+				 SelectCourse.class);
+				 intent.putExtra("per", mMessageItems.get(0).msg);
+				 startActivity(intent);
+				 overridePendingTransition(R.anim.in_from_right,
+				 R.anim.out_to_left); // 切换动画
+				
+//				 } else {
+//				
+//				 }
 
 			}
 		}
