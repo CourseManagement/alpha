@@ -494,7 +494,7 @@ public final class R {
     public static final class id {
         public static final int account=0x7f0a0069;
         public static final int account_inf=0x7f0a0000;
-        public static final int action_settings=0x7f0a00ac;
+        public static final int action_settings=0x7f0a00b3;
         public static final int add_T=0x7f0a0018;
         public static final int add_X=0x7f0a0021;
         public static final int add_person=0x7f0a0004;
@@ -527,14 +527,14 @@ public final class R {
         public static final int course_message=0x7f0a002d;
         public static final int courselist=0x7f0a003c;
         public static final int daochu=0x7f0a0063;
-        public static final int deadline=0x7f0a00aa;
+        public static final int deadline=0x7f0a00b1;
         public static final int delete=0x7f0a0089;
         public static final int delete1=0x7f0a0086;
         public static final int dialog=0x7f0a0058;
         public static final int dialogname=0x7f0a0059;
         public static final int dialognum=0x7f0a005c;
         public static final int dialogtime=0x7f0a0053;
-        public static final int dtime=0x7f0a00ab;
+        public static final int dtime=0x7f0a00b2;
         public static final int edit_mark=0x7f0a0061;
         public static final int edit_name=0x7f0a005f;
         public static final int edtbirth=0x7f0a00a5;
@@ -569,7 +569,7 @@ public final class R {
         public static final int mail_edit=0x7f0a0099;
         public static final int mail_text=0x7f0a0094;
         public static final int major_edit=0x7f0a0098;
-        public static final int major_edit1=0x7f0a00a8;
+        public static final int major_edit1=0x7f0a00af;
         public static final int major_spinner=0x7f0a0027;
         public static final int major_text=0x7f0a0026;
         public static final int make_sure=0x7f0a001f;
@@ -584,7 +584,7 @@ public final class R {
         public static final int num=0x7f0a0035;
         public static final int passwdText=0x7f0a0009;
         public static final int password_edit=0x7f0a0025;
-        public static final int password_edit1=0x7f0a00a7;
+        public static final int password_edit1=0x7f0a00ae;
         public static final int password_text=0x7f0a0024;
         public static final int per_massage=0x7f0a006a;
         public static final int person=0x7f0a002a;
@@ -642,7 +642,7 @@ public final class R {
         public static final int time=0x7f0a0067;
         public static final int title=0x7f0a0065;
         public static final int title_acomplish=0x7f0a000c;
-        public static final int title_acomplish1=0x7f0a00a9;
+        public static final int title_acomplish1=0x7f0a00b0;
         public static final int title_back=0x7f0a0048;
         public static final int title_cancel=0x7f0a000b;
         public static final int title_reset=0x7f0a0049;
@@ -654,12 +654,19 @@ public final class R {
         public static final int userID_text=0x7f0a0022;
         public static final int userNameText=0x7f0a0007;
         public static final int username=0x7f0a0093;
-        public static final int username1=0x7f0a00a6;
+        public static final int username1=0x7f0a00ad;
         public static final int username_text=0x7f0a0092;
         public static final int view_content=0x7f0a0087;
         public static final int week=0x7f0a003f;
         public static final int week_spinner=0x7f0a0060;
         public static final int wlgc=0x7f0a0013;
+        public static final int x_back=0x7f0a00aa;
+        public static final int x_histr=0x7f0a00a8;
+        public static final int x_inf=0x7f0a00a6;
+        public static final int x_information=0x7f0a00ac;
+        public static final int x_listhis=0x7f0a00a9;
+        public static final int x_listnow=0x7f0a00a7;
+        public static final int x_title_text=0x7f0a00ab;
         public static final int xuefen=0x7f0a004f;
         public static final int xueshi=0x7f0a0050;
         public static final int xxaq=0x7f0a0014;
@@ -711,10 +718,12 @@ public final class R {
         public static final int teacher_title=0x7f030029;
         public static final int title=0x7f03002a;
         public static final int x_check=0x7f03002b;
-        public static final int xmanage=0x7f03002c;
-        public static final int xmanage_title=0x7f03002d;
-        public static final int y_check=0x7f03002e;
-        public static final int y_check_title=0x7f03002f;
+        public static final int x_main=0x7f03002c;
+        public static final int x_main_title=0x7f03002d;
+        public static final int xmanage=0x7f03002e;
+        public static final int xmanage_title=0x7f03002f;
+        public static final int y_check=0x7f030030;
+        public static final int y_check_title=0x7f030031;
     }
     public static final class menu {
         public static final int main=0x7f090000;

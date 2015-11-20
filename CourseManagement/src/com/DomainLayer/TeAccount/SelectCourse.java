@@ -1,5 +1,4 @@
 package com.DomainLayer.TeAccount;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -439,5 +438,3 @@ import com.control.R;
 
 	}
 	
-
-
