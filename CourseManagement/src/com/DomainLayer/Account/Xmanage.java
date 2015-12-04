@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,10 +35,10 @@ public class Xmanage extends Activity {
 		major.setText(intent.getStringExtra("department"));
 		password.setSelection(intent.getStringExtra("password").length());// 设置光标位置为末尾
 		
-		Button cgmsg;
-		Button fanh;
-		cgmsg = (Button) this.findViewById(R.id.title_acomplish1);
-		fanh = (Button) this.findViewById(R.id.title_cancel);
+		ImageButton cgmsg;
+		ImageButton fanh;
+		cgmsg = (ImageButton) this.findViewById(R.id.title_acomplish1);
+		fanh = (ImageButton) this.findViewById(R.id.title_cancel);
 		cgmsg.setOnClickListener(new OnClickListener() {
 
 			@Override

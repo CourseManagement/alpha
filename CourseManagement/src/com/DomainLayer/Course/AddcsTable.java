@@ -18,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,9 +40,9 @@ public class AddcsTable extends Activity implements OnClickListener {
 	Button btsx;
 	Button btwl;
 	Button btxa;
-	Button back;
+	ImageButton back;
 	Button settime;
-	Button complish;
+	ImageButton complish;
 	List<majorState> majorstates = new ArrayList<majorState>();
 	private String majorid;
 	private String periodid;
@@ -75,8 +76,8 @@ public class AddcsTable extends Activity implements OnClickListener {
 		btsx = (Button) this.findViewById(R.id.sx);
 		btwl = (Button) this.findViewById(R.id.wlgc);
 		btxa = (Button) this.findViewById(R.id.xxaq);
-		back = (Button) this.findViewById(R.id.title_cancel);
-		complish = (Button) this.findViewById(R.id.title_acomplish);
+		back = (ImageButton) this.findViewById(R.id.title_cancel);
+		complish = (ImageButton) this.findViewById(R.id.title_acomplish);
 		settime = (Button) this.findViewById(R.id.settime);
 		bgtest = (TextView) this.findViewById(R.id.begintext);
 		cltest = (TextView) this.findViewById(R.id.closetext);

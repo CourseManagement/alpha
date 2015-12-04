@@ -18,6 +18,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,8 +36,8 @@ import com.control.R;
 
 public class ShowTable extends Activity {
 
-	Button back;
-	Button reset;
+	ImageButton back;
+	ImageButton reset;
 	private String path;
 	private String majorid;
 	private String periodid;
@@ -67,8 +68,8 @@ public class ShowTable extends Activity {
 		lv.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, Courselv));
 
-		back = (Button) this.findViewById(R.id.title_back);
-		reset = (Button) this.findViewById(R.id.title_reset);
+		back = (ImageButton) this.findViewById(R.id.title_back);
+		reset = (ImageButton) this.findViewById(R.id.title_reset);
 
 		back.setOnClickListener(new OnClickListener() {
 

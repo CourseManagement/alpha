@@ -90,7 +90,7 @@ public class AccountInformation extends Activity implements
 		for (departmentmanager Item : departmentmanagers) {
 
 			MessageItem item = new MessageItem();
-			item.iconRes = R.drawable.default_qq_avatar;
+			item.iconRes = R.drawable.x_64;
 			item.title = "系负责人";
 			item.msg = Item.getUser_name();
 			item.password = Item.getPassword();
@@ -107,7 +107,7 @@ public class AccountInformation extends Activity implements
 		for (teacher Item : teachers) {
 
 			MessageItem item = new MessageItem();
-			item.iconRes = R.drawable.default_qq_avatar;
+			item.iconRes = R.drawable.t_64;
 			item.title = "教师";
 			item.msg = Item.getUser_name();
 			item.name = Item.getName();

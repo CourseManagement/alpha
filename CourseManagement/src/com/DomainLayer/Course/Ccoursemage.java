@@ -75,7 +75,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 				iflag = 1;
 				mListView = (ListViewCompat1) this.findViewById(R.id.listnow);
 				MessageItem item = new MessageItem();
-				item.iconRes = R.drawable.default_qq_avatar;
+				item.iconRes = R.drawable.semester_64;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "未开始";
@@ -88,7 +88,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 				iflag = 1;
 				mListView = (ListViewCompat1) this.findViewById(R.id.listnow);
 				MessageItem item = new MessageItem();
-				item.iconRes = R.drawable.default_qq_avatar;
+				item.iconRes = R.drawable.semester_64;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "即将开始";
@@ -102,7 +102,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 				iflag = 1;
 				mListView = (ListViewCompat1) this.findViewById(R.id.listnow);
 				MessageItem item = new MessageItem();
-				item.iconRes = R.drawable.default_qq_avatar;
+				item.iconRes = R.drawable.semester_64;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "进行中";
@@ -116,7 +116,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 				iflag = 1;
 				mListView = (ListViewCompat1) this.findViewById(R.id.listnow);
 				MessageItem item = new MessageItem();
-				item.iconRes = R.drawable.default_qq_avatar;
+				item.iconRes = R.drawable.semester_64;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "系负责人审核中";
@@ -169,7 +169,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 									iflag = 1;
 									mListView = (ListViewCompat1) findViewById(R.id.listnow);
 									MessageItem item = new MessageItem();
-									item.iconRes = R.drawable.default_qq_avatar;
+									item.iconRes = R.drawable.semester_64;
 									item.title = "新学期";
 									item.msg = newper.getText().toString();
 									item.time = "未开始";

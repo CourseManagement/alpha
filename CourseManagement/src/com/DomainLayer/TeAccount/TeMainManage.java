@@ -67,7 +67,7 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 				mListView = (ListViewCompat2) this
 						.findViewById(R.id.te_listnow);
 				MessageItem item = new MessageItem();
-				item.iconRes = R.drawable.default_qq_avatar;
+				item.iconRes = R.drawable.semester_64;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "未开始";
@@ -81,7 +81,7 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 				mListView = (ListViewCompat2) this
 						.findViewById(R.id.te_listnow);
 				MessageItem item = new MessageItem();
-				item.iconRes = R.drawable.default_qq_avatar;
+				item.iconRes = R.drawable.semester_64;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "即将开始";
@@ -97,7 +97,7 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 				mListView = (ListViewCompat2) this
 						.findViewById(R.id.te_listnow);
 				MessageItem item = new MessageItem();
-				item.iconRes = R.drawable.default_qq_avatar;
+				item.iconRes = R.drawable.semester_64;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "进行中";

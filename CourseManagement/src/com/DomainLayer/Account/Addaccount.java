@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TabHost;
 
 import com.control.R;
@@ -42,7 +43,7 @@ public class Addaccount extends TabActivity  {
 
             tabHost.setCurrentTab(2);
             
-            Button fanh = (Button) this.findViewById(R.id.title_cancel);
+            ImageButton fanh = (ImageButton) this.findViewById(R.id.title_cancel);
             fanh.setOnClickListener(new OnClickListener() {
     			@Override
     			public void onClick(View v) {

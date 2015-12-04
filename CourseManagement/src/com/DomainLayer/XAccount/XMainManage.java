@@ -62,7 +62,7 @@ public class XMainManage extends Activity implements OnItemClickListener,
 				iflag = 1;
 				mListView = (ListViewCompat3) this.findViewById(R.id.x_listnow);
 				MessageItem item = new MessageItem();
-				item.iconRes = R.drawable.default_qq_avatar;
+				item.iconRes = R.drawable.semester_64;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "未开始";
@@ -75,7 +75,7 @@ public class XMainManage extends Activity implements OnItemClickListener,
 				iflag = 2;
 				mListView = (ListViewCompat3) this.findViewById(R.id.x_listnow);
 				MessageItem item = new MessageItem();
-				item.iconRes = R.drawable.default_qq_avatar;
+				item.iconRes = R.drawable.semester_64;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "即将开始";
@@ -90,7 +90,7 @@ public class XMainManage extends Activity implements OnItemClickListener,
 				iflag = 3;
 				mListView = (ListViewCompat3) this.findViewById(R.id.x_listnow);
 				MessageItem item = new MessageItem();
-				item.iconRes = R.drawable.default_qq_avatar;
+				item.iconRes = R.drawable.semester_64;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "进行中";
@@ -104,7 +104,7 @@ public class XMainManage extends Activity implements OnItemClickListener,
 				iflag = 4;
 				mListView = (ListViewCompat3) this.findViewById(R.id.x_listnow);
 				MessageItem item = new MessageItem();
-				item.iconRes = R.drawable.default_qq_avatar;
+				item.iconRes = R.drawable.semester_64;
 				item.title = "新学期";
 				item.msg = period2.getPeriodid();
 				item.time = "系负责人审核中";
