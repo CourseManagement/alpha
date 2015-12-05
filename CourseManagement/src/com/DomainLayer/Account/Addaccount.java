@@ -1,9 +1,12 @@
 package com.DomainLayer.Account;
 
+import android.app.ActionBar.LayoutParams;
 import android.app.TabActivity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,6 +14,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 import com.control.R;
 
@@ -42,7 +46,7 @@ public class Addaccount extends TabActivity  {
             tabHost.addTab(spec);
 
             tabHost.setCurrentTab(2);
-            
+       
             ImageButton fanh = (ImageButton) this.findViewById(R.id.title_cancel);
             fanh.setOnClickListener(new OnClickListener() {
     			@Override

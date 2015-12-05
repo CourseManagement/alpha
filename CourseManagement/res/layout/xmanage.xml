@@ -23,14 +23,17 @@
             android:id="@+id/username_text"
             android:layout_width="98dp"
             android:layout_height="41dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="55dp"
             android:text="用户名："
             android:textColor="#6CA6CD"
             android:textSize="24dp" />
 
         <TextView
             android:id="@+id/username1"
-            android:layout_width="220dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
             android:layout_toRightOf="@+id/username_text"
             android:textColor="#6CA6CD"
             android:textSize="24dp" />
@@ -40,16 +43,19 @@
             android:id="@+id/password_text"
             android:layout_width="98dp"
             android:layout_height="41dp"
+            android:layout_marginLeft="20dp"
             android:layout_below="@id/username_text"
+            android:layout_marginTop="20dp"
             android:text="密   码："
             android:textColor="#6CA6CD"
             android:textSize="24dp" />
         <EditText
             android:id="@+id/password_edit1"
-            android:layout_width="220dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/password_text"
             android:layout_below="@id/username1"
+            android:layout_marginTop="20dp"
             android:textColor="#6CA6CD"
             android:textSize="24dp" />
 
@@ -57,16 +63,19 @@
             android:id="@+id/major_text"
             android:layout_width="98dp"
             android:layout_height="41dp"
+            android:layout_marginLeft="20dp"
             android:layout_below="@+id/password_text"
+            android:layout_marginTop="20dp"
             android:text="所在系："
             android:textColor="#6CA6CD"
             android:textSize="24dp" />
 
         <EditText
             android:id="@+id/major_edit1"
-            android:layout_width="220dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/password_edit1"
+            android:layout_marginTop="20dp"
             android:layout_toRightOf="@+id/major_text"
             android:textColor="#6CA6CD"
             android:textSize="24dp" />

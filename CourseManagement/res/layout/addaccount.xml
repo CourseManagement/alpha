@@ -13,7 +13,7 @@
        
     <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="50dp">
 
     <include
         android:layout_width="match_parent"
@@ -23,6 +23,7 @@
 
         <TabWidget
             android:id="@android:id/tabs"
+            android:background="#fff"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content" />
         <FrameLayout

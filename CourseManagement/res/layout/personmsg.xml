@@ -21,6 +21,8 @@
         android:id="@+id/showuser"
         android:layout_width="98dp"
         android:layout_height="41dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="55dp"
         android:textColor="#6CA6CD"
         android:textSize="24dp" 
         android:text="用户名："
@@ -32,6 +34,7 @@
         android:layout_height="41dp"
         android:layout_alignLeft="@+id/showuser"
         android:layout_below="@+id/showuser"
+        android:layout_marginTop="20dp"
         android:text="密   码："
         android:textColor="#6CA6CD"
         android:textSize="24dp" />
@@ -42,6 +45,7 @@
         android:layout_height="41dp"
         android:layout_alignLeft="@+id/showpsd"
         android:layout_below="@+id/showpsd"
+        android:layout_marginTop="20dp"
         android:text="姓   名："
         android:textColor="#6CA6CD"
         android:textSize="24dp"  />
@@ -52,14 +56,16 @@
         android:layout_height="41dp"
         android:layout_alignLeft="@+id/showname"
         android:layout_below="@+id/showname"
+        android:layout_marginTop="20dp"
         android:text="手   机："
          android:textColor="#6CA6CD"
         android:textSize="24dp" />
 
     <TextView
         android:id="@+id/textusername"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="41dp"
+        android:layout_marginTop="55dp"
         android:layout_toRightOf="@+id/showuser"
         android:textColor="#6CA6CD"
         android:textSize="24dp"
@@ -67,27 +73,30 @@
 
     <EditText
         android:id="@+id/edtpsd"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="41dp"
         android:layout_below="@id/textusername"
+        android:layout_marginTop="20dp"
         android:layout_toRightOf="@+id/showpsd"
         android:textColor="#6CA6CD"
         android:textSize="24dp" />
 
     <EditText
         android:id="@+id/edtname"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="41dp"
         android:layout_below="@id/edtpsd"
+        android:layout_marginTop="20dp"
         android:layout_toRightOf="@+id/showname"
         android:textColor="#6CA6CD"
         android:textSize="24dp" />
 
     <EditText
         android:id="@+id/edtph"
-        android:layout_width="200dp"
+        android:layout_width="180dp"
         android:layout_height="41dp"
         android:layout_below="@id/edtname"
+        android:layout_marginTop="20dp"
         android:layout_toRightOf="@+id/showph"
         android:textColor="#6CA6CD"
         android:textSize="24dp" />
