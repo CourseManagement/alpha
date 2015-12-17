@@ -28,8 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="20sp"
-            android:text="课程信息" />
+            android:text="课程信息"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,17 +44,17 @@
                 <TextView
                     android:id="@+id/showgrade"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
+                    android:layout_height="35dp"
                     android:text="年级："
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/grade"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:layout_height="35dp"
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -65,17 +65,17 @@
                 <TextView
                     android:id="@+id/shownum"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
+                    android:layout_height="35dp"
                     android:text="专业人数："
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/num"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:layout_height="35dp"
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -86,17 +86,17 @@
                 <TextView
                     android:id="@+id/showmark"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
+                    android:layout_height="35dp"
                     android:text="学分："
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/mark"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:layout_height="35dp"
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -107,17 +107,17 @@
                 <TextView
                     android:id="@+id/showtype"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
+                    android:layout_height="35dp"
                     android:text="选修类型："
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/type"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:layout_height="35dp"
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -128,17 +128,17 @@
                 <TextView
                     android:id="@+id/showtime"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
+                    android:layout_height="35dp"
                     android:text="学时："
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/stime"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:layout_height="35dp"
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -149,18 +149,18 @@
                 <TextView
                     android:id="@+id/showsjtime"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
+                    android:layout_height="35dp"
                     android:text="上机学时："
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/sjtime"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
-                    android:textSize="18sp"
+                    android:layout_height="35dp"
                     android:layout_toRightOf="@+id/showsjtime"
-                    android:textColor="#6CA6CD" />
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -171,17 +171,17 @@
                 <TextView
                     android:id="@+id/showptime"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
+                    android:layout_height="35dp"
                     android:text="实践学时："
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/ptime"
                     android:layout_width="wrap_content"
-                    android:layout_height="41dp"
-                    android:textSize="18sp"
-                    android:textColor="#6CA6CD" />
+                    android:layout_height="35dp"
+                    android:textColor="#6CA6CD"
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -195,14 +195,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="20sp"
-                android:text="教师信息" />
+                android:text="教师信息"
+                android:textSize="20sp" />
 
-            <ListView
-                android:id="@+id/courselist"
+            <com.UIxml.ListViewCompat4
+                android:id="@+id/list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-            </ListView>
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:background="#fff4f7f9"
+                android:cacheColorHint="#00000000"
+                android:divider="#dddbdb"
+                android:dividerHeight="1.0px"
+                android:drawSelectorOnTop="false"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none" />
         </LinearLayout>
     </LinearLayout>
 
