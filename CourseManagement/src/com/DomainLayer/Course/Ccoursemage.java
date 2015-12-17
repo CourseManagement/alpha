@@ -68,6 +68,16 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 		queryPeriod period = new queryPeriod();
 		period.docomfirm();// 连接服务器，获取信息
 		List<Period> periods = new ArrayList<Period>();
+		ListView lv = (ListView) this.findViewById(R.id.listhis);
+		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getApplicationContext(), "该功能尚未上线！", 200).show();
+			}
+		});
+
 		periods = period.getPeriors();
 		// 解析数据，根据状态值flag判断对应控件
 		for (Period period2 : periods) {
@@ -98,7 +108,7 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 				mListView.setOnItemClickListener(this);
 
 			}
-			if (period2.getFlag().equals("3") || period2.getFlag().equals("4")) {
+			if (period2.getFlag().equals("3") ) {
 				iflag = 1;
 				mListView = (ListViewCompat1) this.findViewById(R.id.listnow);
 				MessageItem item = new MessageItem();
@@ -124,10 +134,10 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 				slideAdapter = new SlideAdapter();
 				mListView.setAdapter(slideAdapter);
 				mListView.setOnItemClickListener(this);
-				
+
 			}
 			if (period2.getFlag().equals("5")) {
-				ListView lv = (ListView) this.findViewById(R.id.listhis);
+
 				String str = period2.getPeriodid();
 				ListV.add(str);
 				lv.setAdapter(new ArrayAdapter<String>(this,
@@ -313,7 +323,17 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 					overridePendingTransition(R.anim.in_from_right,
 							R.anim.out_to_left); // 切换动画
 
-				} else {
+				} else if(mMessageItems.get(0).time.equals("进行中")){
+					Toast.makeText(getApplicationContext(), "选课时间不能查看！", 200).show();
+
+				}else {
+					Intent intent = new Intent(Ccoursemage.this,
+							Y_check.class);
+					intent.putExtra("periodid", mMessageItems.get(0).msg);
+					startActivity(intent);
+					finish();
+					overridePendingTransition(R.anim.in_from_right,
+							R.anim.out_to_left); // 切换动画
 
 				}
 

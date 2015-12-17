@@ -16,13 +16,17 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.DataLayer.CourseMangementModule.deleteTeacherByCourse;
 import com.DataLayer.CourseMangementModule.queryTeacherByCourse;
-import com.DataLayer.Model.teacher;
+import com.DataLayer.CourseMangementModule.selectCourses;
+import com.DataLayer.Model.selectCoursesInfo;
 import com.DataLayer.Model.teacherAndSelectInfo;
 import com.UIxml.ListViewCompat4;
 import com.UIxml.SlideView;
@@ -33,7 +37,7 @@ import com.control.R;
  * @parameter *
  */
 public class showCourseInfoAndSelectedTeacher extends Activity implements
-OnItemClickListener, OnClickListener, OnSlideListener{
+		OnItemClickListener, OnClickListener, OnSlideListener {
 	private ListViewCompat4 mListView;
 	SlideAdapter slideAdapter;
 	private List<MessageItem> mMessageItems = new ArrayList<showCourseInfoAndSelectedTeacher.MessageItem>();
@@ -64,6 +68,9 @@ OnItemClickListener, OnClickListener, OnSlideListener{
 
 	private ImageButton add;
 	private ImageButton back;
+	
+	List<selectCoursesInfo> selectCoursesInfo = new ArrayList<selectCoursesInfo>();
+	selectCoursesInfo select1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +78,10 @@ OnItemClickListener, OnClickListener, OnSlideListener{
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.course_check_detail);
-		
+
 		intent = this.getIntent();
 		init();
 		initView();
-		
 
 	}
 
@@ -103,7 +109,7 @@ OnItemClickListener, OnClickListener, OnSlideListener{
 		Testhour = intent.getStringExtra("Testhour");
 		Type = intent.getStringExtra("Type");
 		Periodid = intent.getStringExtra("periodid");
-
+		
 		grade.setText(Coursegrade);
 		num.setText(Coursepeople);
 		mark.setText(Coursescore);
@@ -111,16 +117,88 @@ OnItemClickListener, OnClickListener, OnSlideListener{
 		stime.setText(Coursehour);
 		sjtime.setText(Practicehour);
 		ptime.setText(Testhour);
+		
+		back.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+				overridePendingTransition(android.R.anim.slide_in_left,
+						android.R.anim.slide_out_right); // 切换动画
+
+			}
+		});
+		add.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				AlertDialog.Builder builder = new AlertDialog.Builder(
+						showCourseInfoAndSelectedTeacher.this);
+				LayoutInflater factory = LayoutInflater.from(showCourseInfoAndSelectedTeacher.this);
+				final View textEntryView = factory.inflate(
+						R.layout.dialog_for_addteacher, null);
+				builder.setTitle("添加教师");
+				builder.setView(textEntryView);
+				final EditText username = (EditText) textEntryView
+						.findViewById(R.id.edit_name);
+				final EditText beizhu = (EditText) textEntryView
+						.findViewById(R.id.edit_mark);
+				final NumberPicker begintime = (NumberPicker) textEntryView
+						.findViewById(R.id.beginpicker);
+				final NumberPicker closetime = (NumberPicker) textEntryView
+						.findViewById(R.id.endpicker);
+				builder.setPositiveButton("确定",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								// 事件处理
+								if (begintime.getValue() < closetime.getValue()) {
+									String zhouxu = String.valueOf(begintime
+											.getValue())
+											+ "—"
+											+ String.valueOf(closetime
+													.getValue());
+									String bz = beizhu.getText()
+											.toString();
+									select1.setCourseid(Courseid);
+									select1.setMessage(bz);
+									select1.setTime(zhouxu);
+									selectCoursesInfo.add(select1);
+									selectCourses selectCourses = new selectCourses();
+									selectCourses.setPeriodid(Periodid);
+									selectCourses.setSelectCoursesInfos(selectCoursesInfo);
+									selectCourses.setUser_name(username.getText().toString());
+									selectCourses.doComfirm();
+								} else {
+									Toast.makeText(getApplicationContext(),
+											"起讫周序设置有误，请重新设置！", 200).show();
+
+								}
+							}
+
+						});
+				builder.setNegativeButton("取消",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+
+							}
+						});
+				builder.create().show();
+
+			}
+			
+		});
 	}
-	
+
 	private void initView() {
 		mListView = (ListViewCompat4) this.findViewById(R.id.list);
 		queryTeacherByCourse teacherByCourse = new queryTeacherByCourse();
-		System.out.println(Courseid+Periodid+"11111");
 		teacherByCourse.setCourseid(Courseid);
 		teacherByCourse.setPeriodid(Periodid);
 		teacherByCourse.docomfirm();
-		List<teacherAndSelectInfo> teacherAndSelectInfo1 = teacherByCourse.getTeachers();
+		List<teacherAndSelectInfo> teacherAndSelectInfo1 = teacherByCourse
+				.getTeachers();
 
 		for (teacherAndSelectInfo Item : teacherAndSelectInfo1) {
 
@@ -129,10 +207,12 @@ OnItemClickListener, OnClickListener, OnSlideListener{
 			item.title = Item.getName();
 			item.msg = Item.getMessage();
 			item.time = Item.getTime();
+			item.username = Item.getUser_name();
+			item.courseid = Courseid;
+			item.periodid = Periodid;
 			mMessageItems.add(item);
 
 		}
-
 
 		slideAdapter = new SlideAdapter();
 		mListView.setAdapter(slideAdapter);
@@ -174,7 +254,8 @@ OnItemClickListener, OnClickListener, OnSlideListener{
 				slideView.setContentView(itemView);
 
 				holder = new ViewHolder(slideView);
-				slideView.setOnSlideListener(showCourseInfoAndSelectedTeacher.this);
+				slideView
+						.setOnSlideListener(showCourseInfoAndSelectedTeacher.this);
 				slideView.setTag(holder);
 			} else {
 				holder = (ViewHolder) slideView.getTag();
@@ -186,8 +267,10 @@ OnItemClickListener, OnClickListener, OnSlideListener{
 			holder.title.setText(item.title);
 			holder.msg.setText(item.msg);
 			holder.time.setText(item.time);
-			holder.leftHolder.setOnClickListener(showCourseInfoAndSelectedTeacher.this);
-			holder.rightHolder.setOnClickListener(showCourseInfoAndSelectedTeacher.this);
+			holder.leftHolder
+					.setOnClickListener(showCourseInfoAndSelectedTeacher.this);
+			holder.rightHolder
+					.setOnClickListener(showCourseInfoAndSelectedTeacher.this);
 			return slideView;
 		}
 
@@ -198,8 +281,11 @@ OnItemClickListener, OnClickListener, OnSlideListener{
 		public String title;
 		public String msg;
 		public String time;
+		public String username;
+		public String courseid;
+		public String periodid;
 		public SlideView slideView;
-		
+
 	}
 
 	private static class ViewHolder {
@@ -233,8 +319,7 @@ OnItemClickListener, OnClickListener, OnSlideListener{
 				MessageItem item = (MessageItem) parent
 						.getItemAtPosition(position);
 				// 此处添加item的点击事件
-				
-				
+
 			}
 		}
 	}
@@ -260,6 +345,18 @@ OnItemClickListener, OnClickListener, OnSlideListener{
 			builder.setPositiveButton("删除",
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
+							deleteTeacherByCourse delete = new deleteTeacherByCourse();
+							delete.setCourseid(mMessageItems.get(mListView
+									.getPosition()).courseid);
+							delete.setPeriodid(mMessageItems.get(mListView
+									.getPosition()).periodid);
+							delete.setUser_name(mMessageItems.get(mListView
+									.getPosition()).username);
+							delete.docomfirm();
+							Toast.makeText(getApplicationContext(), "删除成功！",
+									200).show();
+							mMessageItems.remove(mListView.getPosition());
+							slideAdapter.notifyDataSetChanged();
 
 						}
 					});
@@ -271,7 +368,18 @@ OnItemClickListener, OnClickListener, OnSlideListener{
 			builder.setPositiveButton("删除",
 					new DialogInterface.OnClickListener() {
 						public void onClick(DialogInterface dialog, int which) {
-							
+							deleteTeacherByCourse delete = new deleteTeacherByCourse();
+							delete.setCourseid(mMessageItems.get(mListView
+									.getPosition()).courseid);
+							delete.setPeriodid(mMessageItems.get(mListView
+									.getPosition()).periodid);
+							delete.setUser_name(mMessageItems.get(mListView
+									.getPosition()).username);
+							delete.docomfirm();
+							Toast.makeText(getApplicationContext(), "删除成功！",
+									200).show();
+							mMessageItems.remove(mListView.getPosition());
+							slideAdapter.notifyDataSetChanged();
 						}
 					});
 			builder.show();

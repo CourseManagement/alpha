@@ -20,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.DUtils.CheckNet;
 import com.DUtils.userID;
@@ -51,6 +52,17 @@ public class XMainManage extends Activity implements OnItemClickListener,
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.x_main);
+
+		ListView lv = (ListView) this.findViewById(R.id.x_listhis);
+		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getApplicationContext(), "该功能尚未上线！", 200).show();
+			}
+		});
+
 		queryPeriod period = new queryPeriod();
 		period.docomfirm();// 连接服务器，获取信息
 		List<Period> periods = new ArrayList<Period>();
@@ -115,7 +127,7 @@ public class XMainManage extends Activity implements OnItemClickListener,
 
 			}
 			if (period2.getFlag().equals("5")) {
-				ListView lv = (ListView) this.findViewById(R.id.x_listhis);
+
 				String str = period2.getPeriodid();
 				ListV.add(str);
 				lv.setAdapter(new ArrayAdapter<String>(this,
@@ -260,19 +272,11 @@ public class XMainManage extends Activity implements OnItemClickListener,
 					overridePendingTransition(R.anim.in_from_right,
 							R.anim.out_to_left); // 切换动画
 				}
+				else{
+					Toast.makeText(getApplicationContext(), "当前不是您的审核时间！", 200).show();
+				}
 
-				// if (mMessageItems.get(0).time.equals("未开始")) {
-				// Intent intent = new Intent(TeMainManage.this,
-				// AddcsTable.class);
-				// intent.putExtra("per", mMessageItems.get(0).msg);
-				// startActivity(intent);
-				// overridePendingTransition(R.anim.in_from_right,
-				// R.anim.out_to_left); // 切换动画
-				//
-				// } else {
-				//
-				// }
-
+				
 			}
 		}
 	}

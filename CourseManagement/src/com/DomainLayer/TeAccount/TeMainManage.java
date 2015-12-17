@@ -2,6 +2,7 @@ package com.DomainLayer.TeAccount;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -55,6 +56,17 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.te_main);
+		
+		ListView lv = (ListView) this.findViewById(R.id.te_listhis);
+		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getApplicationContext(), "该功能尚未上线！", 200).show();
+			}
+		});
+		
 		queryPeriod period = new queryPeriod();
 		period.docomfirm();// 连接服务器，获取信息
 		List<Period> periods = new ArrayList<Period>();
@@ -108,7 +120,7 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 
 			}
 			if (period2.getFlag().equals("5")) {
-				ListView lv = (ListView) this.findViewById(R.id.te_listhis);
+				
 				String str = period2.getPeriodid();
 				ListV.add(str);
 				lv.setAdapter(new ArrayAdapter<String>(this,
@@ -250,6 +262,9 @@ public class TeMainManage extends Activity implements OnItemClickListener,
 				 startActivity(intent);
 				 overridePendingTransition(R.anim.in_from_right,
 				 R.anim.out_to_left); // 切换动画
+				 }
+				 else{
+					 Toast.makeText(getApplicationContext(), "当前不是选课时间!", 200).show();
 				 }
 				
 

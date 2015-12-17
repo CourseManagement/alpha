@@ -201,7 +201,7 @@
             <com.UIxml.ListViewCompat4
                 android:id="@+id/list"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="500dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentTop="true"
                 android:background="#fff4f7f9"

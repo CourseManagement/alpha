@@ -473,7 +473,6 @@ public class SelectCourse extends Activity implements OnCheckedChangeListener,
 		if (arg1 == true) {
 
 			pros.add(tem);
-			System.out.println(tem.getMessage() + "11111111");
 		} else {
 			pros.remove((selectCoursesInfo) arg0.getTag());
 		}

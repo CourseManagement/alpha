@@ -729,6 +729,7 @@ public final class R {
         public static final int xmanage_title=0x7f03002f;
         public static final int y_check=0x7f030030;
         public static final int y_check_title=0x7f030031;
+        public static final int y_test=0x7f030032;
     }
     public static final class menu {
         public static final int main=0x7f090000;

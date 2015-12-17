@@ -14,8 +14,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
@@ -29,7 +31,7 @@ public class CheckSelectInfo extends Activity implements OnItemClickListener {
 	private String periodid;
 	private String major;
 	private ListView ListView;
-
+	private ImageButton back;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -56,6 +58,17 @@ public class CheckSelectInfo extends Activity implements OnItemClickListener {
 						"nums" }, new int[] { R.id.coursename, R.id.nums });
 		ListView.setAdapter(adapter);
 		ListView.setOnItemClickListener(this);
+		back = (ImageButton) this.findViewById(R.id.back);
+		back.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+				overridePendingTransition(android.R.anim.slide_in_left,
+						android.R.anim.slide_out_right); // ÇÐ»»¶¯»­
+
+			}
+		});
 
 	}
 
@@ -101,5 +114,5 @@ public class CheckSelectInfo extends Activity implements OnItemClickListener {
 		startActivity(intent);
 		overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); // ÇÐ»»¶¯»­
 	}
-
+	
 }
