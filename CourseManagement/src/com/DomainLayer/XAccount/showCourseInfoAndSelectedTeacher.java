@@ -70,7 +70,6 @@ public class showCourseInfoAndSelectedTeacher extends Activity implements
 	private ImageButton back;
 	
 	List<selectCoursesInfo> selectCoursesInfo = new ArrayList<selectCoursesInfo>();
-	selectCoursesInfo select1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -152,7 +151,7 @@ public class showCourseInfoAndSelectedTeacher extends Activity implements
 							public void onClick(DialogInterface dialog,
 									int whichButton) {
 								// 事件处理
-								if (begintime.getValue() < closetime.getValue()) {
+								if (begintime.getValue() <= closetime.getValue()) {
 									String zhouxu = String.valueOf(begintime
 											.getValue())
 											+ "—"
@@ -160,6 +159,7 @@ public class showCourseInfoAndSelectedTeacher extends Activity implements
 													.getValue());
 									String bz = beizhu.getText()
 											.toString();
+									selectCoursesInfo select1 = new selectCoursesInfo();
 									select1.setCourseid(Courseid);
 									select1.setMessage(bz);
 									select1.setTime(zhouxu);
@@ -169,6 +169,8 @@ public class showCourseInfoAndSelectedTeacher extends Activity implements
 									selectCourses.setSelectCoursesInfos(selectCoursesInfo);
 									selectCourses.setUser_name(username.getText().toString());
 									selectCourses.doComfirm();
+									initView();
+									Toast.makeText(getApplicationContext(), "添加成功！", 200).show();
 								} else {
 									Toast.makeText(getApplicationContext(),
 											"起讫周序设置有误，请重新设置！", 200).show();

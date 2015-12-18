@@ -331,7 +331,6 @@ public class Ccoursemage extends Activity implements OnItemClickListener,
 							Y_check.class);
 					intent.putExtra("periodid", mMessageItems.get(0).msg);
 					startActivity(intent);
-					finish();
 					overridePendingTransition(R.anim.in_from_right,
 							R.anim.out_to_left); // ÇÐ»»¶¯»­
 

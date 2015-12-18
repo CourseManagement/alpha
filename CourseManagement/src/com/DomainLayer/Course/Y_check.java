@@ -1,9 +1,7 @@
 package com.DomainLayer.Course;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,56 +9,55 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 
-import com.DataLayer.CourseMangementModule.queryCourseInfoForMajor;
-import com.DataLayer.Model.courseInfo;
-import com.DomainLayer.XAccount.CheckSelectInfo;
-import com.DomainLayer.XAccount.showCourseInfoAndSelectedTeacher;
+import com.DataLayer.CourseMangementModule.queryMajorState;
+import com.DataLayer.Model.majorState;
 import com.control.R;
 
-public class Y_check extends Activity implements OnItemClickListener {
-	
-	
-	
+public class Y_check extends Activity implements OnClickListener {
 
-	private List<courseInfo> courseInfos;// courseInfo
-
+	Button btjs;
+	Button btjz;
+	Button btjsj;
+	Button btrj;
+	Button btsxsy;
+	Button btsx;
+	Button btwl;
+	Button btxa;
+	ImageButton back;
+	ImageButton complish;
+	List<majorState> majorstates = new ArrayList<majorState>();
+	private String majorid;
 	private String periodid;
-	private String major;
-	private ListView ListView;
-	private ImageButton back;
+	private String starttime;
+	private String deadline;
+
+	TextView dead;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.x_check);
-
-		// pre data
-		Intent intent = this.getIntent();
+		setContentView(R.layout.y_check);
+		Intent intent = getIntent();
 		periodid = intent.getStringExtra("periodid");
-		major = "0";// tem
-		ListView = (android.widget.ListView) this.findViewById(R.id.courselist);
 
-		// query courseinfo for major
-		queryCourseInfoForMajor queryCourseInfoForMajor = new queryCourseInfoForMajor();
-		queryCourseInfoForMajor.setMajor(major);
-		queryCourseInfoForMajor.setPeriodid(periodid);
-		queryCourseInfoForMajor.docomfirm();
-		courseInfos = queryCourseInfoForMajor.getCourseInfos();
-
-		// set data
-		SimpleAdapter adapter = new SimpleAdapter(this, getData(),
-				R.layout.check_select_info_item, new String[] { "coursename",
-						"nums" }, new int[] { R.id.coursename, R.id.nums });
-		ListView.setAdapter(adapter);
-		ListView.setOnItemClickListener(this);
+		btjs = (Button) this.findViewById(R.id.jsjsy);
+		btjz = (Button) this.findViewById(R.id.jsjzy);
+		btjsj = (Button) this.findViewById(R.id.jsj);
+		btrj = (Button) this.findViewById(R.id.rjgc);
+		btsxsy = (Button) this.findViewById(R.id.sxsy);
+		btsx = (Button) this.findViewById(R.id.sx);
+		btwl = (Button) this.findViewById(R.id.wlgc);
+		btxa = (Button) this.findViewById(R.id.xxaq);
 		back = (ImageButton) this.findViewById(R.id.back);
+		complish = (ImageButton) this.findViewById(R.id.confirm);
+		dead = (TextView) this.findViewById(R.id.dtime);
+
+		// 返回上一级
 		back.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -71,50 +68,78 @@ public class Y_check extends Activity implements OnItemClickListener {
 
 			}
 		});
+		complish.setOnClickListener(new OnClickListener() {
 
-	}
+			@Override
+			public void onClick(View v) {
 
-	private List<Map<String, Object>> getData() {
-		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+			}
+		});
 
-		for (courseInfo courseInfo : courseInfos) {
-			Map<String, Object> temMap = new HashMap<String, Object>();
-			temMap.put("coursename", courseInfo.getCoursename());
-			System.out.println(courseInfo.getNums());
-			temMap.put("nums", courseInfo.getNums());
-			list.add(temMap);
-		}
+		queryMajorState major = new queryMajorState();
 
-		// Map<String, Object> map = new HashMap<String, Object>();
-		// map.put("title", "G1");
-		// map.put("info", "google 1");
-		// map.put("img", R.drawable.i1);
-		// list.add(map);
+		major.setPeriodid(periodid);
+		major.docomfirm();
+		starttime = major.getStarttime();
+		deadline = major.getDeadline();
+		dead.setText(starttime + "至" + deadline);
 
-		return list;
+		btjs.setOnClickListener(this);
+		btjz.setOnClickListener(this);
+		btjsj.setOnClickListener(this);
+		btrj.setOnClickListener(this);
+		btsxsy.setOnClickListener(this);
+		btsx.setOnClickListener(this);
+		btwl.setOnClickListener(this);
+		btxa.setOnClickListener(this);
+
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
-			long id) {
+	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		courseInfo selectedCourseInfo = courseInfos.get(position);
-		Intent intent = new Intent(Y_check.this,
-				Showcourse.class);
-		intent.putExtra("Coursegrade", selectedCourseInfo.getCoursegrade());
-		intent.putExtra("Coursehour", selectedCourseInfo.getCoursehour());
-		intent.putExtra("Courseid", selectedCourseInfo.getCourseid());
-		intent.putExtra("Coursemajor", selectedCourseInfo.getCoursemajor());
-		intent.putExtra("Coursename", selectedCourseInfo.getCoursename());
-		intent.putExtra("Coursepeople", selectedCourseInfo.getCoursepeople());
-		intent.putExtra("Coursescore", selectedCourseInfo.getCoursescore());
-		intent.putExtra("Practicehour", selectedCourseInfo.getPracticehour());
-		intent.putExtra("Nums", selectedCourseInfo.getNums());
-		intent.putExtra("Testhour", selectedCourseInfo.getTesthour());
-		intent.putExtra("Type", selectedCourseInfo.getType());
+		switch (v.getId()) {
+		case R.id.jsjsy:
+			majorid = "0";
+			break;
+		case R.id.jsjzy:
+			majorid = "1";
+			break;
+		case R.id.jsj:
+			majorid = "2";
+			break;
+		case R.id.rjgc:
+			majorid = "3";
+			break;
+		case R.id.sxsy:
+			majorid = "4";
+			break;
+		case R.id.sx:
+			majorid = "5";
+			break;
+		case R.id.wlgc:
+			majorid = "6";
+			break;
+		case R.id.xxaq:
+			majorid = "7";
+			break;
+		default:
+			break;
+		}
+
+		Intent intent = new Intent(Y_check.this, Y_checkcourse.class);
+		intent.putExtra("major", majorid);
 		intent.putExtra("periodid", periodid);
 		startActivity(intent);
 		overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left); // 切换动画
+
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+
 	}
 
 }

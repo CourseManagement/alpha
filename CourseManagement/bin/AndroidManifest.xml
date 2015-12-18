@@ -53,8 +53,9 @@
         <activity android:name="com.DomainLayer.TeAccount.SelectCourse"></activity>
         <activity android:name="com.DomainLayer.XAccount.CheckSelectInfo"></activity>
         <activity android:name="com.DomainLayer.XAccount.showCourseInfoAndSelectedTeacher"></activity>
-        <activity android:name="com.DomainLayer.Course.Y_check"></activity>
+        <activity android:name="com.DomainLayer.Course.Y_checkcourse"></activity>
         <activity android:name="com.DomainLayer.Course.Showcourse"></activity>
+        <activity android:name="com.DomainLayer.Course.Y_check"></activity>
 
         
     </application>

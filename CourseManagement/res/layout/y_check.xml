@@ -3,108 +3,111 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+
     <LinearLayout
+        android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/title">"
+        android:layout_height="wrap_content" >
 
         <include
             android:layout_width="match_parent"
             android:layout_height="50dp"
             layout="@layout/y_check_title" />
     </LinearLayout>
-    
-    <TextView 
+
+    <TextView
         android:id="@+id/deadline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:text="截止时间："/>
+        android:text="截止时间："
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/dtime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_gravity="center"
+        android:text=""
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/jsjsy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="3dp"
         android:background="#ADD8E6"
-        android:textColor="#fff"
-        android:text="计算机实验班" />
+        android:text="计算机实验班"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/jsjzy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="#ADD8E6"
-        android:textColor="#fff"
+        android:layout_margin="3dp"
         android:layout_marginTop="2dp"
-        android:text="计算机卓越班" />
+        android:background="#ADD8E6"
+        android:text="计算机卓越班"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/jsj"
-         android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:background="#ADD8E6"
-        android:textColor="#fff"
         android:layout_marginTop="2dp"
-        android:text="计算机" />
+        android:background="#ADD8E6"
+        android:text="计算机"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/rjgc"
-         android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:background="#ADD8E6"
-        android:textColor="#fff"
         android:layout_marginTop="2dp"
-        android:text="软件工程" />
+        android:background="#ADD8E6"
+        android:text="软件工程"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/sxsy"
-         android:layout_width="match_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:background="#ADD8E6"
-        android:textColor="#fff"
         android:layout_marginTop="2dp"
-        android:text="数学实验班" />
+        android:background="#ADD8E6"
+        android:text="数学实验班"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/sx"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:background="#ADD8E6"
-        android:textColor="#fff"
         android:layout_marginTop="2dp"
-        android:text="数学类" />
+        android:background="#ADD8E6"
+        android:text="数学类"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/wlgc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:background="#ADD8E6"
-        android:textColor="#fff"
         android:layout_marginTop="2dp"
-        android:text="网络工程" />
+        android:background="#ADD8E6"
+        android:text="网络工程"
+        android:textColor="#fff" />
 
     <Button
         android:id="@+id/xxaq"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
-        android:background="#ADD8E6"
-        android:textColor="#fff"
         android:layout_marginTop="2dp"
-        android:text="信息安全" />
-    
+        android:background="#ADD8E6"
+        android:text="信息安全"
+        android:textColor="#fff" />
 
 </LinearLayout>
